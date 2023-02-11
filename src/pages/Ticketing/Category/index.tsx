@@ -10,35 +10,36 @@ import { FormattedMessage } from '@umijs/max';
 import { Button, Drawer, message } from 'antd';
 import React, { useRef, useState } from 'react';
 import UpdateForm from './components/UpdateForm';
-import { requestTransform } from '@kit/core';
+import { requestTransform } from '@gosaas/core';
 import type {
-  V1CreateCategoryRequest,
-  V1UpdateCategory,
-  Apicategoryv1UpdateCategoryRequest,
-  V1Category,
-  V1CategoryFilter,
-} from '@kit/platform-api';
-import { CategoryServiceApi } from '@kit/platform-api';
+  Ticketingapicategoryv1CreateCategoryRequest,
+  Ticketingapicategoryv1UpdateCategory,
+  Ticketingapicategoryv1UpdateCategoryRequest,
+  Ticketingapicategoryv1Category,
+  Ticketingapicategoryv1CategoryFilter,
+} from '@gosaas/commerce-api';
+import { TicketingCategoryServiceApi } from '@gosaas/commerce-api';
 
-import { useIntl } from 'umi';
+import { useIntl } from '@umijs/max';
+import { CategoryWithChildren, getTreeData } from './data';
 
-const service = new CategoryServiceApi();
+const service = new TicketingCategoryServiceApi();
 
 const TableList: React.FC = () => {
   const [updateModalVisible, handleUpdateModalVisible] = useState<boolean>(false);
-
+  const [defaultExpanded, setDefaultExpanded] = useState<React.Key[]>([]);
   const [showDetail, setShowDetail] = useState<boolean>(false);
 
   const actionRef = useRef<ActionType>();
-  const [currentRow, setCurrentRow] = useState<V1Category | undefined | null>(undefined);
+  const [currentRow, setCurrentRow] = useState<Ticketingapicategoryv1Category | undefined | null>(undefined);
 
   const intl = useIntl();
-  const handleAdd = async (fields: V1CreateCategoryRequest) => {
+  const handleAdd = async (fields: Ticketingapicategoryv1CreateCategoryRequest) => {
     const hide = message.loading(
       intl.formatMessage({ id: 'common.creating', defaultMessage: 'Creating...' }),
     );
     try {
-      await service.categoryServiceCreateCategory({ body: fields });
+      await service.ticketingCategoryServiceCreateCategory({ body: fields });
       hide();
       message.success(
         intl.formatMessage({ id: 'common.created', defaultMessage: 'Created Successfully' }),
@@ -50,14 +51,14 @@ const TableList: React.FC = () => {
     }
   };
 
-  const handleUpdate = async (fields: Apicategoryv1UpdateCategoryRequest) => {
+  const handleUpdate = async (fields: Ticketingapicategoryv1UpdateCategoryRequest) => {
     const hide = message.loading(
       intl.formatMessage({ id: 'common.updating', defaultMessage: 'Updating...' }),
     );
     try {
-      await service.categoryServiceUpdateCategory2({
+      await service.ticketingCategoryServiceUpdateCategory2({
         body: fields,
-        categoryId: fields.category!.id!,
+        categoryKey: fields.category!.key!,
       });
       hide();
       message.success(
@@ -70,12 +71,12 @@ const TableList: React.FC = () => {
     }
   };
 
-  const handleRemove = async (selectedRow: V1Category) => {
+  const handleRemove = async (selectedRow: Ticketingapicategoryv1Category) => {
     const hide = message.loading(
       intl.formatMessage({ id: 'common.deleting', defaultMessage: 'Deleting...' }),
     );
     try {
-      await service.categoryServiceDeleteCategory({ id: selectedRow.id! });
+      await service.ticketingCategoryServiceDeleteCategory({ key: selectedRow.key! });
       message.success(
         intl.formatMessage({ id: 'common.deleted', defaultMessage: 'Delete Successfully' }),
       );
@@ -87,10 +88,10 @@ const TableList: React.FC = () => {
     }
   };
 
-  const columns: ProColumns<V1Category>[] = [
+  const columns: ProColumns<Ticketingapicategoryv1Category>[] = [
     {
-      title: <FormattedMessage id="applatform.category.name" defaultMessage="Category Name" />,
-      dataIndex: 'name',
+      title: <FormattedMessage id="ticketing.category.key" defaultMessage="Key" />,
+      dataIndex: 'key',
       valueType: 'text',
       render: (dom, entity) => {
         return (
@@ -106,19 +107,15 @@ const TableList: React.FC = () => {
       },
     },
     {
-      title: <FormattedMessage id="applatform.category.desc" defaultMessage="Description" />,
-      dataIndex: 'desc',
+      title: <FormattedMessage id="ticketing.category.name" defaultMessage="Category Name" />,
+      dataIndex: 'name',
       valueType: 'text',
     },
     {
-      title: <FormattedMessage id="common.createdAt" defaultMessage="CreatedAt" />,
-      dataIndex: 'createdAt',
-      valueType: 'dateTime',
-    },
-    {
-      title: <FormattedMessage id="common.updatedAt" defaultMessage="UpdatedAt" />,
-      dataIndex: 'updatedAt',
-      valueType: 'dateTime',
+      title: <FormattedMessage id="ticketing.category.path" defaultMessage="Category Path" />,
+      dataIndex: 'path',
+      valueType: 'text',
+
     },
     {
       title: <FormattedMessage id="common.operate" defaultMessage="Operate" />,
@@ -138,7 +135,7 @@ const TableList: React.FC = () => {
         <TableDropdown
           key="actionGroup"
           onSelect={async (key) => {
-            if (key == 'delete') {
+            if (key === 'delete') {
               const ok = await handleRemove(record);
               if (ok && actionRef.current) {
                 actionRef.current.reload();
@@ -156,20 +153,34 @@ const TableList: React.FC = () => {
     },
   ];
 
-  const getData = requestTransform<V1Category, V1CategoryFilter>(async (req) => {
-    const resp = await service.categoryServiceListCategory2({ body: req });
-    return resp.data;
+  const getData = requestTransform<Ticketingapicategoryv1Category, Ticketingapicategoryv1CategoryFilter>(async (req) => {
+    const newExpandedKeys: string[] = [];
+    const render = (treeDatas: CategoryWithChildren[]) => {
+      // 获取到所有可展开的父节点
+      treeDatas.forEach((item) => {
+        if (item.children) {
+          newExpandedKeys.push(item.key!);
+          render(item.children);
+        }
+      });
+      return newExpandedKeys;
+    };
+    const tree = await getTreeData();
+    setDefaultExpanded(render(tree));
+
+    return {
+      items: tree,
+    };
+
   });
 
   return (
     <PageContainer>
-      <ProTable<V1Category>
+      <ProTable<Ticketingapicategoryv1Category>
         actionRef={actionRef}
-        rowKey="id"
+        rowKey="key"
         search={false}
-        pagination={{
-          defaultPageSize: 10,
-        }}
+        pagination={false}
         toolBarRender={() => [
           <Button
             type="primary"
@@ -184,11 +195,17 @@ const TableList: React.FC = () => {
         ]}
         type="table"
         request={getData}
+        expandable={{
+          expandedRowKeys: defaultExpanded,
+          onExpandedRowsChange: (keys) => {
+            setDefaultExpanded(keys.map((p) => p));
+          },
+        }}
         columns={columns}
       />
       <Drawer
         width={800}
-        visible={showDetail}
+        open={showDetail}
         onClose={() => {
           setCurrentRow(undefined);
           setShowDetail(false);
@@ -196,18 +213,18 @@ const TableList: React.FC = () => {
         closable={false}
         destroyOnClose
       >
-        {currentRow?.id && (
-          <ProDescriptions<V1Category>
+        {currentRow?.key && (
+          <ProDescriptions<Ticketingapicategoryv1Category>
             column={1}
             title={currentRow?.name}
             request={async () => {
-              const resp = await service.categoryServiceGetCategory({ id: currentRow.id! });
+              const resp = await service.ticketingCategoryServiceGetCategory({ key: currentRow.key! });
               return {
                 data: resp.data,
               };
             }}
             params={{
-              id: currentRow?.id,
+              key: currentRow?.key,
             }}
             columns={columns}
           />
@@ -215,12 +232,11 @@ const TableList: React.FC = () => {
       </Drawer>
       <UpdateForm
         onSubmit={async (value) => {
-          const { id } = value;
           let success = false;
-          if (id) {
-            success = await handleUpdate({ category: value as V1UpdateCategory });
+          if (currentRow) {
+            success = await handleUpdate({ category: value as Ticketingapicategoryv1UpdateCategory });
           } else {
-            success = await handleAdd(value as V1CreateCategoryRequest);
+            success = await handleAdd(value as Ticketingapicategoryv1CreateCategoryRequest);
           }
 
           if (success) {

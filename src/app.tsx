@@ -4,7 +4,7 @@ import { history } from '@umijs/max';
 import { getRequestInstance } from '@@/plugin-request/request';
 import { setDefaultAxiosFactory } from '@gosaas/commerce-api';
 import defaultSettings from '../config/defaultSettings';
-import type { AxiosResponse } from 'umi';
+import type { AxiosResponse } from '@umijs/max';
 import {
   authRequestInterceptor,
   csrfRequestInterceptor,
@@ -16,7 +16,7 @@ import {
   ErrorShowType,
   FriendlyError,
 } from '@gosaas/core';
-import type { RequestConfig } from 'umi';
+import type { RequestConfig } from '@umijs/max';
 import { message, notification } from 'antd';
 
 

@@ -1,4 +1,4 @@
-import { history as umiHistory } from 'umi';
+import { history as umiHistory } from '@umijs/max';
 
 export const qiankunJump = (url: string, name = '', params = null) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-expressions
