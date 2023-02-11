@@ -4,10 +4,8 @@ ENV ROUTE_BASE $ROUTE_BASE
 
 WORKDIR /usr/app
 
-RUN npm install -g pnpm@7.9.0
+RUN npm install -g pnpm@7.14.0
 
-
-COPY .npmrc ./
 COPY pnpm-lock.yaml ./
 
 RUN pnpm fetch
