@@ -13,11 +13,23 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
 import { V1Badge } from './v1-badge';
+// May contain unused imports in some cases
+// @ts-ignore
 import { V1CampaignRule } from './v1-campaign-rule';
+// May contain unused imports in some cases
+// @ts-ignore
 import { V1Keyword } from './v1-keyword';
+// May contain unused imports in some cases
+// @ts-ignore
 import { V1Media } from './v1-media';
+// May contain unused imports in some cases
+// @ts-ignore
 import { V1Price } from './v1-price';
+// May contain unused imports in some cases
+// @ts-ignore
 import { V1Stock } from './v1-stock';
 
 /**

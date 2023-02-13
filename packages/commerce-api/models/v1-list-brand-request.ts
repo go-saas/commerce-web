@@ -13,6 +13,8 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
 import { V1BrandFilter } from './v1-brand-filter';
 
 /**

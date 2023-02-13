@@ -1,4 +1,3 @@
-
 import type { Settings as LayoutSettings } from '@ant-design/pro-components';
 import { history } from '@umijs/max';
 import { getRequestInstance } from '@@/plugin-request/request';
@@ -19,7 +18,6 @@ import {
 import type { RequestConfig } from '@umijs/max';
 import { message, notification } from 'antd';
 
-
 const loginPath = '/user/login';
 
 /**
@@ -27,16 +25,13 @@ const loginPath = '/user/login';
  * */
 export async function getInitialState(): Promise<{
   settings?: Partial<LayoutSettings>;
-  currentUser?: API.CurrentUser;
   loading?: boolean;
-  fetchUserInfo?: () => Promise<API.CurrentUser | undefined>;
 }> {
   setDefaultAxiosFactory(getRequestInstance);
   return {
     settings: defaultSettings,
   };
 }
-
 
 function errorInterceptor() {
   return [

@@ -25,7 +25,7 @@ export interface Ticketingapicategoryv1CreateCategoryRequest {
      * @type {string}
      * @memberof Ticketingapicategoryv1CreateCategoryRequest
      */
-    'key'?: string;
+    'key': string;
     /**
      * 
      * @type {string}

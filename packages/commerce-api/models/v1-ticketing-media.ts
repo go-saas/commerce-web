@@ -43,7 +43,7 @@ export interface V1TicketingMedia {
      * @type {string}
      * @memberof V1TicketingMedia
      */
-    'title'?: string;
+    'name'?: string;
     /**
      * 
      * @type {string}

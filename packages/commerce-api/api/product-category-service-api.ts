@@ -13,8 +13,9 @@
  */
 
 
-import globalAxios, { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
-import { Configuration } from '../configuration';
+import type { Configuration } from '../configuration';
+import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
+import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
@@ -679,114 +680,66 @@ export const ProductCategoryServiceApiFactory = function (configuration?: Config
     return {
         /**
          * 
-         * @param {Productapicategoryv1CreateCategoryRequest} body 
+         * @param {ProductCategoryServiceApiProductCategoryServiceCreateCategoryRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productCategoryServiceCreateCategory(body: Productapicategoryv1CreateCategoryRequest, options?: any): AxiosPromise<Productapicategoryv1Category> {
-            return localVarFp.productCategoryServiceCreateCategory(body, options).then((request) => request(axios, basePath));
+        productCategoryServiceCreateCategory(requestParameters: ProductCategoryServiceApiProductCategoryServiceCreateCategoryRequest, options?: AxiosRequestConfig): AxiosPromise<Productapicategoryv1Category> {
+            return localVarFp.productCategoryServiceCreateCategory(requestParameters.body, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {string} key 
+         * @param {ProductCategoryServiceApiProductCategoryServiceDeleteCategoryRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productCategoryServiceDeleteCategory(key: string, options?: any): AxiosPromise<Productapicategoryv1DeleteCategoryReply> {
-            return localVarFp.productCategoryServiceDeleteCategory(key, options).then((request) => request(axios, basePath));
+        productCategoryServiceDeleteCategory(requestParameters: ProductCategoryServiceApiProductCategoryServiceDeleteCategoryRequest, options?: AxiosRequestConfig): AxiosPromise<Productapicategoryv1DeleteCategoryReply> {
+            return localVarFp.productCategoryServiceDeleteCategory(requestParameters.key, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {string} key 
+         * @param {ProductCategoryServiceApiProductCategoryServiceGetCategoryRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productCategoryServiceGetCategory(key: string, options?: any): AxiosPromise<Productapicategoryv1Category> {
-            return localVarFp.productCategoryServiceGetCategory(key, options).then((request) => request(axios, basePath));
+        productCategoryServiceGetCategory(requestParameters: ProductCategoryServiceApiProductCategoryServiceGetCategoryRequest, options?: AxiosRequestConfig): AxiosPromise<Productapicategoryv1Category> {
+            return localVarFp.productCategoryServiceGetCategory(requestParameters.key, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {number} [pageOffset] 
-         * @param {number} [pageSize] 
-         * @param {string} [search] 
-         * @param {Array<string>} [sort] 
-         * @param {string} [fields] 
-         * @param {string} [filterKey$eq] 
-         * @param {string} [filterKey$neq] 
-         * @param {string} [filterKey$contains] 
-         * @param {string} [filterKey$startsWith] 
-         * @param {string} [filterKey$nstartsWith] 
-         * @param {string} [filterKey$endsWith] 
-         * @param {string} [filterKey$nendsWith] 
-         * @param {Array<string>} [filterKey$in] 
-         * @param {Array<string>} [filterKey$nin] 
-         * @param {boolean} [filterKey$null] 
-         * @param {boolean} [filterKey$nnull] 
-         * @param {boolean} [filterKey$empty] 
-         * @param {boolean} [filterKey$nempty] 
-         * @param {string} [filterKey$like] 
-         * @param {string} [filterName$eq] 
-         * @param {string} [filterName$neq] 
-         * @param {string} [filterName$contains] 
-         * @param {string} [filterName$startsWith] 
-         * @param {string} [filterName$nstartsWith] 
-         * @param {string} [filterName$endsWith] 
-         * @param {string} [filterName$nendsWith] 
-         * @param {Array<string>} [filterName$in] 
-         * @param {Array<string>} [filterName$nin] 
-         * @param {boolean} [filterName$null] 
-         * @param {boolean} [filterName$nnull] 
-         * @param {boolean} [filterName$empty] 
-         * @param {boolean} [filterName$nempty] 
-         * @param {string} [filterName$like] 
-         * @param {string} [filterParent$eq] 
-         * @param {string} [filterParent$neq] 
-         * @param {string} [filterParent$contains] 
-         * @param {string} [filterParent$startsWith] 
-         * @param {string} [filterParent$nstartsWith] 
-         * @param {string} [filterParent$endsWith] 
-         * @param {string} [filterParent$nendsWith] 
-         * @param {Array<string>} [filterParent$in] 
-         * @param {Array<string>} [filterParent$nin] 
-         * @param {boolean} [filterParent$null] 
-         * @param {boolean} [filterParent$nnull] 
-         * @param {boolean} [filterParent$empty] 
-         * @param {boolean} [filterParent$nempty] 
-         * @param {string} [filterParent$like] 
+         * @param {ProductCategoryServiceApiProductCategoryServiceListCategoryRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productCategoryServiceListCategory(pageOffset?: number, pageSize?: number, search?: string, sort?: Array<string>, fields?: string, filterKey$eq?: string, filterKey$neq?: string, filterKey$contains?: string, filterKey$startsWith?: string, filterKey$nstartsWith?: string, filterKey$endsWith?: string, filterKey$nendsWith?: string, filterKey$in?: Array<string>, filterKey$nin?: Array<string>, filterKey$null?: boolean, filterKey$nnull?: boolean, filterKey$empty?: boolean, filterKey$nempty?: boolean, filterKey$like?: string, filterName$eq?: string, filterName$neq?: string, filterName$contains?: string, filterName$startsWith?: string, filterName$nstartsWith?: string, filterName$endsWith?: string, filterName$nendsWith?: string, filterName$in?: Array<string>, filterName$nin?: Array<string>, filterName$null?: boolean, filterName$nnull?: boolean, filterName$empty?: boolean, filterName$nempty?: boolean, filterName$like?: string, filterParent$eq?: string, filterParent$neq?: string, filterParent$contains?: string, filterParent$startsWith?: string, filterParent$nstartsWith?: string, filterParent$endsWith?: string, filterParent$nendsWith?: string, filterParent$in?: Array<string>, filterParent$nin?: Array<string>, filterParent$null?: boolean, filterParent$nnull?: boolean, filterParent$empty?: boolean, filterParent$nempty?: boolean, filterParent$like?: string, options?: any): AxiosPromise<Productapicategoryv1ListCategoryReply> {
-            return localVarFp.productCategoryServiceListCategory(pageOffset, pageSize, search, sort, fields, filterKey$eq, filterKey$neq, filterKey$contains, filterKey$startsWith, filterKey$nstartsWith, filterKey$endsWith, filterKey$nendsWith, filterKey$in, filterKey$nin, filterKey$null, filterKey$nnull, filterKey$empty, filterKey$nempty, filterKey$like, filterName$eq, filterName$neq, filterName$contains, filterName$startsWith, filterName$nstartsWith, filterName$endsWith, filterName$nendsWith, filterName$in, filterName$nin, filterName$null, filterName$nnull, filterName$empty, filterName$nempty, filterName$like, filterParent$eq, filterParent$neq, filterParent$contains, filterParent$startsWith, filterParent$nstartsWith, filterParent$endsWith, filterParent$nendsWith, filterParent$in, filterParent$nin, filterParent$null, filterParent$nnull, filterParent$empty, filterParent$nempty, filterParent$like, options).then((request) => request(axios, basePath));
+        productCategoryServiceListCategory(requestParameters: ProductCategoryServiceApiProductCategoryServiceListCategoryRequest = {}, options?: AxiosRequestConfig): AxiosPromise<Productapicategoryv1ListCategoryReply> {
+            return localVarFp.productCategoryServiceListCategory(requestParameters.pageOffset, requestParameters.pageSize, requestParameters.search, requestParameters.sort, requestParameters.fields, requestParameters.filterKey$eq, requestParameters.filterKey$neq, requestParameters.filterKey$contains, requestParameters.filterKey$startsWith, requestParameters.filterKey$nstartsWith, requestParameters.filterKey$endsWith, requestParameters.filterKey$nendsWith, requestParameters.filterKey$in, requestParameters.filterKey$nin, requestParameters.filterKey$null, requestParameters.filterKey$nnull, requestParameters.filterKey$empty, requestParameters.filterKey$nempty, requestParameters.filterKey$like, requestParameters.filterName$eq, requestParameters.filterName$neq, requestParameters.filterName$contains, requestParameters.filterName$startsWith, requestParameters.filterName$nstartsWith, requestParameters.filterName$endsWith, requestParameters.filterName$nendsWith, requestParameters.filterName$in, requestParameters.filterName$nin, requestParameters.filterName$null, requestParameters.filterName$nnull, requestParameters.filterName$empty, requestParameters.filterName$nempty, requestParameters.filterName$like, requestParameters.filterParent$eq, requestParameters.filterParent$neq, requestParameters.filterParent$contains, requestParameters.filterParent$startsWith, requestParameters.filterParent$nstartsWith, requestParameters.filterParent$endsWith, requestParameters.filterParent$nendsWith, requestParameters.filterParent$in, requestParameters.filterParent$nin, requestParameters.filterParent$null, requestParameters.filterParent$nnull, requestParameters.filterParent$empty, requestParameters.filterParent$nempty, requestParameters.filterParent$like, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {Productapicategoryv1ListCategoryRequest} body 
+         * @param {ProductCategoryServiceApiProductCategoryServiceListCategory2Request} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productCategoryServiceListCategory2(body: Productapicategoryv1ListCategoryRequest, options?: any): AxiosPromise<Productapicategoryv1ListCategoryReply> {
-            return localVarFp.productCategoryServiceListCategory2(body, options).then((request) => request(axios, basePath));
+        productCategoryServiceListCategory2(requestParameters: ProductCategoryServiceApiProductCategoryServiceListCategory2Request, options?: AxiosRequestConfig): AxiosPromise<Productapicategoryv1ListCategoryReply> {
+            return localVarFp.productCategoryServiceListCategory2(requestParameters.body, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {string} categoryKey 
-         * @param {Productapicategoryv1UpdateCategoryRequest} body 
+         * @param {ProductCategoryServiceApiProductCategoryServiceUpdateCategoryRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productCategoryServiceUpdateCategory(categoryKey: string, body: Productapicategoryv1UpdateCategoryRequest, options?: any): AxiosPromise<Productapicategoryv1Category> {
-            return localVarFp.productCategoryServiceUpdateCategory(categoryKey, body, options).then((request) => request(axios, basePath));
+        productCategoryServiceUpdateCategory(requestParameters: ProductCategoryServiceApiProductCategoryServiceUpdateCategoryRequest, options?: AxiosRequestConfig): AxiosPromise<Productapicategoryv1Category> {
+            return localVarFp.productCategoryServiceUpdateCategory(requestParameters.categoryKey, requestParameters.body, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {string} categoryKey 
-         * @param {Productapicategoryv1UpdateCategoryRequest} body 
+         * @param {ProductCategoryServiceApiProductCategoryServiceUpdateCategory2Request} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productCategoryServiceUpdateCategory2(categoryKey: string, body: Productapicategoryv1UpdateCategoryRequest, options?: any): AxiosPromise<Productapicategoryv1Category> {
-            return localVarFp.productCategoryServiceUpdateCategory2(categoryKey, body, options).then((request) => request(axios, basePath));
+        productCategoryServiceUpdateCategory2(requestParameters: ProductCategoryServiceApiProductCategoryServiceUpdateCategory2Request, options?: AxiosRequestConfig): AxiosPromise<Productapicategoryv1Category> {
+            return localVarFp.productCategoryServiceUpdateCategory2(requestParameters.categoryKey, requestParameters.body, options).then((request) => request(axios, basePath));
         },
     };
 };

@@ -13,8 +13,9 @@
  */
 
 
-import globalAxios, { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
-import { Configuration } from '../configuration';
+import type { Configuration } from '../configuration';
+import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
+import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
@@ -595,100 +596,66 @@ export const ProductServiceApiFactory = function (configuration?: Configuration,
     return {
         /**
          * 
-         * @param {V1CreateProductRequest} body 
+         * @param {ProductServiceApiProductServiceCreateProductRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productServiceCreateProduct(body: V1CreateProductRequest, options?: any): AxiosPromise<V1Product> {
-            return localVarFp.productServiceCreateProduct(body, options).then((request) => request(axios, basePath));
+        productServiceCreateProduct(requestParameters: ProductServiceApiProductServiceCreateProductRequest, options?: AxiosRequestConfig): AxiosPromise<V1Product> {
+            return localVarFp.productServiceCreateProduct(requestParameters.body, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {string} id 
+         * @param {ProductServiceApiProductServiceDeleteProductRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productServiceDeleteProduct(id: string, options?: any): AxiosPromise<V1DeleteProductReply> {
-            return localVarFp.productServiceDeleteProduct(id, options).then((request) => request(axios, basePath));
+        productServiceDeleteProduct(requestParameters: ProductServiceApiProductServiceDeleteProductRequest, options?: AxiosRequestConfig): AxiosPromise<V1DeleteProductReply> {
+            return localVarFp.productServiceDeleteProduct(requestParameters.id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {string} id 
+         * @param {ProductServiceApiProductServiceGetProductRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productServiceGetProduct(id: string, options?: any): AxiosPromise<V1Product> {
-            return localVarFp.productServiceGetProduct(id, options).then((request) => request(axios, basePath));
+        productServiceGetProduct(requestParameters: ProductServiceApiProductServiceGetProductRequest, options?: AxiosRequestConfig): AxiosPromise<V1Product> {
+            return localVarFp.productServiceGetProduct(requestParameters.id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {number} [pageOffset] 
-         * @param {number} [pageSize] 
-         * @param {string} [search] 
-         * @param {Array<string>} [sort] 
-         * @param {string} [fields] 
-         * @param {string} [filterId$eq] 
-         * @param {string} [filterId$neq] 
-         * @param {string} [filterId$contains] 
-         * @param {string} [filterId$startsWith] 
-         * @param {string} [filterId$nstartsWith] 
-         * @param {string} [filterId$endsWith] 
-         * @param {string} [filterId$nendsWith] 
-         * @param {Array<string>} [filterId$in] 
-         * @param {Array<string>} [filterId$nin] 
-         * @param {boolean} [filterId$null] 
-         * @param {boolean} [filterId$nnull] 
-         * @param {boolean} [filterId$empty] 
-         * @param {boolean} [filterId$nempty] 
-         * @param {string} [filterId$like] 
-         * @param {string} [filterName$eq] 
-         * @param {string} [filterName$neq] 
-         * @param {string} [filterName$contains] 
-         * @param {string} [filterName$startsWith] 
-         * @param {string} [filterName$nstartsWith] 
-         * @param {string} [filterName$endsWith] 
-         * @param {string} [filterName$nendsWith] 
-         * @param {Array<string>} [filterName$in] 
-         * @param {Array<string>} [filterName$nin] 
-         * @param {boolean} [filterName$null] 
-         * @param {boolean} [filterName$nnull] 
-         * @param {boolean} [filterName$empty] 
-         * @param {boolean} [filterName$nempty] 
-         * @param {string} [filterName$like] 
+         * @param {ProductServiceApiProductServiceListProductRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productServiceListProduct(pageOffset?: number, pageSize?: number, search?: string, sort?: Array<string>, fields?: string, filterId$eq?: string, filterId$neq?: string, filterId$contains?: string, filterId$startsWith?: string, filterId$nstartsWith?: string, filterId$endsWith?: string, filterId$nendsWith?: string, filterId$in?: Array<string>, filterId$nin?: Array<string>, filterId$null?: boolean, filterId$nnull?: boolean, filterId$empty?: boolean, filterId$nempty?: boolean, filterId$like?: string, filterName$eq?: string, filterName$neq?: string, filterName$contains?: string, filterName$startsWith?: string, filterName$nstartsWith?: string, filterName$endsWith?: string, filterName$nendsWith?: string, filterName$in?: Array<string>, filterName$nin?: Array<string>, filterName$null?: boolean, filterName$nnull?: boolean, filterName$empty?: boolean, filterName$nempty?: boolean, filterName$like?: string, options?: any): AxiosPromise<V1ListProductReply> {
-            return localVarFp.productServiceListProduct(pageOffset, pageSize, search, sort, fields, filterId$eq, filterId$neq, filterId$contains, filterId$startsWith, filterId$nstartsWith, filterId$endsWith, filterId$nendsWith, filterId$in, filterId$nin, filterId$null, filterId$nnull, filterId$empty, filterId$nempty, filterId$like, filterName$eq, filterName$neq, filterName$contains, filterName$startsWith, filterName$nstartsWith, filterName$endsWith, filterName$nendsWith, filterName$in, filterName$nin, filterName$null, filterName$nnull, filterName$empty, filterName$nempty, filterName$like, options).then((request) => request(axios, basePath));
+        productServiceListProduct(requestParameters: ProductServiceApiProductServiceListProductRequest = {}, options?: AxiosRequestConfig): AxiosPromise<V1ListProductReply> {
+            return localVarFp.productServiceListProduct(requestParameters.pageOffset, requestParameters.pageSize, requestParameters.search, requestParameters.sort, requestParameters.fields, requestParameters.filterId$eq, requestParameters.filterId$neq, requestParameters.filterId$contains, requestParameters.filterId$startsWith, requestParameters.filterId$nstartsWith, requestParameters.filterId$endsWith, requestParameters.filterId$nendsWith, requestParameters.filterId$in, requestParameters.filterId$nin, requestParameters.filterId$null, requestParameters.filterId$nnull, requestParameters.filterId$empty, requestParameters.filterId$nempty, requestParameters.filterId$like, requestParameters.filterName$eq, requestParameters.filterName$neq, requestParameters.filterName$contains, requestParameters.filterName$startsWith, requestParameters.filterName$nstartsWith, requestParameters.filterName$endsWith, requestParameters.filterName$nendsWith, requestParameters.filterName$in, requestParameters.filterName$nin, requestParameters.filterName$null, requestParameters.filterName$nnull, requestParameters.filterName$empty, requestParameters.filterName$nempty, requestParameters.filterName$like, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {V1ListProductRequest} body 
+         * @param {ProductServiceApiProductServiceListProduct2Request} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productServiceListProduct2(body: V1ListProductRequest, options?: any): AxiosPromise<V1ListProductReply> {
-            return localVarFp.productServiceListProduct2(body, options).then((request) => request(axios, basePath));
+        productServiceListProduct2(requestParameters: ProductServiceApiProductServiceListProduct2Request, options?: AxiosRequestConfig): AxiosPromise<V1ListProductReply> {
+            return localVarFp.productServiceListProduct2(requestParameters.body, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {string} productId 
-         * @param {V1UpdateProductRequest} body 
+         * @param {ProductServiceApiProductServiceUpdateProductRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productServiceUpdateProduct(productId: string, body: V1UpdateProductRequest, options?: any): AxiosPromise<V1Product> {
-            return localVarFp.productServiceUpdateProduct(productId, body, options).then((request) => request(axios, basePath));
+        productServiceUpdateProduct(requestParameters: ProductServiceApiProductServiceUpdateProductRequest, options?: AxiosRequestConfig): AxiosPromise<V1Product> {
+            return localVarFp.productServiceUpdateProduct(requestParameters.productId, requestParameters.body, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {string} productId 
-         * @param {V1UpdateProductRequest} body 
+         * @param {ProductServiceApiProductServiceUpdateProduct2Request} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productServiceUpdateProduct2(productId: string, body: V1UpdateProductRequest, options?: any): AxiosPromise<V1Product> {
-            return localVarFp.productServiceUpdateProduct2(productId, body, options).then((request) => request(axios, basePath));
+        productServiceUpdateProduct2(requestParameters: ProductServiceApiProductServiceUpdateProduct2Request, options?: AxiosRequestConfig): AxiosPromise<V1Product> {
+            return localVarFp.productServiceUpdateProduct2(requestParameters.productId, requestParameters.body, options).then((request) => request(axios, basePath));
         },
     };
 };

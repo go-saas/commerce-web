@@ -37,6 +37,12 @@ export interface Ticketingapicategoryv1Category {
      * @type {string}
      * @memberof Ticketingapicategoryv1Category
      */
+    'path'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Ticketingapicategoryv1Category
+     */
     'createdAt'?: string;
     /**
      * 

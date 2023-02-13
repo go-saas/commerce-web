@@ -13,6 +13,8 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
 import { Productapicategoryv1CategoryFilter } from './productapicategoryv1-category-filter';
 
 /**

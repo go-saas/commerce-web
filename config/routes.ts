@@ -11,7 +11,6 @@
  * @doc https://umijs.org/docs/guides/routes
  */
 export default [
-
   {
     path: '/welcome',
     name: 'welcome',
@@ -19,38 +18,41 @@ export default [
     component: './Welcome',
   },
   {
-    path: '/ticketing',
-    locale: 'ticketing.manager',
-    name: 'ticketing',
+    name: 'location',
+    path: '/location',
     layout: false,
-    icon: 'BarcodeOutlined',
-    routes: [
-      {
-        name: 'show',
-        path: '/ticketing/show',
-        component: './Ticketing/Show',
-      },
-      {
-        name: 'activity',
-        path: '/ticketing/activity',
-        component: './Ticketing/Activity',
-      },
-      {
-        name: 'location',
-        path: '/ticketing/location',
-        component: './Ticketing/Location',
-      },
-      {
-        name: 'ticket',
-        path: '/ticketing/ticket',
-        component: './Ticketing/Ticket',
-      },
-      {
-        name: 'category',
-        path: '/ticketing/category',
-        component: './Ticketing/Category',
-      },
-    ],
+    component: './Ticketing/Location',
+  },
+  {
+    name: 'location.detail',
+    path: '/location/:id',
+    layout: false,
+    component: './Ticketing/Location/Detail',
+  },
+  {
+    name: 'show',
+    path: '/show',
+    layout: false,
+    component: './Ticketing/Show',
+  },
+  {
+    name: 'activity',
+    path: '/activity',
+    layout: false,
+    component: './Ticketing/Activity',
+  },
+
+  {
+    name: 'ticket',
+    path: '/ticket',
+    layout: false,
+    component: './Ticketing/Ticket',
+  },
+  {
+    name: 'category',
+    path: '/category',
+    layout: false,
+    component: './Ticketing/Category',
   },
   {
     path: '/',

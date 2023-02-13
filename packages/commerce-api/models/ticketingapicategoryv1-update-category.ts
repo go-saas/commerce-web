@@ -32,5 +32,11 @@ export interface Ticketingapicategoryv1UpdateCategory {
      * @memberof Ticketingapicategoryv1UpdateCategory
      */
     'name'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Ticketingapicategoryv1UpdateCategory
+     */
+    'parent'?: string;
 }
 

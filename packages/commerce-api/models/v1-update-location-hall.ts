@@ -13,7 +13,11 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
 import { V1Seat } from './v1-seat';
+// May contain unused imports in some cases
+// @ts-ignore
 import { V1UpdateSeatGroup } from './v1-update-seat-group';
 
 /**

@@ -13,6 +13,8 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
 import { V1UpdateProduct } from './v1-update-product';
 
 /**

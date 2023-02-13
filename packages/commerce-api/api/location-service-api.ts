@@ -13,8 +13,9 @@
  */
 
 
-import globalAxios, { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
-import { Configuration } from '../configuration';
+import type { Configuration } from '../configuration';
+import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
+import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
@@ -920,161 +921,120 @@ export const LocationServiceApiFactory = function (configuration?: Configuration
     return {
         /**
          * 
-         * @param {V1CreateLocationRequest} body 
+         * @param {LocationServiceApiLocationServiceCreateLocationRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        locationServiceCreateLocation(body: V1CreateLocationRequest, options?: any): AxiosPromise<Locationv1Location> {
-            return localVarFp.locationServiceCreateLocation(body, options).then((request) => request(axios, basePath));
+        locationServiceCreateLocation(requestParameters: LocationServiceApiLocationServiceCreateLocationRequest, options?: AxiosRequestConfig): AxiosPromise<Locationv1Location> {
+            return localVarFp.locationServiceCreateLocation(requestParameters.body, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {string} id 
-         * @param {LocationServiceCreateLocationHallRequest} body 
+         * @param {LocationServiceApiLocationServiceCreateLocationHallRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        locationServiceCreateLocationHall(id: string, body: LocationServiceCreateLocationHallRequest, options?: any): AxiosPromise<object> {
-            return localVarFp.locationServiceCreateLocationHall(id, body, options).then((request) => request(axios, basePath));
+        locationServiceCreateLocationHall(requestParameters: LocationServiceApiLocationServiceCreateLocationHallRequest, options?: AxiosRequestConfig): AxiosPromise<object> {
+            return localVarFp.locationServiceCreateLocationHall(requestParameters.id, requestParameters.body, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {string} id 
+         * @param {LocationServiceApiLocationServiceDeleteLocationRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        locationServiceDeleteLocation(id: string, options?: any): AxiosPromise<V1DeleteLocationReply> {
-            return localVarFp.locationServiceDeleteLocation(id, options).then((request) => request(axios, basePath));
+        locationServiceDeleteLocation(requestParameters: LocationServiceApiLocationServiceDeleteLocationRequest, options?: AxiosRequestConfig): AxiosPromise<V1DeleteLocationReply> {
+            return localVarFp.locationServiceDeleteLocation(requestParameters.id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {string} id 
-         * @param {string} hallId 
+         * @param {LocationServiceApiLocationServiceDeleteLocationHallRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        locationServiceDeleteLocationHall(id: string, hallId: string, options?: any): AxiosPromise<V1DeleteLocationHallReply> {
-            return localVarFp.locationServiceDeleteLocationHall(id, hallId, options).then((request) => request(axios, basePath));
+        locationServiceDeleteLocationHall(requestParameters: LocationServiceApiLocationServiceDeleteLocationHallRequest, options?: AxiosRequestConfig): AxiosPromise<V1DeleteLocationHallReply> {
+            return localVarFp.locationServiceDeleteLocationHall(requestParameters.id, requestParameters.hallId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {string} id 
+         * @param {LocationServiceApiLocationServiceGetLocationRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        locationServiceGetLocation(id: string, options?: any): AxiosPromise<Locationv1Location> {
-            return localVarFp.locationServiceGetLocation(id, options).then((request) => request(axios, basePath));
+        locationServiceGetLocation(requestParameters: LocationServiceApiLocationServiceGetLocationRequest, options?: AxiosRequestConfig): AxiosPromise<Locationv1Location> {
+            return localVarFp.locationServiceGetLocation(requestParameters.id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {string} id 
+         * @param {LocationServiceApiLocationServiceGetLocationHallsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        locationServiceGetLocationHalls(id: string, options?: any): AxiosPromise<V1GetLocationHallsReply> {
-            return localVarFp.locationServiceGetLocationHalls(id, options).then((request) => request(axios, basePath));
+        locationServiceGetLocationHalls(requestParameters: LocationServiceApiLocationServiceGetLocationHallsRequest, options?: AxiosRequestConfig): AxiosPromise<V1GetLocationHallsReply> {
+            return localVarFp.locationServiceGetLocationHalls(requestParameters.id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {string} id 
-         * @param {object} body 
+         * @param {LocationServiceApiLocationServiceGetLocationHalls2Request} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        locationServiceGetLocationHalls2(id: string, body: object, options?: any): AxiosPromise<V1GetLocationHallsReply> {
-            return localVarFp.locationServiceGetLocationHalls2(id, body, options).then((request) => request(axios, basePath));
+        locationServiceGetLocationHalls2(requestParameters: LocationServiceApiLocationServiceGetLocationHalls2Request, options?: AxiosRequestConfig): AxiosPromise<V1GetLocationHallsReply> {
+            return localVarFp.locationServiceGetLocationHalls2(requestParameters.id, requestParameters.body, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {number} [pageOffset] 
-         * @param {number} [pageSize] 
-         * @param {string} [search] 
-         * @param {Array<string>} [sort] 
-         * @param {string} [fields] 
-         * @param {string} [filterId$eq] 
-         * @param {string} [filterId$neq] 
-         * @param {string} [filterId$contains] 
-         * @param {string} [filterId$startsWith] 
-         * @param {string} [filterId$nstartsWith] 
-         * @param {string} [filterId$endsWith] 
-         * @param {string} [filterId$nendsWith] 
-         * @param {Array<string>} [filterId$in] 
-         * @param {Array<string>} [filterId$nin] 
-         * @param {boolean} [filterId$null] 
-         * @param {boolean} [filterId$nnull] 
-         * @param {boolean} [filterId$empty] 
-         * @param {boolean} [filterId$nempty] 
-         * @param {string} [filterId$like] 
-         * @param {string} [filterName$eq] 
-         * @param {string} [filterName$neq] 
-         * @param {string} [filterName$contains] 
-         * @param {string} [filterName$startsWith] 
-         * @param {string} [filterName$nstartsWith] 
-         * @param {string} [filterName$endsWith] 
-         * @param {string} [filterName$nendsWith] 
-         * @param {Array<string>} [filterName$in] 
-         * @param {Array<string>} [filterName$nin] 
-         * @param {boolean} [filterName$null] 
-         * @param {boolean} [filterName$nnull] 
-         * @param {boolean} [filterName$empty] 
-         * @param {boolean} [filterName$nempty] 
-         * @param {string} [filterName$like] 
+         * @param {LocationServiceApiLocationServiceListLocationRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        locationServiceListLocation(pageOffset?: number, pageSize?: number, search?: string, sort?: Array<string>, fields?: string, filterId$eq?: string, filterId$neq?: string, filterId$contains?: string, filterId$startsWith?: string, filterId$nstartsWith?: string, filterId$endsWith?: string, filterId$nendsWith?: string, filterId$in?: Array<string>, filterId$nin?: Array<string>, filterId$null?: boolean, filterId$nnull?: boolean, filterId$empty?: boolean, filterId$nempty?: boolean, filterId$like?: string, filterName$eq?: string, filterName$neq?: string, filterName$contains?: string, filterName$startsWith?: string, filterName$nstartsWith?: string, filterName$endsWith?: string, filterName$nendsWith?: string, filterName$in?: Array<string>, filterName$nin?: Array<string>, filterName$null?: boolean, filterName$nnull?: boolean, filterName$empty?: boolean, filterName$nempty?: boolean, filterName$like?: string, options?: any): AxiosPromise<V1ListLocationReply> {
-            return localVarFp.locationServiceListLocation(pageOffset, pageSize, search, sort, fields, filterId$eq, filterId$neq, filterId$contains, filterId$startsWith, filterId$nstartsWith, filterId$endsWith, filterId$nendsWith, filterId$in, filterId$nin, filterId$null, filterId$nnull, filterId$empty, filterId$nempty, filterId$like, filterName$eq, filterName$neq, filterName$contains, filterName$startsWith, filterName$nstartsWith, filterName$endsWith, filterName$nendsWith, filterName$in, filterName$nin, filterName$null, filterName$nnull, filterName$empty, filterName$nempty, filterName$like, options).then((request) => request(axios, basePath));
+        locationServiceListLocation(requestParameters: LocationServiceApiLocationServiceListLocationRequest = {}, options?: AxiosRequestConfig): AxiosPromise<V1ListLocationReply> {
+            return localVarFp.locationServiceListLocation(requestParameters.pageOffset, requestParameters.pageSize, requestParameters.search, requestParameters.sort, requestParameters.fields, requestParameters.filterId$eq, requestParameters.filterId$neq, requestParameters.filterId$contains, requestParameters.filterId$startsWith, requestParameters.filterId$nstartsWith, requestParameters.filterId$endsWith, requestParameters.filterId$nendsWith, requestParameters.filterId$in, requestParameters.filterId$nin, requestParameters.filterId$null, requestParameters.filterId$nnull, requestParameters.filterId$empty, requestParameters.filterId$nempty, requestParameters.filterId$like, requestParameters.filterName$eq, requestParameters.filterName$neq, requestParameters.filterName$contains, requestParameters.filterName$startsWith, requestParameters.filterName$nstartsWith, requestParameters.filterName$endsWith, requestParameters.filterName$nendsWith, requestParameters.filterName$in, requestParameters.filterName$nin, requestParameters.filterName$null, requestParameters.filterName$nnull, requestParameters.filterName$empty, requestParameters.filterName$nempty, requestParameters.filterName$like, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {V1ListLocationRequest} body 
+         * @param {LocationServiceApiLocationServiceListLocation2Request} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        locationServiceListLocation2(body: V1ListLocationRequest, options?: any): AxiosPromise<V1ListLocationReply> {
-            return localVarFp.locationServiceListLocation2(body, options).then((request) => request(axios, basePath));
+        locationServiceListLocation2(requestParameters: LocationServiceApiLocationServiceListLocation2Request, options?: AxiosRequestConfig): AxiosPromise<V1ListLocationReply> {
+            return localVarFp.locationServiceListLocation2(requestParameters.body, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {string} locationId 
-         * @param {V1UpdateLocationRequest} body 
+         * @param {LocationServiceApiLocationServiceUpdateLocationRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        locationServiceUpdateLocation(locationId: string, body: V1UpdateLocationRequest, options?: any): AxiosPromise<Locationv1Location> {
-            return localVarFp.locationServiceUpdateLocation(locationId, body, options).then((request) => request(axios, basePath));
+        locationServiceUpdateLocation(requestParameters: LocationServiceApiLocationServiceUpdateLocationRequest, options?: AxiosRequestConfig): AxiosPromise<Locationv1Location> {
+            return localVarFp.locationServiceUpdateLocation(requestParameters.locationId, requestParameters.body, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {string} locationId 
-         * @param {V1UpdateLocationRequest} body 
+         * @param {LocationServiceApiLocationServiceUpdateLocation2Request} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        locationServiceUpdateLocation2(locationId: string, body: V1UpdateLocationRequest, options?: any): AxiosPromise<Locationv1Location> {
-            return localVarFp.locationServiceUpdateLocation2(locationId, body, options).then((request) => request(axios, basePath));
+        locationServiceUpdateLocation2(requestParameters: LocationServiceApiLocationServiceUpdateLocation2Request, options?: AxiosRequestConfig): AxiosPromise<Locationv1Location> {
+            return localVarFp.locationServiceUpdateLocation2(requestParameters.locationId, requestParameters.body, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {string} id 
-         * @param {string} hallId 
-         * @param {LocationServiceCreateLocationHallRequest} body 
+         * @param {LocationServiceApiLocationServiceUpdateLocationHallRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        locationServiceUpdateLocationHall(id: string, hallId: string, body: LocationServiceCreateLocationHallRequest, options?: any): AxiosPromise<object> {
-            return localVarFp.locationServiceUpdateLocationHall(id, hallId, body, options).then((request) => request(axios, basePath));
+        locationServiceUpdateLocationHall(requestParameters: LocationServiceApiLocationServiceUpdateLocationHallRequest, options?: AxiosRequestConfig): AxiosPromise<object> {
+            return localVarFp.locationServiceUpdateLocationHall(requestParameters.id, requestParameters.hallId, requestParameters.body, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {string} id 
-         * @param {string} hallId 
-         * @param {LocationServiceCreateLocationHallRequest} body 
+         * @param {LocationServiceApiLocationServiceUpdateLocationHall2Request} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        locationServiceUpdateLocationHall2(id: string, hallId: string, body: LocationServiceCreateLocationHallRequest, options?: any): AxiosPromise<object> {
-            return localVarFp.locationServiceUpdateLocationHall2(id, hallId, body, options).then((request) => request(axios, basePath));
+        locationServiceUpdateLocationHall2(requestParameters: LocationServiceApiLocationServiceUpdateLocationHall2Request, options?: AxiosRequestConfig): AxiosPromise<object> {
+            return localVarFp.locationServiceUpdateLocationHall2(requestParameters.id, requestParameters.hallId, requestParameters.body, options).then((request) => request(axios, basePath));
         },
     };
 };

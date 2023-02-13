@@ -13,8 +13,9 @@
  */
 
 
-import globalAxios, { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
-import { Configuration } from '../configuration';
+import type { Configuration } from '../configuration';
+import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
+import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
@@ -595,100 +596,66 @@ export const BrandServiceApiFactory = function (configuration?: Configuration, b
     return {
         /**
          * 
-         * @param {V1CreateBrandRequest} body 
+         * @param {BrandServiceApiBrandServiceCreateBrandRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        brandServiceCreateBrand(body: V1CreateBrandRequest, options?: any): AxiosPromise<V1Brand> {
-            return localVarFp.brandServiceCreateBrand(body, options).then((request) => request(axios, basePath));
+        brandServiceCreateBrand(requestParameters: BrandServiceApiBrandServiceCreateBrandRequest, options?: AxiosRequestConfig): AxiosPromise<V1Brand> {
+            return localVarFp.brandServiceCreateBrand(requestParameters.body, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {string} id 
+         * @param {BrandServiceApiBrandServiceDeleteBrandRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        brandServiceDeleteBrand(id: string, options?: any): AxiosPromise<V1DeleteBrandReply> {
-            return localVarFp.brandServiceDeleteBrand(id, options).then((request) => request(axios, basePath));
+        brandServiceDeleteBrand(requestParameters: BrandServiceApiBrandServiceDeleteBrandRequest, options?: AxiosRequestConfig): AxiosPromise<V1DeleteBrandReply> {
+            return localVarFp.brandServiceDeleteBrand(requestParameters.id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {string} id 
+         * @param {BrandServiceApiBrandServiceGetBrandRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        brandServiceGetBrand(id: string, options?: any): AxiosPromise<V1Brand> {
-            return localVarFp.brandServiceGetBrand(id, options).then((request) => request(axios, basePath));
+        brandServiceGetBrand(requestParameters: BrandServiceApiBrandServiceGetBrandRequest, options?: AxiosRequestConfig): AxiosPromise<V1Brand> {
+            return localVarFp.brandServiceGetBrand(requestParameters.id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {number} [pageOffset] 
-         * @param {number} [pageSize] 
-         * @param {string} [search] 
-         * @param {Array<string>} [sort] 
-         * @param {string} [fields] 
-         * @param {string} [filterId$eq] 
-         * @param {string} [filterId$neq] 
-         * @param {string} [filterId$contains] 
-         * @param {string} [filterId$startsWith] 
-         * @param {string} [filterId$nstartsWith] 
-         * @param {string} [filterId$endsWith] 
-         * @param {string} [filterId$nendsWith] 
-         * @param {Array<string>} [filterId$in] 
-         * @param {Array<string>} [filterId$nin] 
-         * @param {boolean} [filterId$null] 
-         * @param {boolean} [filterId$nnull] 
-         * @param {boolean} [filterId$empty] 
-         * @param {boolean} [filterId$nempty] 
-         * @param {string} [filterId$like] 
-         * @param {string} [filterCode$eq] 
-         * @param {string} [filterCode$neq] 
-         * @param {string} [filterCode$contains] 
-         * @param {string} [filterCode$startsWith] 
-         * @param {string} [filterCode$nstartsWith] 
-         * @param {string} [filterCode$endsWith] 
-         * @param {string} [filterCode$nendsWith] 
-         * @param {Array<string>} [filterCode$in] 
-         * @param {Array<string>} [filterCode$nin] 
-         * @param {boolean} [filterCode$null] 
-         * @param {boolean} [filterCode$nnull] 
-         * @param {boolean} [filterCode$empty] 
-         * @param {boolean} [filterCode$nempty] 
-         * @param {string} [filterCode$like] 
+         * @param {BrandServiceApiBrandServiceListBrandRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        brandServiceListBrand(pageOffset?: number, pageSize?: number, search?: string, sort?: Array<string>, fields?: string, filterId$eq?: string, filterId$neq?: string, filterId$contains?: string, filterId$startsWith?: string, filterId$nstartsWith?: string, filterId$endsWith?: string, filterId$nendsWith?: string, filterId$in?: Array<string>, filterId$nin?: Array<string>, filterId$null?: boolean, filterId$nnull?: boolean, filterId$empty?: boolean, filterId$nempty?: boolean, filterId$like?: string, filterCode$eq?: string, filterCode$neq?: string, filterCode$contains?: string, filterCode$startsWith?: string, filterCode$nstartsWith?: string, filterCode$endsWith?: string, filterCode$nendsWith?: string, filterCode$in?: Array<string>, filterCode$nin?: Array<string>, filterCode$null?: boolean, filterCode$nnull?: boolean, filterCode$empty?: boolean, filterCode$nempty?: boolean, filterCode$like?: string, options?: any): AxiosPromise<V1ListBrandReply> {
-            return localVarFp.brandServiceListBrand(pageOffset, pageSize, search, sort, fields, filterId$eq, filterId$neq, filterId$contains, filterId$startsWith, filterId$nstartsWith, filterId$endsWith, filterId$nendsWith, filterId$in, filterId$nin, filterId$null, filterId$nnull, filterId$empty, filterId$nempty, filterId$like, filterCode$eq, filterCode$neq, filterCode$contains, filterCode$startsWith, filterCode$nstartsWith, filterCode$endsWith, filterCode$nendsWith, filterCode$in, filterCode$nin, filterCode$null, filterCode$nnull, filterCode$empty, filterCode$nempty, filterCode$like, options).then((request) => request(axios, basePath));
+        brandServiceListBrand(requestParameters: BrandServiceApiBrandServiceListBrandRequest = {}, options?: AxiosRequestConfig): AxiosPromise<V1ListBrandReply> {
+            return localVarFp.brandServiceListBrand(requestParameters.pageOffset, requestParameters.pageSize, requestParameters.search, requestParameters.sort, requestParameters.fields, requestParameters.filterId$eq, requestParameters.filterId$neq, requestParameters.filterId$contains, requestParameters.filterId$startsWith, requestParameters.filterId$nstartsWith, requestParameters.filterId$endsWith, requestParameters.filterId$nendsWith, requestParameters.filterId$in, requestParameters.filterId$nin, requestParameters.filterId$null, requestParameters.filterId$nnull, requestParameters.filterId$empty, requestParameters.filterId$nempty, requestParameters.filterId$like, requestParameters.filterCode$eq, requestParameters.filterCode$neq, requestParameters.filterCode$contains, requestParameters.filterCode$startsWith, requestParameters.filterCode$nstartsWith, requestParameters.filterCode$endsWith, requestParameters.filterCode$nendsWith, requestParameters.filterCode$in, requestParameters.filterCode$nin, requestParameters.filterCode$null, requestParameters.filterCode$nnull, requestParameters.filterCode$empty, requestParameters.filterCode$nempty, requestParameters.filterCode$like, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {V1ListBrandRequest} body 
+         * @param {BrandServiceApiBrandServiceListBrand2Request} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        brandServiceListBrand2(body: V1ListBrandRequest, options?: any): AxiosPromise<V1ListBrandReply> {
-            return localVarFp.brandServiceListBrand2(body, options).then((request) => request(axios, basePath));
+        brandServiceListBrand2(requestParameters: BrandServiceApiBrandServiceListBrand2Request, options?: AxiosRequestConfig): AxiosPromise<V1ListBrandReply> {
+            return localVarFp.brandServiceListBrand2(requestParameters.body, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {string} brandId 
-         * @param {V1UpdateBrandRequest} body 
+         * @param {BrandServiceApiBrandServiceUpdateBrandRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        brandServiceUpdateBrand(brandId: string, body: V1UpdateBrandRequest, options?: any): AxiosPromise<V1Brand> {
-            return localVarFp.brandServiceUpdateBrand(brandId, body, options).then((request) => request(axios, basePath));
+        brandServiceUpdateBrand(requestParameters: BrandServiceApiBrandServiceUpdateBrandRequest, options?: AxiosRequestConfig): AxiosPromise<V1Brand> {
+            return localVarFp.brandServiceUpdateBrand(requestParameters.brandId, requestParameters.body, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {string} brandId 
-         * @param {V1UpdateBrandRequest} body 
+         * @param {BrandServiceApiBrandServiceUpdateBrand2Request} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        brandServiceUpdateBrand2(brandId: string, body: V1UpdateBrandRequest, options?: any): AxiosPromise<V1Brand> {
-            return localVarFp.brandServiceUpdateBrand2(brandId, body, options).then((request) => request(axios, basePath));
+        brandServiceUpdateBrand2(requestParameters: BrandServiceApiBrandServiceUpdateBrand2Request, options?: AxiosRequestConfig): AxiosPromise<V1Brand> {
+            return localVarFp.brandServiceUpdateBrand2(requestParameters.brandId, requestParameters.body, options).then((request) => request(axios, basePath));
         },
     };
 };

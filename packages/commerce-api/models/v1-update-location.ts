@@ -13,8 +13,14 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
 import { LbsAddress } from './lbs-address';
+// May contain unused imports in some cases
+// @ts-ignore
 import { V1ContactInfo } from './v1-contact-info';
+// May contain unused imports in some cases
+// @ts-ignore
 import { V1TicketingMedia } from './v1-ticketing-media';
 
 /**
@@ -73,10 +79,10 @@ export interface V1UpdateLocation {
     'address'?: LbsAddress;
     /**
      * 
-     * @type {V1TicketingMedia}
+     * @type {Array<V1TicketingMedia>}
      * @memberof V1UpdateLocation
      */
-    'legalDocs'?: V1TicketingMedia;
+    'legalDocs'?: Array<V1TicketingMedia>;
     /**
      * 
      * @type {V1ContactInfo}
