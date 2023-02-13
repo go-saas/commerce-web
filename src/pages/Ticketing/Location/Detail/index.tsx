@@ -12,6 +12,7 @@ import { Button, message, Modal, Upload } from 'antd';
 import UpdateForm from '../components/UpdateForm';
 import type { RcFile } from 'antd/es/upload';
 import type { UploadFile } from 'antd/es/upload/interface';
+import HallList from './HallList';
 
 const ButtonGroup = Button.Group;
 const service = new LocationServiceApi();
@@ -170,15 +171,9 @@ const LocationDetail = () => {
   );
   return (
     <PageContainer
-      title=""
+      title={data?.name}
       extra={action}
-      content={
-        <ProDescriptions<Locationv1Location>
-          title={data?.name}
-          columns={columns}
-          dataSource={data}
-        />
-      }
+      content={<ProDescriptions<Locationv1Location> columns={columns} dataSource={data} />}
       // extraContent={extra}
       tabActiveKey={tabStatus}
       onTabChange={(tabActiveKey: string) => {
@@ -195,6 +190,7 @@ const LocationDetail = () => {
         },
       ]}
     >
+      {tabStatus === 'hall' && <HallList id={id!}></HallList>}
       {tabStatus === 'medias' && <MediasList data={data}></MediasList>}
       <UpdateForm
         onSubmit={async (value) => {

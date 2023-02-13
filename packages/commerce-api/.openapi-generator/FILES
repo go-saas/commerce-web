@@ -10,11 +10,9 @@ api/product-service-api.ts
 api/show-service-api.ts
 api/ticket-service-api.ts
 api/ticketing-category-service-api.ts
-base.ts
 common.ts
 configuration.ts
 git_push.sh
-index.ts
 models/googlerpc-status.ts
 models/index.ts
 models/lbs-address.ts

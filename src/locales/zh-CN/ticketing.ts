@@ -13,4 +13,7 @@ export default {
   'ticketing.location.publicPhone': '公开联系方式-手机',
   'ticketing.location.publicEmail': '公开联系方式-电子邮箱',
   'ticketing.location.hall': '演出厅',
+  'ticketing.hall.name': '演出厅名称',
+  'ticketing.hall.capacity': '容量',
+  'ticketing.hall.seatGroups': '座位分组',
 };

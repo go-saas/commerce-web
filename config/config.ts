@@ -5,7 +5,7 @@ import defaultSettings from './defaultSettings';
 import proxy from './proxy';
 import routes from './routes';
 
-const { REACT_APP_ENV,ROUTE_BASE } = process.env;
+const { REACT_APP_ENV, ROUTE_BASE } = process.env;
 
 export default defineConfig({
   publicPath: ROUTE_BASE ? ROUTE_BASE + '/' : undefined,
@@ -127,7 +127,7 @@ export default defineConfig({
    */
   headScripts: [
     // 解决首次加载时白屏的问题
-    { src: '/scripts/loading.js', async: true },
+    { src: (ROUTE_BASE || '') + '/scripts/loading.js', async: true },
   ],
   //================ pro 插件配置 =================
   presets: ['umi-presets-pro'],

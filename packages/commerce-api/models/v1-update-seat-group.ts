@@ -28,6 +28,12 @@ export interface V1UpdateSeatGroup {
      * @type {string}
      * @memberof V1UpdateSeatGroup
      */
+    'id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1UpdateSeatGroup
+     */
     'name'?: string;
     /**
      * 

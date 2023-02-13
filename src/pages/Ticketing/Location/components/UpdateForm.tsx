@@ -5,6 +5,7 @@ import {
   DrawerForm,
   ProFormUploadButton,
   ProForm,
+  ProFormGroup,
 } from '@ant-design/pro-components';
 import { useIntl } from '@umijs/max';
 import React, { useEffect, useRef } from 'react';
@@ -133,9 +134,7 @@ const UpdateForm: React.FC<UpdateFormProps> = (props) => {
           },
         }}
       />
-      <ProForm.Item name="address">
-        <Addresseditor></Addresseditor>
-      </ProForm.Item>
+      <Addresseditor></Addresseditor>
       <ProFormText
         name="shortDesc"
         label={intl.formatMessage({

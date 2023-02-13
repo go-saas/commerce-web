@@ -17,7 +17,8 @@ import {
 } from '@gosaas/core';
 import type { RequestConfig } from '@umijs/max';
 import { message, notification } from 'antd';
-
+import { ProBreadcrumb } from '@ant-design/pro-components';
+import type { RunTimeLayoutConfig } from '@umijs/max';
 const loginPath = '/user/login';
 
 /**
@@ -32,6 +33,14 @@ export async function getInitialState(): Promise<{
     settings: defaultSettings,
   };
 }
+
+export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) => {
+  return {
+    headerContentRender: () => {
+      return <ProBreadcrumb />;
+    },
+  };
+};
 
 function errorInterceptor() {
   return [
