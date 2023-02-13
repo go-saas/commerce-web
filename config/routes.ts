@@ -30,16 +30,16 @@ export default [
     component: './Ticketing/Location/Detail',
   },
   {
-    name: 'show',
-    path: '/show',
-    layout: false,
-    component: './Ticketing/Show',
-  },
-  {
     name: 'activity',
     path: '/activity',
     layout: false,
     component: './Ticketing/Activity',
+  },
+  {
+    name: 'show',
+    path: '/show',
+    layout: false,
+    component: './Ticketing/Show',
   },
 
   {

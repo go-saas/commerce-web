@@ -16,4 +16,14 @@ export default {
   'ticketing.hall.name': '演出厅名称',
   'ticketing.hall.capacity': '容量',
   'ticketing.hall.seatGroups': '座位分组',
+
+  'ticketing.activity.name': '活动名称',
+  'ticketing.activity.shortDesc': '活动简述',
+  'ticketing.activity.desc': '活动描述',
+  'ticketing.activity.medias': '相册',
+  'ticketing.activity.categories': '分类',
+  'ticketing.activity.seatSelectable': '可选座',
+  'ticketing.activity.duration': '预计时间',
+  'ticketing.activity.durationHour': '小时',
+  'ticketing.activity.durationMin': '分钟',
 };

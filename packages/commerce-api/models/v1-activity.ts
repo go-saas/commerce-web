@@ -13,6 +13,12 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { Ticketingapicategoryv1Category } from './ticketingapicategoryv1-category';
+// May contain unused imports in some cases
+// @ts-ignore
+import { V1TicketingMedia } from './v1-ticketing-media';
 
 /**
  * 
@@ -31,12 +37,54 @@ export interface V1Activity {
      * @type {string}
      * @memberof V1Activity
      */
-    'name'?: string;
+    'name': string;
+    /**
+     * 
+     * @type {Array<V1TicketingMedia>}
+     * @memberof V1Activity
+     */
+    'medias'?: Array<V1TicketingMedia>;
     /**
      * 
      * @type {string}
      * @memberof V1Activity
      */
-    'createdAt'?: string;
+    'desc'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Activity
+     */
+    'shortDesc'?: string;
+    /**
+     * 
+     * @type {object}
+     * @memberof V1Activity
+     */
+    'content'?: object;
+    /**
+     * 
+     * @type {Array<Ticketingapicategoryv1Category>}
+     * @memberof V1Activity
+     */
+    'categories'?: Array<Ticketingapicategoryv1Category>;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Activity
+     */
+    'status'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof V1Activity
+     */
+    'seatSelectable'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Activity
+     */
+    'duration'?: string;
 }
 

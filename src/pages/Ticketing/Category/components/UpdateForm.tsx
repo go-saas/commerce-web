@@ -1,13 +1,13 @@
 import type { ProFormInstance } from '@ant-design/pro-components';
 import { ProFormText, DrawerForm, ProFormTreeSelect } from '@ant-design/pro-components';
-import { FormattedMessage, useIntl } from '@umijs/max';
+import { useIntl } from '@umijs/max';
 import React, { useEffect, useRef } from 'react';
 import type {
   Ticketingapicategoryv1CreateCategoryRequest,
   Ticketingapicategoryv1UpdateCategory,
 } from '@gosaas/commerce-api';
 import { TicketingCategoryServiceApi } from '@gosaas/commerce-api';
-import { CategoryWithChildren, getTreeData } from '../data';
+import { getTreeSelectData } from '../data';
 
 const service = new TicketingCategoryServiceApi();
 
@@ -20,20 +20,6 @@ export type UpdateFormProps = {
   updateModalVisible: boolean;
   values: FormValueType;
 };
-
-export async function getTreeSelectData() {
-  const tree = await getTreeData();
-  const transform = (menus: CategoryWithChildren[]) => {
-    return menus.map((p): any => {
-      return {
-        title: p.name + '(' + p.key + ')',
-        value: p.key!,
-        children: p.children ? transform(p.children) : undefined,
-      };
-    });
-  };
-  return transform(tree);
-}
 
 const UpdateForm: React.FC<UpdateFormProps> = (props) => {
   const intl = useIntl();

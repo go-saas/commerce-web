@@ -5,7 +5,6 @@ import {
   DrawerForm,
   ProFormUploadButton,
   ProForm,
-  ProFormGroup,
 } from '@ant-design/pro-components';
 import { useIntl } from '@umijs/max';
 import React, { useEffect, useRef } from 'react';
@@ -21,10 +20,7 @@ import Addresseditor from '@/components/Addresseditor';
 
 const service = new LocationServiceApi();
 
-export type FormValueType = V1CreateLocationRequest &
-  V1UpdateLocation & {
-    categoryIds?: string[];
-  };
+export type FormValueType = V1CreateLocationRequest & V1UpdateLocation;
 
 export type UpdateFormProps = {
   onCancel: (flag?: boolean, formVals?: FormValueType) => void;
@@ -37,7 +33,6 @@ const UpdateForm: React.FC<UpdateFormProps> = (props) => {
   const intl = useIntl();
   const formRef = useRef<ProFormInstance>();
   useEffect(() => {
-    //fetch role detail
     if (props.values?.id && props.updateModalVisible) {
       service.locationServiceGetLocation({ id: props.values?.id }).then((resp) => {
         formRef?.current?.setFieldsValue(resp.data);

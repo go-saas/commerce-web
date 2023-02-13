@@ -53,5 +53,23 @@ export interface V1CreateActivityRequest {
      * @memberof V1CreateActivityRequest
      */
     'content'?: object;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof V1CreateActivityRequest
+     */
+    'categoryKeys'?: Array<string>;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof V1CreateActivityRequest
+     */
+    'seatSelectable'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1CreateActivityRequest
+     */
+    'duration'?: string;
 }
 

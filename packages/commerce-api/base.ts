@@ -22,8 +22,7 @@ let factory: () => AxiosInstance;
 export function setDefaultAxiosFactory(i: () => AxiosInstance) {
   factory = i;
 }
-export const BASE_PATH = 'http://localhost'.replace(/\/+$/, '');
-
+export const BASE_PATH = '';
 /**
  *
  * @export
