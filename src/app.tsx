@@ -19,6 +19,16 @@ import type { RequestConfig } from '@umijs/max';
 import { message, notification } from 'antd';
 import { ProBreadcrumb } from '@ant-design/pro-components';
 import type { RunTimeLayoutConfig } from '@umijs/max';
+import {
+  setDefaultAxiosFactory as apiSetDefaultAxiosFactory,
+  LocaleServiceApi,
+  V1LocaleLanguage,
+} from '@gosaas/api';
+import { addLocale } from '@@/plugin-locale/localeExports';
+
+import enUS0 from 'antd/es/locale/en_US';
+import zhCN0 from 'antd/es/locale/zh_CN';
+
 const loginPath = '/user/login';
 
 /**
@@ -29,6 +39,28 @@ export async function getInitialState(): Promise<{
   loading?: boolean;
 }> {
   setDefaultAxiosFactory(getRequestInstance);
+  apiSetDefaultAxiosFactory(getRequestInstance);
+
+  try {
+    const locales = await new LocaleServiceApi().localeServiceListMessages();
+    ((locales.data?.items as V1LocaleLanguage[] | undefined) ?? []).forEach((p) => {
+      const msg: Record<string, string> = {};
+      (p.msg ?? []).forEach((m: any) => {
+        msg[m.id!] = m.other!;
+      });
+      let name = p.name!;
+      if (name.startsWith('zh')) {
+        name = 'zh-CN';
+        addLocale(name, msg, { momentLocale: name, antd: zhCN0 as any });
+      } else if (name.startsWith('en')) {
+        name = 'en-US';
+        addLocale(name, msg, { momentLocale: name, antd: enUS0 as any });
+      } else {
+        addLocale(name, msg, { momentLocale: name, antd: enUS0 as any });
+      }
+    });
+  } catch (e) {}
+
   return {
     settings: defaultSettings,
   };

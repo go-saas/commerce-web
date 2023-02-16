@@ -26,4 +26,14 @@ export default {
   'ticketing.activity.duration': '预计时间',
   'ticketing.activity.durationHour': '小时',
   'ticketing.activity.durationMin': '分钟',
+
+  'ticketing.show.timeRange': '演出时间',
+  'ticketing.show.startTime': '演出开始时间',
+  'ticketing.show.endTime': '演出结束时间',
+  'ticketing.show.notice': '注意事项',
+  'ticketing.show.saleType.name': '票种',
+  'ticketing.show.saleType.saleableFrom': '开始销售时间',
+  'ticketing.show.saleType.saleableTo': '开始销售时间',
+  'ticketing.show.saleType.price': '价格',
+  'ticketing.show.saleType.seatGroupId': '关联座位组',
 };

@@ -15,55 +15,58 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { V1UpdateShowSalesType } from './v1-update-show-sales-type';
+import { PriceInfoPb } from './price-info-pb';
+// May contain unused imports in some cases
+// @ts-ignore
+import { V1SeatGroup } from './v1-seat-group';
 
 /**
  * 
  * @export
- * @interface V1CreateShowRequest
+ * @interface V1ShowSalesType
  */
-export interface V1CreateShowRequest {
+export interface V1ShowSalesType {
     /**
      * 
      * @type {string}
-     * @memberof V1CreateShowRequest
+     * @memberof V1ShowSalesType
      */
-    'activityId': string;
+    'id'?: string;
     /**
      * 
      * @type {string}
-     * @memberof V1CreateShowRequest
+     * @memberof V1ShowSalesType
      */
-    'startTime': string;
+    'name'?: string;
+    /**
+     * 
+     * @type {V1SeatGroup}
+     * @memberof V1ShowSalesType
+     */
+    'seatGroup'?: V1SeatGroup;
     /**
      * 
      * @type {string}
-     * @memberof V1CreateShowRequest
+     * @memberof V1ShowSalesType
      */
-    'endTime': string;
+    'seatGroupId'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof V1CreateShowRequest
+     * @memberof V1ShowSalesType
      */
-    'locationId': string;
+    'saleableFrom'?: string;
     /**
      * 
      * @type {string}
-     * @memberof V1CreateShowRequest
+     * @memberof V1ShowSalesType
      */
-    'hallId': string;
+    'saleableTo'?: string;
     /**
      * 
-     * @type {Array<V1UpdateShowSalesType>}
-     * @memberof V1CreateShowRequest
+     * @type {PriceInfoPb}
+     * @memberof V1ShowSalesType
      */
-    'salesTypes'?: Array<V1UpdateShowSalesType>;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1CreateShowRequest
-     */
-    'notice'?: string;
+    'price'?: PriceInfoPb;
 }
 

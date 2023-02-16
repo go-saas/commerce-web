@@ -10,12 +10,8 @@ import { useIntl } from '@umijs/max';
 import React, { useEffect, useRef } from 'react';
 import type { V1CreateLocationRequest, V1UpdateLocation } from '@gosaas/commerce-api';
 import { LocationServiceApi } from '@gosaas/commerce-api';
-import {
-  uploadApi,
-  uploadConvertValue,
-  uploadTransform,
-  uploadTransformSingle,
-} from '@/utils/upload';
+import { uploadApi } from '@/utils/upload';
+import { uploadConvertValue, uploadTransform, uploadTransformSingle } from '@gosaas/core';
 import Addresseditor from '@/components/Addresseditor';
 
 const service = new LocationServiceApi();

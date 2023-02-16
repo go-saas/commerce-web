@@ -19,6 +19,8 @@ models/lbs-address.ts
 models/location-service-create-location-hall-request.ts
 models/locationv1-location.ts
 models/operation-string-filter-operation.ts
+models/price-info-pb.ts
+models/price-price-pb.ts
 models/productapicategoryv1-category-filter.ts
 models/productapicategoryv1-category.ts
 models/productapicategoryv1-create-category-request.ts
@@ -59,6 +61,7 @@ models/v1-delete-order-reply.ts
 models/v1-delete-product-reply.ts
 models/v1-delete-show-reply.ts
 models/v1-delete-ticket-reply.ts
+models/v1-get-location-hall-detail-reply.ts
 models/v1-get-location-halls-reply.ts
 models/v1-keyword.ts
 models/v1-list-activity-reply.ts
@@ -86,6 +89,7 @@ models/v1-product.ts
 models/v1-seat-group.ts
 models/v1-seat.ts
 models/v1-show-filter.ts
+models/v1-show-sales-type.ts
 models/v1-show.ts
 models/v1-stock.ts
 models/v1-ticket-filter.ts
@@ -104,6 +108,7 @@ models/v1-update-product-request.ts
 models/v1-update-product.ts
 models/v1-update-seat-group.ts
 models/v1-update-show-request.ts
+models/v1-update-show-sales-type.ts
 models/v1-update-show.ts
 models/v1-update-ticket-request.ts
 models/v1-update-ticket.ts

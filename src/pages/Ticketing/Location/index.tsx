@@ -110,6 +110,12 @@ const TableList: React.FC = () => {
       },
     },
     {
+      title: <FormattedMessage id="common.address.city" defaultMessage="City" />,
+      render: (dom, entity) => {
+        return `${entity.address?.city}(${entity.address?.country || entity.address?.region})`;
+      },
+    },
+    {
       title: (
         <FormattedMessage id="ticketing.location.shortDesc" defaultMessage="Short Description" />
       ),

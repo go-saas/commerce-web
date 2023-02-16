@@ -13,45 +13,36 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import { V1UpdateShowSalesType } from './v1-update-show-sales-type';
 
 /**
  * 
  * @export
- * @interface V1UpdateShow
+ * @interface PricePricePb
  */
-export interface V1UpdateShow {
+export interface PricePricePb {
     /**
      * 
      * @type {string}
-     * @memberof V1UpdateShow
+     * @memberof PricePricePb
      */
-    'id': string;
+    'amount'?: string;
     /**
      * 
      * @type {string}
-     * @memberof V1UpdateShow
+     * @memberof PricePricePb
      */
-    'startTime': string;
+    'currencyCode'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof PricePricePb
+     */
+    'digits'?: number;
     /**
      * 
      * @type {string}
-     * @memberof V1UpdateShow
+     * @memberof PricePricePb
      */
-    'endTime': string;
-    /**
-     * 
-     * @type {Array<V1UpdateShowSalesType>}
-     * @memberof V1UpdateShow
-     */
-    'salesTypes'?: Array<V1UpdateShowSalesType>;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1UpdateShow
-     */
-    'notice'?: string;
+    'text'?: string;
 }
 

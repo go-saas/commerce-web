@@ -15,43 +15,49 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { V1UpdateShowSalesType } from './v1-update-show-sales-type';
+import { PriceInfoPb } from './price-info-pb';
 
 /**
  * 
  * @export
- * @interface V1UpdateShow
+ * @interface V1UpdateShowSalesType
  */
-export interface V1UpdateShow {
+export interface V1UpdateShowSalesType {
     /**
      * 
      * @type {string}
-     * @memberof V1UpdateShow
+     * @memberof V1UpdateShowSalesType
      */
-    'id': string;
+    'id'?: string;
     /**
      * 
      * @type {string}
-     * @memberof V1UpdateShow
+     * @memberof V1UpdateShowSalesType
      */
-    'startTime': string;
+    'name'?: string;
     /**
      * 
      * @type {string}
-     * @memberof V1UpdateShow
+     * @memberof V1UpdateShowSalesType
      */
-    'endTime': string;
-    /**
-     * 
-     * @type {Array<V1UpdateShowSalesType>}
-     * @memberof V1UpdateShow
-     */
-    'salesTypes'?: Array<V1UpdateShowSalesType>;
+    'seatGroupId'?: string;
     /**
      * 
      * @type {string}
-     * @memberof V1UpdateShow
+     * @memberof V1UpdateShowSalesType
      */
-    'notice'?: string;
+    'saleableFrom'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1UpdateShowSalesType
+     */
+    'saleableTo'?: string;
+    /**
+     * 
+     * @type {PriceInfoPb}
+     * @memberof V1UpdateShowSalesType
+     */
+    'price'?: PriceInfoPb;
 }
 

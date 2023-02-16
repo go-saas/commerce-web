@@ -13,18 +13,21 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { V1LocationHall } from './v1-location-hall';
 
 /**
  * 
  * @export
- * @interface V1DeleteShowReply
+ * @interface V1GetLocationHallDetailReply
  */
-export interface V1DeleteShowReply {
+export interface V1GetLocationHallDetailReply {
     /**
      * 
-     * @type {string}
-     * @memberof V1DeleteShowReply
+     * @type {V1LocationHall}
+     * @memberof V1GetLocationHallDetailReply
      */
-    'id'?: string;
+    'hall'?: V1LocationHall;
 }
 

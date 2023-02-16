@@ -11,10 +11,10 @@ import { useIntl } from '@umijs/max';
 import React, { useEffect, useRef } from 'react';
 import type { V1CreateActivityRequest, V1UpdateActivity } from '@gosaas/commerce-api';
 import { ActivityServiceApi, Ticketingapicategoryv1Category } from '@gosaas/commerce-api';
-import { uploadApi, uploadConvertValue, uploadTransform } from '@/utils/upload';
+import { uploadApi } from '@/utils/upload';
 import { getAllData, transformAsTreeSelect } from '../../Category/data';
-import { parsePbDurationAsSeconds } from '@/utils/duration';
-
+import { parsePbDurationAsSeconds } from '@gosaas/core';
+import { uploadConvertValue, uploadTransform, uploadTransformSingle } from '@gosaas/core';
 const service = new ActivityServiceApi();
 
 export type FormValueType = V1CreateActivityRequest &
@@ -37,18 +37,17 @@ function formatData(d: FormValueType) {
   const s = parsePbDurationAsSeconds(d.duration ?? '0s');
   d.durationHour = ~~(s / 60 / 60);
   d.durationMinute = (s - 60 * 60 * d.durationHour) / 60;
+  return d;
 }
 
 const UpdateForm: React.FC<UpdateFormProps> = (props) => {
   const intl = useIntl();
   const formRef = useRef<ProFormInstance>();
 
-  formatData(props.values);
   useEffect(() => {
     if (props.values?.id && props.updateModalVisible) {
       service.activityServiceGetActivity({ id: props.values?.id }).then((resp) => {
-        formatData(resp.data);
-        formRef?.current?.setFieldsValue(resp.data);
+        formRef?.current?.setFieldsValue(formatData(resp.data));
       });
     }
   }, [props]);
@@ -56,7 +55,7 @@ const UpdateForm: React.FC<UpdateFormProps> = (props) => {
   return (
     <DrawerForm
       formRef={formRef}
-      initialValues={props.values}
+      initialValues={formatData(props.values)}
       open={props.updateModalVisible}
       onFinish={async (formData) => {
         const { durationHour, durationMinute, ...data } = formData;

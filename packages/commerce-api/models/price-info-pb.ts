@@ -15,43 +15,37 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { V1UpdateShowSalesType } from './v1-update-show-sales-type';
+import { PricePricePb } from './price-price-pb';
 
 /**
  * 
  * @export
- * @interface V1UpdateShow
+ * @interface PriceInfoPb
  */
-export interface V1UpdateShow {
+export interface PriceInfoPb {
+    /**
+     * 
+     * @type {PricePricePb}
+     * @memberof PriceInfoPb
+     */
+    'default'?: PricePricePb;
+    /**
+     * 
+     * @type {PricePricePb}
+     * @memberof PriceInfoPb
+     */
+    'discounted'?: PricePricePb;
     /**
      * 
      * @type {string}
-     * @memberof V1UpdateShow
+     * @memberof PriceInfoPb
      */
-    'id': string;
+    'discountText'?: string;
     /**
      * 
-     * @type {string}
-     * @memberof V1UpdateShow
+     * @type {boolean}
+     * @memberof PriceInfoPb
      */
-    'startTime': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1UpdateShow
-     */
-    'endTime': string;
-    /**
-     * 
-     * @type {Array<V1UpdateShowSalesType>}
-     * @memberof V1UpdateShow
-     */
-    'salesTypes'?: Array<V1UpdateShowSalesType>;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1UpdateShow
-     */
-    'notice'?: string;
+    'denyMoreDiscounts'?: boolean;
 }
 

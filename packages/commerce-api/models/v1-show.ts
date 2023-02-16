@@ -13,6 +13,18 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { Locationv1Location } from './locationv1-location';
+// May contain unused imports in some cases
+// @ts-ignore
+import { V1Activity } from './v1-activity';
+// May contain unused imports in some cases
+// @ts-ignore
+import { V1LocationHall } from './v1-location-hall';
+// May contain unused imports in some cases
+// @ts-ignore
+import { V1ShowSalesType } from './v1-show-sales-type';
 
 /**
  * 
@@ -31,12 +43,78 @@ export interface V1Show {
      * @type {string}
      * @memberof V1Show
      */
-    'name'?: string;
+    'createdAt'?: string;
     /**
      * 
      * @type {string}
      * @memberof V1Show
      */
-    'createdAt'?: string;
+    'activityId'?: string;
+    /**
+     * 
+     * @type {V1Activity}
+     * @memberof V1Show
+     */
+    'activity'?: V1Activity;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Show
+     */
+    'startTime'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Show
+     */
+    'endTime'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Show
+     */
+    'locationId'?: string;
+    /**
+     * 
+     * @type {Locationv1Location}
+     * @memberof V1Show
+     */
+    'location'?: Locationv1Location;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Show
+     */
+    'hallId'?: string;
+    /**
+     * 
+     * @type {V1LocationHall}
+     * @memberof V1Show
+     */
+    'hall'?: V1LocationHall;
+    /**
+     * 
+     * @type {Array<V1ShowSalesType>}
+     * @memberof V1Show
+     */
+    'salesTypes'?: Array<V1ShowSalesType>;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Show
+     */
+    'notice'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof V1Show
+     */
+    'salesCount'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof V1Show
+     */
+    'restCount'?: number;
 }
 

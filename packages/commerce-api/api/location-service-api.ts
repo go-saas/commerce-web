@@ -34,6 +34,8 @@ import { V1DeleteLocationHallReply } from '../models';
 // @ts-ignore
 import { V1DeleteLocationReply } from '../models';
 // @ts-ignore
+import { V1GetLocationHallDetailReply } from '../models';
+// @ts-ignore
 import { V1GetLocationHallsReply } from '../models';
 // @ts-ignore
 import { V1ListLocationReply } from '../models';
@@ -214,6 +216,46 @@ export const LocationServiceApiAxiosParamCreator = function (configuration?: Con
             assertParamExists('locationServiceGetLocation', 'id', id)
             const localVarPath = `/v1/ticketing/location/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} locationId 
+         * @param {string} hallId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        locationServiceGetLocationHallDetail: async (locationId: string, hallId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'locationId' is not null or undefined
+            assertParamExists('locationServiceGetLocationHallDetail', 'locationId', locationId)
+            // verify required parameter 'hallId' is not null or undefined
+            assertParamExists('locationServiceGetLocationHallDetail', 'hallId', hallId)
+            const localVarPath = `/v1/ticketing/location/{locationId}/hall/{hallId}`
+                .replace(`{${"locationId"}}`, encodeURIComponent(String(locationId)))
+                .replace(`{${"hallId"}}`, encodeURIComponent(String(hallId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -792,6 +834,17 @@ export const LocationServiceApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @param {string} locationId 
+         * @param {string} hallId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async locationServiceGetLocationHallDetail(locationId: string, hallId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1GetLocationHallDetailReply>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.locationServiceGetLocationHallDetail(locationId, hallId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
          * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -966,6 +1019,15 @@ export const LocationServiceApiFactory = function (configuration?: Configuration
         },
         /**
          * 
+         * @param {LocationServiceApiLocationServiceGetLocationHallDetailRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        locationServiceGetLocationHallDetail(requestParameters: LocationServiceApiLocationServiceGetLocationHallDetailRequest, options?: AxiosRequestConfig): AxiosPromise<V1GetLocationHallDetailReply> {
+            return localVarFp.locationServiceGetLocationHallDetail(requestParameters.locationId, requestParameters.hallId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @param {LocationServiceApiLocationServiceGetLocationHallsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1121,6 +1183,27 @@ export interface LocationServiceApiLocationServiceGetLocationRequest {
      * @memberof LocationServiceApiLocationServiceGetLocation
      */
     readonly id: string
+}
+
+/**
+ * Request parameters for locationServiceGetLocationHallDetail operation in LocationServiceApi.
+ * @export
+ * @interface LocationServiceApiLocationServiceGetLocationHallDetailRequest
+ */
+export interface LocationServiceApiLocationServiceGetLocationHallDetailRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof LocationServiceApiLocationServiceGetLocationHallDetail
+     */
+    readonly locationId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof LocationServiceApiLocationServiceGetLocationHallDetail
+     */
+    readonly hallId: string
 }
 
 /**
@@ -1568,6 +1651,17 @@ export class LocationServiceApi extends BaseAPI {
      */
     public locationServiceGetLocation(requestParameters: LocationServiceApiLocationServiceGetLocationRequest, options?: AxiosRequestConfig) {
         return LocationServiceApiFp(this.configuration).locationServiceGetLocation(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {LocationServiceApiLocationServiceGetLocationHallDetailRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof LocationServiceApi
+     */
+    public locationServiceGetLocationHallDetail(requestParameters: LocationServiceApiLocationServiceGetLocationHallDetailRequest, options?: AxiosRequestConfig) {
+        return LocationServiceApiFp(this.configuration).locationServiceGetLocationHallDetail(requestParameters.locationId, requestParameters.hallId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

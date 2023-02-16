@@ -357,7 +357,7 @@ export const ShowServiceApiAxiosParamCreator = function (configuration?: Configu
         showServiceListShow2: async (body: V1ListShowRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             assertParamExists('showServiceListShow2', 'body', body)
-            const localVarPath = `/v1/show/show/list`;
+            const localVarPath = `/v1/ticketing/show/list`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;

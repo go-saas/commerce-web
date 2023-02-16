@@ -138,7 +138,7 @@ export default defineConfig({
   qiankun: {
     slave: {},
   },
-  monorepoRedirect: { srcDir: ['dist'], peerDeps: true },
+  monorepoRedirect: { srcDir: ['./', 'src'], peerDeps: true },
   define: {
     BASE_URL: REACT_APP_ENV == 'dev' ? '/basic-api' : '',
   },

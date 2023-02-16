@@ -20,7 +20,7 @@ import type {
 } from '@gosaas/commerce-api';
 import { ActivityServiceApi } from '@gosaas/commerce-api';
 
-import { formatPbDuration } from '@/utils/duration';
+import { formatPbDuration } from '@gosaas/core';
 
 const TableList: React.FC = () => {
   const service = new ActivityServiceApi();
