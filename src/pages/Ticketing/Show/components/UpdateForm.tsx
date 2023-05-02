@@ -6,6 +6,7 @@ import {
   ProFormInstance,
   EditableProTable,
   ProForm,
+  ProFormUploadButton,
 } from '@ant-design/pro-components';
 import { FormattedMessage, useIntl } from '@umijs/max';
 import React, { useEffect, useRef, useState } from 'react';
@@ -20,6 +21,8 @@ import { dateUtil } from '@gosaas/core';
 import { v4 as uuidv4 } from 'uuid';
 import type { ProColumnType } from '@ant-design/pro-components';
 import { Form } from 'antd';
+import { uploadApi } from '@/utils/upload';
+import { uploadConvertValue, uploadTransformSingle } from '@gosaas/core';
 
 const service = new ShowServiceApi();
 
@@ -303,7 +306,35 @@ const UpdateForm: React.FC<UpdateFormProps> = (props) => {
           },
         ]}
       />
-
+      <ProFormUploadButton
+        name="mainPic"
+        max={1}
+        label={intl.formatMessage({
+          id: 'ticketing.activity.mainPic',
+          defaultMessage: 'MainPic',
+        })}
+        transform={uploadTransformSingle}
+        convertValue={uploadConvertValue}
+        fieldProps={{
+          customRequest: (opt) => {
+            const { onProgress, onError, onSuccess, file, filename } = opt;
+            uploadApi(
+              '/v1/ticketing/show/media',
+              {
+                file: file as any,
+                filename: filename,
+              },
+              onProgress,
+            )
+              .then((e) => {
+                onSuccess?.(e.data);
+              })
+              .catch((e: any) => {
+                onError?.(e);
+              });
+          },
+        }}
+      />
       <ProFormTextArea
         name="notice"
         label={intl.formatMessage({
