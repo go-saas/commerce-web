@@ -37,6 +37,12 @@ export interface V1UpdateActivity {
     'name': string;
     /**
      * 
+     * @type {V1TicketingMedia}
+     * @memberof V1UpdateActivity
+     */
+    'mainPic'?: V1TicketingMedia;
+    /**
+     * 
      * @type {Array<V1TicketingMedia>}
      * @memberof V1UpdateActivity
      */

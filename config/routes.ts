@@ -55,6 +55,12 @@ export default [
     component: './Ticketing/Category',
   },
   {
+    name: 'banner',
+    path: '/banner',
+    layout: false,
+    component: './Ticketing/Banner',
+  },
+  {
     path: '/',
     redirect: '/welcome',
   },

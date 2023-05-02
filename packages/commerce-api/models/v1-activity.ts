@@ -40,6 +40,12 @@ export interface V1Activity {
     'name': string;
     /**
      * 
+     * @type {V1TicketingMedia}
+     * @memberof V1Activity
+     */
+    'mainPic'?: V1TicketingMedia;
+    /**
+     * 
      * @type {Array<V1TicketingMedia>}
      * @memberof V1Activity
      */

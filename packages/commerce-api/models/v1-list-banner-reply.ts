@@ -15,43 +15,31 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { V1Ticket } from './v1-ticket';
+import { V1Banner } from './v1-banner';
 
 /**
  * 
  * @export
- * @interface V1ListTicketReply
+ * @interface V1ListBannerReply
  */
-export interface V1ListTicketReply {
+export interface V1ListBannerReply {
     /**
      * 
      * @type {number}
-     * @memberof V1ListTicketReply
+     * @memberof V1ListBannerReply
      */
     'totalSize'?: number;
     /**
      * 
      * @type {number}
-     * @memberof V1ListTicketReply
+     * @memberof V1ListBannerReply
      */
     'filterSize'?: number;
     /**
      * 
-     * @type {Array<V1Ticket>}
-     * @memberof V1ListTicketReply
+     * @type {Array<V1Banner>}
+     * @memberof V1ListBannerReply
      */
-    'items'?: Array<V1Ticket>;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1ListTicketReply
-     */
-    'nextAfterPageToken'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1ListTicketReply
-     */
-    'nextBeforePageToken'?: string | null;
+    'items'?: Array<V1Banner>;
 }
 

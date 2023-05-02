@@ -15,34 +15,19 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { OperationBooleanFilterOperators } from './operation-boolean-filter-operators';
-// May contain unused imports in some cases
-// @ts-ignore
 import { OperationStringFilterOperation } from './operation-string-filter-operation';
 
 /**
  * 
  * @export
- * @interface V1ShowFilter
+ * @interface V1BannerFilter
  */
-export interface V1ShowFilter {
+export interface V1BannerFilter {
     /**
      * 
      * @type {OperationStringFilterOperation}
-     * @memberof V1ShowFilter
+     * @memberof V1BannerFilter
      */
-    'id'?: OperationStringFilterOperation;
-    /**
-     * 
-     * @type {OperationStringFilterOperation}
-     * @memberof V1ShowFilter
-     */
-    'name'?: OperationStringFilterOperation;
-    /**
-     * 
-     * @type {OperationBooleanFilterOperators}
-     * @memberof V1ShowFilter
-     */
-    'isRecommend'?: OperationBooleanFilterOperators;
+    'status'?: OperationStringFilterOperation;
 }
 

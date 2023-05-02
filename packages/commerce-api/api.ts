@@ -20,7 +20,12 @@ export * from './api/location-service-api';
 export * from './api/order-service-api';
 export * from './api/product-category-service-api';
 export * from './api/product-service-api';
+export * from './api/show-app-service-api';
 export * from './api/show-service-api';
+export * from './api/ticket-app-service-api';
 export * from './api/ticket-service-api';
+export * from './api/ticketing-app-banner-service-api';
+export * from './api/ticketing-banner-service-api';
 export * from './api/ticketing-category-service-api';
+export * from './api/usage-app-api';
 

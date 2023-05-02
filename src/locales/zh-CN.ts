@@ -6,7 +6,6 @@ import pwa from './zh-CN/pwa';
 import settingDrawer from './zh-CN/settingDrawer';
 import settings from './zh-CN/settings';
 import ticketing from './zh-CN/ticketing';
-import common from './zh-CN/common';
 export default {
   'navBar.lang': '语言',
   'layout.user.link.help': '帮助',
@@ -24,5 +23,4 @@ export default {
   ...pwa,
   ...component,
   ...ticketing,
-  ...common,
 };

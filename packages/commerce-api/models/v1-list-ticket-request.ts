@@ -59,5 +59,17 @@ export interface V1ListTicketRequest {
      * @memberof V1ListTicketRequest
      */
     'filter'?: V1TicketFilter;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1ListTicketRequest
+     */
+    'afterPageToken'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1ListTicketRequest
+     */
+    'beforePageToken'?: string;
 }
 

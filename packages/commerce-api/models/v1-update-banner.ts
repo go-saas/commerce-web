@@ -15,43 +15,43 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { V1Ticket } from './v1-ticket';
+import { V1TicketingMedia } from './v1-ticketing-media';
 
 /**
  * 
  * @export
- * @interface V1ListTicketReply
+ * @interface V1UpdateBanner
  */
-export interface V1ListTicketReply {
-    /**
-     * 
-     * @type {number}
-     * @memberof V1ListTicketReply
-     */
-    'totalSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof V1ListTicketReply
-     */
-    'filterSize'?: number;
-    /**
-     * 
-     * @type {Array<V1Ticket>}
-     * @memberof V1ListTicketReply
-     */
-    'items'?: Array<V1Ticket>;
+export interface V1UpdateBanner {
     /**
      * 
      * @type {string}
-     * @memberof V1ListTicketReply
+     * @memberof V1UpdateBanner
      */
-    'nextAfterPageToken'?: string | null;
+    'id': string;
     /**
      * 
      * @type {string}
-     * @memberof V1ListTicketReply
+     * @memberof V1UpdateBanner
      */
-    'nextBeforePageToken'?: string | null;
+    'refType': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1UpdateBanner
+     */
+    'refId': string;
+    /**
+     * 
+     * @type {V1TicketingMedia}
+     * @memberof V1UpdateBanner
+     */
+    'mainPic'?: V1TicketingMedia;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1UpdateBanner
+     */
+    'status': string;
 }
 

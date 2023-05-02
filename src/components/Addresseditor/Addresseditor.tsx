@@ -9,7 +9,7 @@ const AddressEditor = () => {
       <ProFormText
         name={['address', 'country']}
         label={intl.formatMessage({
-          id: 'common.address.contryOrRegion',
+          id: 'common.address.countryOrRegion',
           defaultMessage: 'Contry Or Region',
         })}
         rules={[

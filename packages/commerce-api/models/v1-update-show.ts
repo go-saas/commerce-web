@@ -15,6 +15,9 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
+import { V1TicketingMedia } from './v1-ticketing-media';
+// May contain unused imports in some cases
+// @ts-ignore
 import { V1UpdateShowSalesType } from './v1-update-show-sales-type';
 
 /**
@@ -53,5 +56,11 @@ export interface V1UpdateShow {
      * @memberof V1UpdateShow
      */
     'notice'?: string;
+    /**
+     * 
+     * @type {V1TicketingMedia}
+     * @memberof V1UpdateShow
+     */
+    'mainPic'?: V1TicketingMedia;
 }
 

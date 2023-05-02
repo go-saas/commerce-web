@@ -25,6 +25,9 @@ import { V1LocationHall } from './v1-location-hall';
 // May contain unused imports in some cases
 // @ts-ignore
 import { V1ShowSalesType } from './v1-show-sales-type';
+// May contain unused imports in some cases
+// @ts-ignore
+import { V1TicketingMedia } from './v1-ticketing-media';
 
 /**
  * 
@@ -104,6 +107,18 @@ export interface V1Show {
      * @memberof V1Show
      */
     'notice'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof V1Show
+     */
+    'isRecommend'?: boolean;
+    /**
+     * 
+     * @type {V1TicketingMedia}
+     * @memberof V1Show
+     */
+    'mainPic'?: V1TicketingMedia;
     /**
      * 
      * @type {number}
