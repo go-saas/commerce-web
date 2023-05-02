@@ -19,6 +19,7 @@ import type {
   V1ShowFilter,
 } from '@gosaas/commerce-api';
 import { ShowServiceApi } from '@gosaas/commerce-api';
+import copy from 'copy-to-clipboard';
 
 const TableList: React.FC = () => {
   const service = new ShowServiceApi();
@@ -132,6 +133,12 @@ const TableList: React.FC = () => {
         <TableDropdown
           key="actionGroup"
           onSelect={async (key) => {
+            if (key === 'copyId') {
+              copy(record.id);
+              message.success(
+                intl.formatMessage({ id: 'common.copied', defaultMessage: 'Copied!' }),
+              );
+            }
             if (key === 'delete') {
               const ok = await handleRemove(record);
               if (ok && actionRef.current) {
@@ -140,6 +147,10 @@ const TableList: React.FC = () => {
             }
           }}
           menus={[
+            {
+              key: 'copyId',
+              name: <FormattedMessage id="common.copyId" defaultMessage="Copy Id" />,
+            },
             {
               key: 'delete',
               name: <FormattedMessage id="common.delete" defaultMessage="Delete" />,

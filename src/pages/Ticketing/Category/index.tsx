@@ -19,7 +19,7 @@ import type {
   Ticketingapicategoryv1CategoryFilter,
 } from '@gosaas/commerce-api';
 import { TicketingCategoryServiceApi } from '@gosaas/commerce-api';
-
+import copy from 'copy-to-clipboard';
 import { useIntl } from '@umijs/max';
 import { CategoryWithChildren, getTreeData } from './data';
 
@@ -31,7 +31,9 @@ const TableList: React.FC = () => {
   const [showDetail, setShowDetail] = useState<boolean>(false);
 
   const actionRef = useRef<ActionType>();
-  const [currentRow, setCurrentRow] = useState<Ticketingapicategoryv1Category | undefined | null>(undefined);
+  const [currentRow, setCurrentRow] = useState<Ticketingapicategoryv1Category | undefined | null>(
+    undefined,
+  );
 
   const intl = useIntl();
   const handleAdd = async (fields: Ticketingapicategoryv1CreateCategoryRequest) => {
@@ -115,7 +117,6 @@ const TableList: React.FC = () => {
       title: <FormattedMessage id="ticketing.category.path" defaultMessage="Category Path" />,
       dataIndex: 'path',
       valueType: 'text',
-
     },
     {
       title: <FormattedMessage id="common.operate" defaultMessage="Operate" />,
@@ -135,6 +136,12 @@ const TableList: React.FC = () => {
         <TableDropdown
           key="actionGroup"
           onSelect={async (key) => {
+            if (key === 'copyId') {
+              copy(record.key);
+              message.success(
+                intl.formatMessage({ id: 'common.copied', defaultMessage: 'Copied!' }),
+              );
+            }
             if (key === 'delete') {
               const ok = await handleRemove(record);
               if (ok && actionRef.current) {
@@ -143,6 +150,10 @@ const TableList: React.FC = () => {
             }
           }}
           menus={[
+            {
+              key: 'copyId',
+              name: <FormattedMessage id="common.copyId" defaultMessage="Copy Id" />,
+            },
             {
               key: 'delete',
               name: <FormattedMessage id="common.delete" defaultMessage="Delete" />,
@@ -153,7 +164,10 @@ const TableList: React.FC = () => {
     },
   ];
 
-  const getData = requestTransform<Ticketingapicategoryv1Category, Ticketingapicategoryv1CategoryFilter>(async (req) => {
+  const getData = requestTransform<
+    Ticketingapicategoryv1Category,
+    Ticketingapicategoryv1CategoryFilter
+  >(async (req) => {
     const newExpandedKeys: string[] = [];
     const render = (treeDatas: CategoryWithChildren[]) => {
       // 获取到所有可展开的父节点
@@ -171,7 +185,6 @@ const TableList: React.FC = () => {
     return {
       items: tree,
     };
-
   });
 
   return (
@@ -218,7 +231,9 @@ const TableList: React.FC = () => {
             column={1}
             title={currentRow?.name}
             request={async () => {
-              const resp = await service.ticketingCategoryServiceGetCategory({ key: currentRow.key! });
+              const resp = await service.ticketingCategoryServiceGetCategory({
+                key: currentRow.key!,
+              });
               return {
                 data: resp.data,
               };
@@ -234,7 +249,9 @@ const TableList: React.FC = () => {
         onSubmit={async (value) => {
           let success = false;
           if (currentRow) {
-            success = await handleUpdate({ category: value as Ticketingapicategoryv1UpdateCategory });
+            success = await handleUpdate({
+              category: value as Ticketingapicategoryv1UpdateCategory,
+            });
           } else {
             success = await handleAdd(value as Ticketingapicategoryv1CreateCategoryRequest);
           }
