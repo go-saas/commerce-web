@@ -98,6 +98,40 @@ const UpdateForm: React.FC<UpdateFormProps> = (props) => {
         ]}
       />
       <ProFormUploadButton
+        name="mainPic"
+        max={1}
+        label={intl.formatMessage({
+          id: 'ticketing.activity.mainPic',
+          defaultMessage: 'MainPic',
+        })}
+        transform={uploadTransformSingle}
+        convertValue={uploadConvertValue}
+        fieldProps={{
+          customRequest: (opt) => {
+            const { onProgress, onError, onSuccess, file, filename } = opt;
+            uploadApi(
+              '/v1/ticketing/activity/media',
+              {
+                file: file as any,
+                filename: filename,
+              },
+              onProgress,
+            )
+              .then((e) => {
+                onSuccess?.(e.data);
+              })
+              .catch((e: any) => {
+                onError?.(e);
+              });
+          },
+        }}
+        rules={[
+          {
+            required: true,
+          },
+        ]}
+      />
+      <ProFormUploadButton
         name="medias"
         label={intl.formatMessage({
           id: 'ticketing.activity.medias',
