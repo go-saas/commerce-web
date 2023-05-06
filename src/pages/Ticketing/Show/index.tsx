@@ -69,6 +69,26 @@ const TableList: React.FC = () => {
     }
   };
 
+  const handleRecommend = async (record: V1Show) => {
+    const hide = message.loading(
+      intl.formatMessage({ id: 'common.updating', defaultMessage: 'Updating...' }),
+    );
+    try {
+      await service.showServiceRecommendShow({
+        id: record.id!,
+        body: { isRecommend: !record.isRecommend },
+      });
+      hide();
+      message.success(
+        intl.formatMessage({ id: 'common.updated', defaultMessage: 'Update Successfully' }),
+      );
+      return true;
+    } catch (error) {
+      hide();
+      return false;
+    }
+  };
+
   const handleRemove = async (selectedRow: V1Show) => {
     const hide = message.loading(
       intl.formatMessage({ id: 'common.deleting', defaultMessage: 'Deleting...' }),
@@ -114,7 +134,11 @@ const TableList: React.FC = () => {
       dataIndex: ['timeRange'],
       valueType: 'dateTimeRange',
     },
-
+    {
+      title: <FormattedMessage id="ticketing.show.isRecommended" defaultMessage="Recommended" />,
+      dataIndex: ['isRecommended'],
+      valueType: 'switch',
+    },
     {
       title: <FormattedMessage id="common.operate" defaultMessage="Operate" />,
       key: 'option',
@@ -134,10 +158,16 @@ const TableList: React.FC = () => {
           key="actionGroup"
           onSelect={async (key) => {
             if (key === 'copyId') {
-              copy(record.id);
+              copy(record.id ?? '');
               message.success(
                 intl.formatMessage({ id: 'common.copied', defaultMessage: 'Copied!' }),
               );
+            }
+            if (key === 'recommend') {
+              const ok = await handleRecommend(record);
+              if (ok && actionRef.current) {
+                actionRef.current.reload();
+              }
             }
             if (key === 'delete') {
               const ok = await handleRemove(record);
@@ -150,6 +180,17 @@ const TableList: React.FC = () => {
             {
               key: 'copyId',
               name: <FormattedMessage id="common.copyId" defaultMessage="Copy Id" />,
+            },
+            {
+              key: 'recommend',
+              name: record.isRecommend ? (
+                <FormattedMessage
+                  id="ticketing.show.cancelRecommend"
+                  defaultMessage="Cancel Recommend"
+                />
+              ) : (
+                <FormattedMessage id="ticketing.show.setRecommend" defaultMessage="Set Recommend" />
+              ),
             },
             {
               key: 'delete',
