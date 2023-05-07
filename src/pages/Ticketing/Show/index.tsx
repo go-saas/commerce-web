@@ -136,7 +136,7 @@ const TableList: React.FC = () => {
     },
     {
       title: <FormattedMessage id="ticketing.show.isRecommended" defaultMessage="Recommended" />,
-      dataIndex: ['isRecommended'],
+      dataIndex: ['isRecommend'],
       valueType: 'switch',
     },
     {

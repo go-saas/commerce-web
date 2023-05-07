@@ -61,6 +61,12 @@ export default [
     component: './Ticketing/Banner',
   },
   {
+    name: 'order',
+    path: '/order',
+    layout: false,
+    component: './Order/Order',
+  },
+  {
     path: '/',
     redirect: '/welcome',
   },
