@@ -53,7 +53,7 @@ const UpdateForm: React.FC<UpdateFormProps> = (props) => {
         })}
         options={[
           { label: 'URL', value: 'URL' },
-          { label: 'ACTIIVITY', value: 'ACTIIVITY' },
+          { label: 'ACTIVITY', value: 'ACTIVITY' },
           { label: 'CATEGORY', value: 'CATEGORY' },
         ]}
         rules={[
