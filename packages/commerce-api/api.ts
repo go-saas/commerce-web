@@ -14,9 +14,11 @@
 
 
 
+export * from './api/activity-app-service-api';
 export * from './api/activity-service-api';
 export * from './api/brand-service-api';
 export * from './api/location-service-api';
+export * from './api/order-app-service-api';
 export * from './api/order-service-api';
 export * from './api/product-category-service-api';
 export * from './api/product-service-api';
@@ -26,6 +28,7 @@ export * from './api/ticket-app-service-api';
 export * from './api/ticket-service-api';
 export * from './api/ticketing-app-banner-service-api';
 export * from './api/ticketing-banner-service-api';
+export * from './api/ticketing-category-app-service-api';
 export * from './api/ticketing-category-service-api';
 export * from './api/usage-app-api';
 

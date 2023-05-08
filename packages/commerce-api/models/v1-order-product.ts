@@ -13,45 +13,54 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import { V1Order } from './v1-order';
 
 /**
  * 
  * @export
- * @interface V1ListOrderReply
+ * @interface V1OrderProduct
  */
-export interface V1ListOrderReply {
-    /**
-     * 
-     * @type {number}
-     * @memberof V1ListOrderReply
-     */
-    'totalSize'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof V1ListOrderReply
-     */
-    'filterSize'?: number;
-    /**
-     * 
-     * @type {Array<V1Order>}
-     * @memberof V1ListOrderReply
-     */
-    'items'?: Array<V1Order>;
+export interface V1OrderProduct {
     /**
      * 
      * @type {string}
-     * @memberof V1ListOrderReply
+     * @memberof V1OrderProduct
      */
-    'nextAfterPageToken'?: string | null;
+    'name'?: string;
     /**
      * 
      * @type {string}
-     * @memberof V1ListOrderReply
+     * @memberof V1OrderProduct
      */
-    'nextBeforePageToken'?: string | null;
+    'mainPic'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1OrderProduct
+     */
+    'id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1OrderProduct
+     */
+    'version'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1OrderProduct
+     */
+    'type'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1OrderProduct
+     */
+    'skuId'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1OrderProduct
+     */
+    'skuTitle'?: string;
 }
 

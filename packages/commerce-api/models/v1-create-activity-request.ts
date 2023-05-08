@@ -77,5 +77,11 @@ export interface V1CreateActivityRequest {
      * @memberof V1CreateActivityRequest
      */
     'duration'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1CreateActivityRequest
+     */
+    'notice'?: string;
 }
 

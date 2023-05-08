@@ -24,21 +24,31 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { GooglerpcStatus } from '../models';
 // @ts-ignore
+import { V1Activity } from '../models';
+// @ts-ignore
+import { V1ListActivityReply } from '../models';
+// @ts-ignore
+import { V1ListActivityRequest } from '../models';
+// @ts-ignore
+import { V1ListAppActivityShowReply } from '../models';
+// @ts-ignore
 import { V1ListAppBannerReply } from '../models';
 // @ts-ignore
-import { V1ListShowReply } from '../models';
+import { V1ListAppCategoryReply } from '../models';
 // @ts-ignore
-import { V1ListShowRequest } from '../models';
+import { V1ListOrderReply } from '../models';
+// @ts-ignore
+import { V1ListOrderRequest } from '../models';
 // @ts-ignore
 import { V1ListTicketReply } from '../models';
 // @ts-ignore
 import { V1ListTicketRequest } from '../models';
 // @ts-ignore
+import { V1Order } from '../models';
+// @ts-ignore
 import { V1PlaceShowOrderReply } from '../models';
 // @ts-ignore
 import { V1PlaceShowOrderRequest } from '../models';
-// @ts-ignore
-import { V1Show } from '../models';
 /**
  * UsageAppApi - axios parameter creator
  * @export
@@ -51,10 +61,10 @@ export const UsageAppApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        showAppServiceAppGetShow: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        activityAppServiceGetAppActivity: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('showAppServiceAppGetShow', 'id', id)
-            const localVarPath = `/v1/ticketing/app/show/{id}`
+            assertParamExists('activityAppServiceGetAppActivity', 'id', id)
+            const localVarPath = `/v1/ticketing/app/activity/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -120,11 +130,13 @@ export const UsageAppApiAxiosParamCreator = function (configuration?: Configurat
          * @param {boolean} [filterIsRecommend$neq] 
          * @param {boolean} [filterIsRecommend$null] 
          * @param {boolean} [filterIsRecommend$nnull] 
+         * @param {string} [afterPageToken] 
+         * @param {string} [beforePageToken] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        showAppServiceAppListShow: async (pageOffset?: number, pageSize?: number, search?: string, sort?: Array<string>, fields?: string, filterId$eq?: string, filterId$neq?: string, filterId$contains?: string, filterId$startsWith?: string, filterId$nstartsWith?: string, filterId$endsWith?: string, filterId$nendsWith?: string, filterId$in?: Array<string>, filterId$nin?: Array<string>, filterId$null?: boolean, filterId$nnull?: boolean, filterId$empty?: boolean, filterId$nempty?: boolean, filterId$like?: string, filterName$eq?: string, filterName$neq?: string, filterName$contains?: string, filterName$startsWith?: string, filterName$nstartsWith?: string, filterName$endsWith?: string, filterName$nendsWith?: string, filterName$in?: Array<string>, filterName$nin?: Array<string>, filterName$null?: boolean, filterName$nnull?: boolean, filterName$empty?: boolean, filterName$nempty?: boolean, filterName$like?: string, filterIsRecommend$eq?: boolean, filterIsRecommend$neq?: boolean, filterIsRecommend$null?: boolean, filterIsRecommend$nnull?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/ticketing/app/show`;
+        activityAppServiceListAppActivity: async (pageOffset?: number, pageSize?: number, search?: string, sort?: Array<string>, fields?: string, filterId$eq?: string, filterId$neq?: string, filterId$contains?: string, filterId$startsWith?: string, filterId$nstartsWith?: string, filterId$endsWith?: string, filterId$nendsWith?: string, filterId$in?: Array<string>, filterId$nin?: Array<string>, filterId$null?: boolean, filterId$nnull?: boolean, filterId$empty?: boolean, filterId$nempty?: boolean, filterId$like?: string, filterName$eq?: string, filterName$neq?: string, filterName$contains?: string, filterName$startsWith?: string, filterName$nstartsWith?: string, filterName$endsWith?: string, filterName$nendsWith?: string, filterName$in?: Array<string>, filterName$nin?: Array<string>, filterName$null?: boolean, filterName$nnull?: boolean, filterName$empty?: boolean, filterName$nempty?: boolean, filterName$like?: string, filterIsRecommend$eq?: boolean, filterIsRecommend$neq?: boolean, filterIsRecommend$null?: boolean, filterIsRecommend$nnull?: boolean, afterPageToken?: string, beforePageToken?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/ticketing/app/activity`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -287,6 +299,14 @@ export const UsageAppApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['filter.isRecommend.$nnull'] = filterIsRecommend$nnull;
             }
 
+            if (afterPageToken !== undefined) {
+                localVarQueryParameter['afterPageToken'] = afterPageToken;
+            }
+
+            if (beforePageToken !== undefined) {
+                localVarQueryParameter['beforePageToken'] = beforePageToken;
+            }
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -300,14 +320,401 @@ export const UsageAppApiAxiosParamCreator = function (configuration?: Configurat
         },
         /**
          * 
-         * @param {V1ListShowRequest} body 
+         * @param {V1ListActivityRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        showAppServiceAppListShow2: async (body: V1ListShowRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        activityAppServiceListAppActivity2: async (body: V1ListActivityRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
-            assertParamExists('showAppServiceAppListShow2', 'body', body)
-            const localVarPath = `/v1/ticketing/app/show/list`;
+            assertParamExists('activityAppServiceListAppActivity2', 'body', body)
+            const localVarPath = `/v1/ticketing/app/activity/list`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        activityAppServiceListAppActivityShow: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('activityAppServiceListAppActivityShow', 'id', id)
+            const localVarPath = `/v1/ticketing/app/activity/{id}/show`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        orderAppServiceGetAppOrder: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('orderAppServiceGetAppOrder', 'id', id)
+            const localVarPath = `/v1/order/app/order/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {number} [pageOffset] 
+         * @param {number} [pageSize] 
+         * @param {string} [search] 
+         * @param {Array<string>} [sort] 
+         * @param {string} [fields] 
+         * @param {string} [filterId$eq] 
+         * @param {string} [filterId$neq] 
+         * @param {string} [filterId$contains] 
+         * @param {string} [filterId$startsWith] 
+         * @param {string} [filterId$nstartsWith] 
+         * @param {string} [filterId$endsWith] 
+         * @param {string} [filterId$nendsWith] 
+         * @param {Array<string>} [filterId$in] 
+         * @param {Array<string>} [filterId$nin] 
+         * @param {boolean} [filterId$null] 
+         * @param {boolean} [filterId$nnull] 
+         * @param {boolean} [filterId$empty] 
+         * @param {boolean} [filterId$nempty] 
+         * @param {string} [filterId$like] 
+         * @param {string} [filterName$eq] 
+         * @param {string} [filterName$neq] 
+         * @param {string} [filterName$contains] 
+         * @param {string} [filterName$startsWith] 
+         * @param {string} [filterName$nstartsWith] 
+         * @param {string} [filterName$endsWith] 
+         * @param {string} [filterName$nendsWith] 
+         * @param {Array<string>} [filterName$in] 
+         * @param {Array<string>} [filterName$nin] 
+         * @param {boolean} [filterName$null] 
+         * @param {boolean} [filterName$nnull] 
+         * @param {boolean} [filterName$empty] 
+         * @param {boolean} [filterName$nempty] 
+         * @param {string} [filterName$like] 
+         * @param {string} [filterCustomerId$eq] 
+         * @param {string} [filterCustomerId$neq] 
+         * @param {string} [filterCustomerId$contains] 
+         * @param {string} [filterCustomerId$startsWith] 
+         * @param {string} [filterCustomerId$nstartsWith] 
+         * @param {string} [filterCustomerId$endsWith] 
+         * @param {string} [filterCustomerId$nendsWith] 
+         * @param {Array<string>} [filterCustomerId$in] 
+         * @param {Array<string>} [filterCustomerId$nin] 
+         * @param {boolean} [filterCustomerId$null] 
+         * @param {boolean} [filterCustomerId$nnull] 
+         * @param {boolean} [filterCustomerId$empty] 
+         * @param {boolean} [filterCustomerId$nempty] 
+         * @param {string} [filterCustomerId$like] 
+         * @param {string} [afterPageToken] 
+         * @param {string} [beforePageToken] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        orderAppServiceListAppOrder: async (pageOffset?: number, pageSize?: number, search?: string, sort?: Array<string>, fields?: string, filterId$eq?: string, filterId$neq?: string, filterId$contains?: string, filterId$startsWith?: string, filterId$nstartsWith?: string, filterId$endsWith?: string, filterId$nendsWith?: string, filterId$in?: Array<string>, filterId$nin?: Array<string>, filterId$null?: boolean, filterId$nnull?: boolean, filterId$empty?: boolean, filterId$nempty?: boolean, filterId$like?: string, filterName$eq?: string, filterName$neq?: string, filterName$contains?: string, filterName$startsWith?: string, filterName$nstartsWith?: string, filterName$endsWith?: string, filterName$nendsWith?: string, filterName$in?: Array<string>, filterName$nin?: Array<string>, filterName$null?: boolean, filterName$nnull?: boolean, filterName$empty?: boolean, filterName$nempty?: boolean, filterName$like?: string, filterCustomerId$eq?: string, filterCustomerId$neq?: string, filterCustomerId$contains?: string, filterCustomerId$startsWith?: string, filterCustomerId$nstartsWith?: string, filterCustomerId$endsWith?: string, filterCustomerId$nendsWith?: string, filterCustomerId$in?: Array<string>, filterCustomerId$nin?: Array<string>, filterCustomerId$null?: boolean, filterCustomerId$nnull?: boolean, filterCustomerId$empty?: boolean, filterCustomerId$nempty?: boolean, filterCustomerId$like?: string, afterPageToken?: string, beforePageToken?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/order/app/order`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+            if (pageOffset !== undefined) {
+                localVarQueryParameter['pageOffset'] = pageOffset;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['pageSize'] = pageSize;
+            }
+
+            if (search !== undefined) {
+                localVarQueryParameter['search'] = search;
+            }
+
+            if (sort) {
+                localVarQueryParameter['sort'] = sort;
+            }
+
+            if (fields !== undefined) {
+                localVarQueryParameter['fields'] = fields;
+            }
+
+            if (filterId$eq !== undefined) {
+                localVarQueryParameter['filter.id.$eq'] = filterId$eq;
+            }
+
+            if (filterId$neq !== undefined) {
+                localVarQueryParameter['filter.id.$neq'] = filterId$neq;
+            }
+
+            if (filterId$contains !== undefined) {
+                localVarQueryParameter['filter.id.$contains'] = filterId$contains;
+            }
+
+            if (filterId$startsWith !== undefined) {
+                localVarQueryParameter['filter.id.$starts_with'] = filterId$startsWith;
+            }
+
+            if (filterId$nstartsWith !== undefined) {
+                localVarQueryParameter['filter.id.$nstarts_with'] = filterId$nstartsWith;
+            }
+
+            if (filterId$endsWith !== undefined) {
+                localVarQueryParameter['filter.id.$ends_with'] = filterId$endsWith;
+            }
+
+            if (filterId$nendsWith !== undefined) {
+                localVarQueryParameter['filter.id.$nends_with'] = filterId$nendsWith;
+            }
+
+            if (filterId$in) {
+                localVarQueryParameter['filter.id.$in'] = filterId$in;
+            }
+
+            if (filterId$nin) {
+                localVarQueryParameter['filter.id.$nin'] = filterId$nin;
+            }
+
+            if (filterId$null !== undefined) {
+                localVarQueryParameter['filter.id.$null'] = filterId$null;
+            }
+
+            if (filterId$nnull !== undefined) {
+                localVarQueryParameter['filter.id.$nnull'] = filterId$nnull;
+            }
+
+            if (filterId$empty !== undefined) {
+                localVarQueryParameter['filter.id.$empty'] = filterId$empty;
+            }
+
+            if (filterId$nempty !== undefined) {
+                localVarQueryParameter['filter.id.$nempty'] = filterId$nempty;
+            }
+
+            if (filterId$like !== undefined) {
+                localVarQueryParameter['filter.id.$like'] = filterId$like;
+            }
+
+            if (filterName$eq !== undefined) {
+                localVarQueryParameter['filter.name.$eq'] = filterName$eq;
+            }
+
+            if (filterName$neq !== undefined) {
+                localVarQueryParameter['filter.name.$neq'] = filterName$neq;
+            }
+
+            if (filterName$contains !== undefined) {
+                localVarQueryParameter['filter.name.$contains'] = filterName$contains;
+            }
+
+            if (filterName$startsWith !== undefined) {
+                localVarQueryParameter['filter.name.$starts_with'] = filterName$startsWith;
+            }
+
+            if (filterName$nstartsWith !== undefined) {
+                localVarQueryParameter['filter.name.$nstarts_with'] = filterName$nstartsWith;
+            }
+
+            if (filterName$endsWith !== undefined) {
+                localVarQueryParameter['filter.name.$ends_with'] = filterName$endsWith;
+            }
+
+            if (filterName$nendsWith !== undefined) {
+                localVarQueryParameter['filter.name.$nends_with'] = filterName$nendsWith;
+            }
+
+            if (filterName$in) {
+                localVarQueryParameter['filter.name.$in'] = filterName$in;
+            }
+
+            if (filterName$nin) {
+                localVarQueryParameter['filter.name.$nin'] = filterName$nin;
+            }
+
+            if (filterName$null !== undefined) {
+                localVarQueryParameter['filter.name.$null'] = filterName$null;
+            }
+
+            if (filterName$nnull !== undefined) {
+                localVarQueryParameter['filter.name.$nnull'] = filterName$nnull;
+            }
+
+            if (filterName$empty !== undefined) {
+                localVarQueryParameter['filter.name.$empty'] = filterName$empty;
+            }
+
+            if (filterName$nempty !== undefined) {
+                localVarQueryParameter['filter.name.$nempty'] = filterName$nempty;
+            }
+
+            if (filterName$like !== undefined) {
+                localVarQueryParameter['filter.name.$like'] = filterName$like;
+            }
+
+            if (filterCustomerId$eq !== undefined) {
+                localVarQueryParameter['filter.customerId.$eq'] = filterCustomerId$eq;
+            }
+
+            if (filterCustomerId$neq !== undefined) {
+                localVarQueryParameter['filter.customerId.$neq'] = filterCustomerId$neq;
+            }
+
+            if (filterCustomerId$contains !== undefined) {
+                localVarQueryParameter['filter.customerId.$contains'] = filterCustomerId$contains;
+            }
+
+            if (filterCustomerId$startsWith !== undefined) {
+                localVarQueryParameter['filter.customerId.$starts_with'] = filterCustomerId$startsWith;
+            }
+
+            if (filterCustomerId$nstartsWith !== undefined) {
+                localVarQueryParameter['filter.customerId.$nstarts_with'] = filterCustomerId$nstartsWith;
+            }
+
+            if (filterCustomerId$endsWith !== undefined) {
+                localVarQueryParameter['filter.customerId.$ends_with'] = filterCustomerId$endsWith;
+            }
+
+            if (filterCustomerId$nendsWith !== undefined) {
+                localVarQueryParameter['filter.customerId.$nends_with'] = filterCustomerId$nendsWith;
+            }
+
+            if (filterCustomerId$in) {
+                localVarQueryParameter['filter.customerId.$in'] = filterCustomerId$in;
+            }
+
+            if (filterCustomerId$nin) {
+                localVarQueryParameter['filter.customerId.$nin'] = filterCustomerId$nin;
+            }
+
+            if (filterCustomerId$null !== undefined) {
+                localVarQueryParameter['filter.customerId.$null'] = filterCustomerId$null;
+            }
+
+            if (filterCustomerId$nnull !== undefined) {
+                localVarQueryParameter['filter.customerId.$nnull'] = filterCustomerId$nnull;
+            }
+
+            if (filterCustomerId$empty !== undefined) {
+                localVarQueryParameter['filter.customerId.$empty'] = filterCustomerId$empty;
+            }
+
+            if (filterCustomerId$nempty !== undefined) {
+                localVarQueryParameter['filter.customerId.$nempty'] = filterCustomerId$nempty;
+            }
+
+            if (filterCustomerId$like !== undefined) {
+                localVarQueryParameter['filter.customerId.$like'] = filterCustomerId$like;
+            }
+
+            if (afterPageToken !== undefined) {
+                localVarQueryParameter['afterPageToken'] = afterPageToken;
+            }
+
+            if (beforePageToken !== undefined) {
+                localVarQueryParameter['beforePageToken'] = beforePageToken;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {V1ListOrderRequest} body 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        orderAppServiceListAppOrder2: async (body: V1ListOrderRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'body' is not null or undefined
+            assertParamExists('orderAppServiceListAppOrder2', 'body', body)
+            const localVarPath = `/v1/order/app/order/list`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -651,6 +1058,76 @@ export const UsageAppApiAxiosParamCreator = function (configuration?: Configurat
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        ticketingCategoryAppServiceListAppCategory: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/ticketing/app/category`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {object} body 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        ticketingCategoryAppServiceListAppCategory2: async (body: object, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'body' is not null or undefined
+            assertParamExists('ticketingCategoryAppServiceListAppCategory2', 'body', body)
+            const localVarPath = `/v1/ticketing/app/category/list`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -667,8 +1144,8 @@ export const UsageAppApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async showAppServiceAppGetShow(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1Show>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.showAppServiceAppGetShow(id, options);
+        async activityAppServiceGetAppActivity(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1Activity>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.activityAppServiceGetAppActivity(id, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -710,21 +1187,111 @@ export const UsageAppApiFp = function(configuration?: Configuration) {
          * @param {boolean} [filterIsRecommend$neq] 
          * @param {boolean} [filterIsRecommend$null] 
          * @param {boolean} [filterIsRecommend$nnull] 
+         * @param {string} [afterPageToken] 
+         * @param {string} [beforePageToken] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async showAppServiceAppListShow(pageOffset?: number, pageSize?: number, search?: string, sort?: Array<string>, fields?: string, filterId$eq?: string, filterId$neq?: string, filterId$contains?: string, filterId$startsWith?: string, filterId$nstartsWith?: string, filterId$endsWith?: string, filterId$nendsWith?: string, filterId$in?: Array<string>, filterId$nin?: Array<string>, filterId$null?: boolean, filterId$nnull?: boolean, filterId$empty?: boolean, filterId$nempty?: boolean, filterId$like?: string, filterName$eq?: string, filterName$neq?: string, filterName$contains?: string, filterName$startsWith?: string, filterName$nstartsWith?: string, filterName$endsWith?: string, filterName$nendsWith?: string, filterName$in?: Array<string>, filterName$nin?: Array<string>, filterName$null?: boolean, filterName$nnull?: boolean, filterName$empty?: boolean, filterName$nempty?: boolean, filterName$like?: string, filterIsRecommend$eq?: boolean, filterIsRecommend$neq?: boolean, filterIsRecommend$null?: boolean, filterIsRecommend$nnull?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1ListShowReply>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.showAppServiceAppListShow(pageOffset, pageSize, search, sort, fields, filterId$eq, filterId$neq, filterId$contains, filterId$startsWith, filterId$nstartsWith, filterId$endsWith, filterId$nendsWith, filterId$in, filterId$nin, filterId$null, filterId$nnull, filterId$empty, filterId$nempty, filterId$like, filterName$eq, filterName$neq, filterName$contains, filterName$startsWith, filterName$nstartsWith, filterName$endsWith, filterName$nendsWith, filterName$in, filterName$nin, filterName$null, filterName$nnull, filterName$empty, filterName$nempty, filterName$like, filterIsRecommend$eq, filterIsRecommend$neq, filterIsRecommend$null, filterIsRecommend$nnull, options);
+        async activityAppServiceListAppActivity(pageOffset?: number, pageSize?: number, search?: string, sort?: Array<string>, fields?: string, filterId$eq?: string, filterId$neq?: string, filterId$contains?: string, filterId$startsWith?: string, filterId$nstartsWith?: string, filterId$endsWith?: string, filterId$nendsWith?: string, filterId$in?: Array<string>, filterId$nin?: Array<string>, filterId$null?: boolean, filterId$nnull?: boolean, filterId$empty?: boolean, filterId$nempty?: boolean, filterId$like?: string, filterName$eq?: string, filterName$neq?: string, filterName$contains?: string, filterName$startsWith?: string, filterName$nstartsWith?: string, filterName$endsWith?: string, filterName$nendsWith?: string, filterName$in?: Array<string>, filterName$nin?: Array<string>, filterName$null?: boolean, filterName$nnull?: boolean, filterName$empty?: boolean, filterName$nempty?: boolean, filterName$like?: string, filterIsRecommend$eq?: boolean, filterIsRecommend$neq?: boolean, filterIsRecommend$null?: boolean, filterIsRecommend$nnull?: boolean, afterPageToken?: string, beforePageToken?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1ListActivityReply>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.activityAppServiceListAppActivity(pageOffset, pageSize, search, sort, fields, filterId$eq, filterId$neq, filterId$contains, filterId$startsWith, filterId$nstartsWith, filterId$endsWith, filterId$nendsWith, filterId$in, filterId$nin, filterId$null, filterId$nnull, filterId$empty, filterId$nempty, filterId$like, filterName$eq, filterName$neq, filterName$contains, filterName$startsWith, filterName$nstartsWith, filterName$endsWith, filterName$nendsWith, filterName$in, filterName$nin, filterName$null, filterName$nnull, filterName$empty, filterName$nempty, filterName$like, filterIsRecommend$eq, filterIsRecommend$neq, filterIsRecommend$null, filterIsRecommend$nnull, afterPageToken, beforePageToken, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
-         * @param {V1ListShowRequest} body 
+         * @param {V1ListActivityRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async showAppServiceAppListShow2(body: V1ListShowRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1ListShowReply>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.showAppServiceAppListShow2(body, options);
+        async activityAppServiceListAppActivity2(body: V1ListActivityRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1ListActivityReply>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.activityAppServiceListAppActivity2(body, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async activityAppServiceListAppActivityShow(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1ListAppActivityShowReply>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.activityAppServiceListAppActivityShow(id, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async orderAppServiceGetAppOrder(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1Order>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.orderAppServiceGetAppOrder(id, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @param {number} [pageOffset] 
+         * @param {number} [pageSize] 
+         * @param {string} [search] 
+         * @param {Array<string>} [sort] 
+         * @param {string} [fields] 
+         * @param {string} [filterId$eq] 
+         * @param {string} [filterId$neq] 
+         * @param {string} [filterId$contains] 
+         * @param {string} [filterId$startsWith] 
+         * @param {string} [filterId$nstartsWith] 
+         * @param {string} [filterId$endsWith] 
+         * @param {string} [filterId$nendsWith] 
+         * @param {Array<string>} [filterId$in] 
+         * @param {Array<string>} [filterId$nin] 
+         * @param {boolean} [filterId$null] 
+         * @param {boolean} [filterId$nnull] 
+         * @param {boolean} [filterId$empty] 
+         * @param {boolean} [filterId$nempty] 
+         * @param {string} [filterId$like] 
+         * @param {string} [filterName$eq] 
+         * @param {string} [filterName$neq] 
+         * @param {string} [filterName$contains] 
+         * @param {string} [filterName$startsWith] 
+         * @param {string} [filterName$nstartsWith] 
+         * @param {string} [filterName$endsWith] 
+         * @param {string} [filterName$nendsWith] 
+         * @param {Array<string>} [filterName$in] 
+         * @param {Array<string>} [filterName$nin] 
+         * @param {boolean} [filterName$null] 
+         * @param {boolean} [filterName$nnull] 
+         * @param {boolean} [filterName$empty] 
+         * @param {boolean} [filterName$nempty] 
+         * @param {string} [filterName$like] 
+         * @param {string} [filterCustomerId$eq] 
+         * @param {string} [filterCustomerId$neq] 
+         * @param {string} [filterCustomerId$contains] 
+         * @param {string} [filterCustomerId$startsWith] 
+         * @param {string} [filterCustomerId$nstartsWith] 
+         * @param {string} [filterCustomerId$endsWith] 
+         * @param {string} [filterCustomerId$nendsWith] 
+         * @param {Array<string>} [filterCustomerId$in] 
+         * @param {Array<string>} [filterCustomerId$nin] 
+         * @param {boolean} [filterCustomerId$null] 
+         * @param {boolean} [filterCustomerId$nnull] 
+         * @param {boolean} [filterCustomerId$empty] 
+         * @param {boolean} [filterCustomerId$nempty] 
+         * @param {string} [filterCustomerId$like] 
+         * @param {string} [afterPageToken] 
+         * @param {string} [beforePageToken] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async orderAppServiceListAppOrder(pageOffset?: number, pageSize?: number, search?: string, sort?: Array<string>, fields?: string, filterId$eq?: string, filterId$neq?: string, filterId$contains?: string, filterId$startsWith?: string, filterId$nstartsWith?: string, filterId$endsWith?: string, filterId$nendsWith?: string, filterId$in?: Array<string>, filterId$nin?: Array<string>, filterId$null?: boolean, filterId$nnull?: boolean, filterId$empty?: boolean, filterId$nempty?: boolean, filterId$like?: string, filterName$eq?: string, filterName$neq?: string, filterName$contains?: string, filterName$startsWith?: string, filterName$nstartsWith?: string, filterName$endsWith?: string, filterName$nendsWith?: string, filterName$in?: Array<string>, filterName$nin?: Array<string>, filterName$null?: boolean, filterName$nnull?: boolean, filterName$empty?: boolean, filterName$nempty?: boolean, filterName$like?: string, filterCustomerId$eq?: string, filterCustomerId$neq?: string, filterCustomerId$contains?: string, filterCustomerId$startsWith?: string, filterCustomerId$nstartsWith?: string, filterCustomerId$endsWith?: string, filterCustomerId$nendsWith?: string, filterCustomerId$in?: Array<string>, filterCustomerId$nin?: Array<string>, filterCustomerId$null?: boolean, filterCustomerId$nnull?: boolean, filterCustomerId$empty?: boolean, filterCustomerId$nempty?: boolean, filterCustomerId$like?: string, afterPageToken?: string, beforePageToken?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1ListOrderReply>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.orderAppServiceListAppOrder(pageOffset, pageSize, search, sort, fields, filterId$eq, filterId$neq, filterId$contains, filterId$startsWith, filterId$nstartsWith, filterId$endsWith, filterId$nendsWith, filterId$in, filterId$nin, filterId$null, filterId$nnull, filterId$empty, filterId$nempty, filterId$like, filterName$eq, filterName$neq, filterName$contains, filterName$startsWith, filterName$nstartsWith, filterName$endsWith, filterName$nendsWith, filterName$in, filterName$nin, filterName$null, filterName$nnull, filterName$empty, filterName$nempty, filterName$like, filterCustomerId$eq, filterCustomerId$neq, filterCustomerId$contains, filterCustomerId$startsWith, filterCustomerId$nstartsWith, filterCustomerId$endsWith, filterCustomerId$nendsWith, filterCustomerId$in, filterCustomerId$nin, filterCustomerId$null, filterCustomerId$nnull, filterCustomerId$empty, filterCustomerId$nempty, filterCustomerId$like, afterPageToken, beforePageToken, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @param {V1ListOrderRequest} body 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async orderAppServiceListAppOrder2(body: V1ListOrderRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1ListOrderReply>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.orderAppServiceListAppOrder2(body, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -800,6 +1367,25 @@ export const UsageAppApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.ticketingAppBannerServiceListAppBanner(options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async ticketingCategoryAppServiceListAppCategory(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1ListAppCategoryReply>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.ticketingCategoryAppServiceListAppCategory(options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @param {object} body 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async ticketingCategoryAppServiceListAppCategory2(body: object, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1ListAppCategoryReply>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.ticketingCategoryAppServiceListAppCategory2(body, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
     }
 };
 
@@ -812,30 +1398,66 @@ export const UsageAppApiFactory = function (configuration?: Configuration, baseP
     return {
         /**
          * 
-         * @param {UsageAppApiShowAppServiceAppGetShowRequest} requestParameters Request parameters.
+         * @param {UsageAppApiActivityAppServiceGetAppActivityRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        showAppServiceAppGetShow(requestParameters: UsageAppApiShowAppServiceAppGetShowRequest, options?: AxiosRequestConfig): AxiosPromise<V1Show> {
-            return localVarFp.showAppServiceAppGetShow(requestParameters.id, options).then((request) => request(axios, basePath));
+        activityAppServiceGetAppActivity(requestParameters: UsageAppApiActivityAppServiceGetAppActivityRequest, options?: AxiosRequestConfig): AxiosPromise<V1Activity> {
+            return localVarFp.activityAppServiceGetAppActivity(requestParameters.id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {UsageAppApiShowAppServiceAppListShowRequest} requestParameters Request parameters.
+         * @param {UsageAppApiActivityAppServiceListAppActivityRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        showAppServiceAppListShow(requestParameters: UsageAppApiShowAppServiceAppListShowRequest = {}, options?: AxiosRequestConfig): AxiosPromise<V1ListShowReply> {
-            return localVarFp.showAppServiceAppListShow(requestParameters.pageOffset, requestParameters.pageSize, requestParameters.search, requestParameters.sort, requestParameters.fields, requestParameters.filterId$eq, requestParameters.filterId$neq, requestParameters.filterId$contains, requestParameters.filterId$startsWith, requestParameters.filterId$nstartsWith, requestParameters.filterId$endsWith, requestParameters.filterId$nendsWith, requestParameters.filterId$in, requestParameters.filterId$nin, requestParameters.filterId$null, requestParameters.filterId$nnull, requestParameters.filterId$empty, requestParameters.filterId$nempty, requestParameters.filterId$like, requestParameters.filterName$eq, requestParameters.filterName$neq, requestParameters.filterName$contains, requestParameters.filterName$startsWith, requestParameters.filterName$nstartsWith, requestParameters.filterName$endsWith, requestParameters.filterName$nendsWith, requestParameters.filterName$in, requestParameters.filterName$nin, requestParameters.filterName$null, requestParameters.filterName$nnull, requestParameters.filterName$empty, requestParameters.filterName$nempty, requestParameters.filterName$like, requestParameters.filterIsRecommend$eq, requestParameters.filterIsRecommend$neq, requestParameters.filterIsRecommend$null, requestParameters.filterIsRecommend$nnull, options).then((request) => request(axios, basePath));
+        activityAppServiceListAppActivity(requestParameters: UsageAppApiActivityAppServiceListAppActivityRequest = {}, options?: AxiosRequestConfig): AxiosPromise<V1ListActivityReply> {
+            return localVarFp.activityAppServiceListAppActivity(requestParameters.pageOffset, requestParameters.pageSize, requestParameters.search, requestParameters.sort, requestParameters.fields, requestParameters.filterId$eq, requestParameters.filterId$neq, requestParameters.filterId$contains, requestParameters.filterId$startsWith, requestParameters.filterId$nstartsWith, requestParameters.filterId$endsWith, requestParameters.filterId$nendsWith, requestParameters.filterId$in, requestParameters.filterId$nin, requestParameters.filterId$null, requestParameters.filterId$nnull, requestParameters.filterId$empty, requestParameters.filterId$nempty, requestParameters.filterId$like, requestParameters.filterName$eq, requestParameters.filterName$neq, requestParameters.filterName$contains, requestParameters.filterName$startsWith, requestParameters.filterName$nstartsWith, requestParameters.filterName$endsWith, requestParameters.filterName$nendsWith, requestParameters.filterName$in, requestParameters.filterName$nin, requestParameters.filterName$null, requestParameters.filterName$nnull, requestParameters.filterName$empty, requestParameters.filterName$nempty, requestParameters.filterName$like, requestParameters.filterIsRecommend$eq, requestParameters.filterIsRecommend$neq, requestParameters.filterIsRecommend$null, requestParameters.filterIsRecommend$nnull, requestParameters.afterPageToken, requestParameters.beforePageToken, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {UsageAppApiShowAppServiceAppListShow2Request} requestParameters Request parameters.
+         * @param {UsageAppApiActivityAppServiceListAppActivity2Request} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        showAppServiceAppListShow2(requestParameters: UsageAppApiShowAppServiceAppListShow2Request, options?: AxiosRequestConfig): AxiosPromise<V1ListShowReply> {
-            return localVarFp.showAppServiceAppListShow2(requestParameters.body, options).then((request) => request(axios, basePath));
+        activityAppServiceListAppActivity2(requestParameters: UsageAppApiActivityAppServiceListAppActivity2Request, options?: AxiosRequestConfig): AxiosPromise<V1ListActivityReply> {
+            return localVarFp.activityAppServiceListAppActivity2(requestParameters.body, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {UsageAppApiActivityAppServiceListAppActivityShowRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        activityAppServiceListAppActivityShow(requestParameters: UsageAppApiActivityAppServiceListAppActivityShowRequest, options?: AxiosRequestConfig): AxiosPromise<V1ListAppActivityShowReply> {
+            return localVarFp.activityAppServiceListAppActivityShow(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {UsageAppApiOrderAppServiceGetAppOrderRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        orderAppServiceGetAppOrder(requestParameters: UsageAppApiOrderAppServiceGetAppOrderRequest, options?: AxiosRequestConfig): AxiosPromise<V1Order> {
+            return localVarFp.orderAppServiceGetAppOrder(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {UsageAppApiOrderAppServiceListAppOrderRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        orderAppServiceListAppOrder(requestParameters: UsageAppApiOrderAppServiceListAppOrderRequest = {}, options?: AxiosRequestConfig): AxiosPromise<V1ListOrderReply> {
+            return localVarFp.orderAppServiceListAppOrder(requestParameters.pageOffset, requestParameters.pageSize, requestParameters.search, requestParameters.sort, requestParameters.fields, requestParameters.filterId$eq, requestParameters.filterId$neq, requestParameters.filterId$contains, requestParameters.filterId$startsWith, requestParameters.filterId$nstartsWith, requestParameters.filterId$endsWith, requestParameters.filterId$nendsWith, requestParameters.filterId$in, requestParameters.filterId$nin, requestParameters.filterId$null, requestParameters.filterId$nnull, requestParameters.filterId$empty, requestParameters.filterId$nempty, requestParameters.filterId$like, requestParameters.filterName$eq, requestParameters.filterName$neq, requestParameters.filterName$contains, requestParameters.filterName$startsWith, requestParameters.filterName$nstartsWith, requestParameters.filterName$endsWith, requestParameters.filterName$nendsWith, requestParameters.filterName$in, requestParameters.filterName$nin, requestParameters.filterName$null, requestParameters.filterName$nnull, requestParameters.filterName$empty, requestParameters.filterName$nempty, requestParameters.filterName$like, requestParameters.filterCustomerId$eq, requestParameters.filterCustomerId$neq, requestParameters.filterCustomerId$contains, requestParameters.filterCustomerId$startsWith, requestParameters.filterCustomerId$nstartsWith, requestParameters.filterCustomerId$endsWith, requestParameters.filterCustomerId$nendsWith, requestParameters.filterCustomerId$in, requestParameters.filterCustomerId$nin, requestParameters.filterCustomerId$null, requestParameters.filterCustomerId$nnull, requestParameters.filterCustomerId$empty, requestParameters.filterCustomerId$nempty, requestParameters.filterCustomerId$like, requestParameters.afterPageToken, requestParameters.beforePageToken, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {UsageAppApiOrderAppServiceListAppOrder2Request} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        orderAppServiceListAppOrder2(requestParameters: UsageAppApiOrderAppServiceListAppOrder2Request, options?: AxiosRequestConfig): AxiosPromise<V1ListOrderReply> {
+            return localVarFp.orderAppServiceListAppOrder2(requestParameters.body, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -872,301 +1494,724 @@ export const UsageAppApiFactory = function (configuration?: Configuration, baseP
         ticketingAppBannerServiceListAppBanner(options?: AxiosRequestConfig): AxiosPromise<V1ListAppBannerReply> {
             return localVarFp.ticketingAppBannerServiceListAppBanner(options).then((request) => request(axios, basePath));
         },
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        ticketingCategoryAppServiceListAppCategory(options?: AxiosRequestConfig): AxiosPromise<V1ListAppCategoryReply> {
+            return localVarFp.ticketingCategoryAppServiceListAppCategory(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {UsageAppApiTicketingCategoryAppServiceListAppCategory2Request} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        ticketingCategoryAppServiceListAppCategory2(requestParameters: UsageAppApiTicketingCategoryAppServiceListAppCategory2Request, options?: AxiosRequestConfig): AxiosPromise<V1ListAppCategoryReply> {
+            return localVarFp.ticketingCategoryAppServiceListAppCategory2(requestParameters.body, options).then((request) => request(axios, basePath));
+        },
     };
 };
 
 /**
- * Request parameters for showAppServiceAppGetShow operation in UsageAppApi.
+ * Request parameters for activityAppServiceGetAppActivity operation in UsageAppApi.
  * @export
- * @interface UsageAppApiShowAppServiceAppGetShowRequest
+ * @interface UsageAppApiActivityAppServiceGetAppActivityRequest
  */
-export interface UsageAppApiShowAppServiceAppGetShowRequest {
+export interface UsageAppApiActivityAppServiceGetAppActivityRequest {
     /**
      * 
      * @type {string}
-     * @memberof UsageAppApiShowAppServiceAppGetShow
+     * @memberof UsageAppApiActivityAppServiceGetAppActivity
      */
     readonly id: string
 }
 
 /**
- * Request parameters for showAppServiceAppListShow operation in UsageAppApi.
+ * Request parameters for activityAppServiceListAppActivity operation in UsageAppApi.
  * @export
- * @interface UsageAppApiShowAppServiceAppListShowRequest
+ * @interface UsageAppApiActivityAppServiceListAppActivityRequest
  */
-export interface UsageAppApiShowAppServiceAppListShowRequest {
+export interface UsageAppApiActivityAppServiceListAppActivityRequest {
     /**
      * 
      * @type {number}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly pageOffset?: number
 
     /**
      * 
      * @type {number}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly pageSize?: number
 
     /**
      * 
      * @type {string}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly search?: string
 
     /**
      * 
      * @type {Array<string>}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly sort?: Array<string>
 
     /**
      * 
      * @type {string}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly fields?: string
 
     /**
      * 
      * @type {string}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterId$eq?: string
 
     /**
      * 
      * @type {string}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterId$neq?: string
 
     /**
      * 
      * @type {string}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterId$contains?: string
 
     /**
      * 
      * @type {string}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterId$startsWith?: string
 
     /**
      * 
      * @type {string}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterId$nstartsWith?: string
 
     /**
      * 
      * @type {string}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterId$endsWith?: string
 
     /**
      * 
      * @type {string}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterId$nendsWith?: string
 
     /**
      * 
      * @type {Array<string>}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterId$in?: Array<string>
 
     /**
      * 
      * @type {Array<string>}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterId$nin?: Array<string>
 
     /**
      * 
      * @type {boolean}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterId$null?: boolean
 
     /**
      * 
      * @type {boolean}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterId$nnull?: boolean
 
     /**
      * 
      * @type {boolean}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterId$empty?: boolean
 
     /**
      * 
      * @type {boolean}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterId$nempty?: boolean
 
     /**
      * 
      * @type {string}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterId$like?: string
 
     /**
      * 
      * @type {string}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterName$eq?: string
 
     /**
      * 
      * @type {string}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterName$neq?: string
 
     /**
      * 
      * @type {string}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterName$contains?: string
 
     /**
      * 
      * @type {string}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterName$startsWith?: string
 
     /**
      * 
      * @type {string}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterName$nstartsWith?: string
 
     /**
      * 
      * @type {string}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterName$endsWith?: string
 
     /**
      * 
      * @type {string}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterName$nendsWith?: string
 
     /**
      * 
      * @type {Array<string>}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterName$in?: Array<string>
 
     /**
      * 
      * @type {Array<string>}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterName$nin?: Array<string>
 
     /**
      * 
      * @type {boolean}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterName$null?: boolean
 
     /**
      * 
      * @type {boolean}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterName$nnull?: boolean
 
     /**
      * 
      * @type {boolean}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterName$empty?: boolean
 
     /**
      * 
      * @type {boolean}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterName$nempty?: boolean
 
     /**
      * 
      * @type {string}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterName$like?: string
 
     /**
      * 
      * @type {boolean}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterIsRecommend$eq?: boolean
 
     /**
      * 
      * @type {boolean}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterIsRecommend$neq?: boolean
 
     /**
      * 
      * @type {boolean}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterIsRecommend$null?: boolean
 
     /**
      * 
      * @type {boolean}
-     * @memberof UsageAppApiShowAppServiceAppListShow
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
      */
     readonly filterIsRecommend$nnull?: boolean
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
+     */
+    readonly afterPageToken?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiActivityAppServiceListAppActivity
+     */
+    readonly beforePageToken?: string
 }
 
 /**
- * Request parameters for showAppServiceAppListShow2 operation in UsageAppApi.
+ * Request parameters for activityAppServiceListAppActivity2 operation in UsageAppApi.
  * @export
- * @interface UsageAppApiShowAppServiceAppListShow2Request
+ * @interface UsageAppApiActivityAppServiceListAppActivity2Request
  */
-export interface UsageAppApiShowAppServiceAppListShow2Request {
+export interface UsageAppApiActivityAppServiceListAppActivity2Request {
     /**
      * 
-     * @type {V1ListShowRequest}
-     * @memberof UsageAppApiShowAppServiceAppListShow2
+     * @type {V1ListActivityRequest}
+     * @memberof UsageAppApiActivityAppServiceListAppActivity2
      */
-    readonly body: V1ListShowRequest
+    readonly body: V1ListActivityRequest
+}
+
+/**
+ * Request parameters for activityAppServiceListAppActivityShow operation in UsageAppApi.
+ * @export
+ * @interface UsageAppApiActivityAppServiceListAppActivityShowRequest
+ */
+export interface UsageAppApiActivityAppServiceListAppActivityShowRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiActivityAppServiceListAppActivityShow
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for orderAppServiceGetAppOrder operation in UsageAppApi.
+ * @export
+ * @interface UsageAppApiOrderAppServiceGetAppOrderRequest
+ */
+export interface UsageAppApiOrderAppServiceGetAppOrderRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiOrderAppServiceGetAppOrder
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for orderAppServiceListAppOrder operation in UsageAppApi.
+ * @export
+ * @interface UsageAppApiOrderAppServiceListAppOrderRequest
+ */
+export interface UsageAppApiOrderAppServiceListAppOrderRequest {
+    /**
+     * 
+     * @type {number}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly pageOffset?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly pageSize?: number
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly search?: string
+
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly sort?: Array<string>
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly fields?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterId$eq?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterId$neq?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterId$contains?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterId$startsWith?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterId$nstartsWith?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterId$endsWith?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterId$nendsWith?: string
+
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterId$in?: Array<string>
+
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterId$nin?: Array<string>
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterId$null?: boolean
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterId$nnull?: boolean
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterId$empty?: boolean
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterId$nempty?: boolean
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterId$like?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterName$eq?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterName$neq?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterName$contains?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterName$startsWith?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterName$nstartsWith?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterName$endsWith?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterName$nendsWith?: string
+
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterName$in?: Array<string>
+
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterName$nin?: Array<string>
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterName$null?: boolean
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterName$nnull?: boolean
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterName$empty?: boolean
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterName$nempty?: boolean
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterName$like?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterCustomerId$eq?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterCustomerId$neq?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterCustomerId$contains?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterCustomerId$startsWith?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterCustomerId$nstartsWith?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterCustomerId$endsWith?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterCustomerId$nendsWith?: string
+
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterCustomerId$in?: Array<string>
+
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterCustomerId$nin?: Array<string>
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterCustomerId$null?: boolean
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterCustomerId$nnull?: boolean
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterCustomerId$empty?: boolean
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterCustomerId$nempty?: boolean
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly filterCustomerId$like?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly afterPageToken?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder
+     */
+    readonly beforePageToken?: string
+}
+
+/**
+ * Request parameters for orderAppServiceListAppOrder2 operation in UsageAppApi.
+ * @export
+ * @interface UsageAppApiOrderAppServiceListAppOrder2Request
+ */
+export interface UsageAppApiOrderAppServiceListAppOrder2Request {
+    /**
+     * 
+     * @type {V1ListOrderRequest}
+     * @memberof UsageAppApiOrderAppServiceListAppOrder2
+     */
+    readonly body: V1ListOrderRequest
 }
 
 /**
@@ -1450,6 +2495,20 @@ export interface UsageAppApiTicketAppServiceListMyTicket2Request {
 }
 
 /**
+ * Request parameters for ticketingCategoryAppServiceListAppCategory2 operation in UsageAppApi.
+ * @export
+ * @interface UsageAppApiTicketingCategoryAppServiceListAppCategory2Request
+ */
+export interface UsageAppApiTicketingCategoryAppServiceListAppCategory2Request {
+    /**
+     * 
+     * @type {object}
+     * @memberof UsageAppApiTicketingCategoryAppServiceListAppCategory2
+     */
+    readonly body: object
+}
+
+/**
  * UsageAppApi - object-oriented interface
  * @export
  * @class UsageAppApi
@@ -1458,35 +2517,79 @@ export interface UsageAppApiTicketAppServiceListMyTicket2Request {
 export class UsageAppApi extends BaseAPI {
     /**
      * 
-     * @param {UsageAppApiShowAppServiceAppGetShowRequest} requestParameters Request parameters.
+     * @param {UsageAppApiActivityAppServiceGetAppActivityRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsageAppApi
      */
-    public showAppServiceAppGetShow(requestParameters: UsageAppApiShowAppServiceAppGetShowRequest, options?: AxiosRequestConfig) {
-        return UsageAppApiFp(this.configuration).showAppServiceAppGetShow(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public activityAppServiceGetAppActivity(requestParameters: UsageAppApiActivityAppServiceGetAppActivityRequest, options?: AxiosRequestConfig) {
+        return UsageAppApiFp(this.configuration).activityAppServiceGetAppActivity(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {UsageAppApiShowAppServiceAppListShowRequest} requestParameters Request parameters.
+     * @param {UsageAppApiActivityAppServiceListAppActivityRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsageAppApi
      */
-    public showAppServiceAppListShow(requestParameters: UsageAppApiShowAppServiceAppListShowRequest = {}, options?: AxiosRequestConfig) {
-        return UsageAppApiFp(this.configuration).showAppServiceAppListShow(requestParameters.pageOffset, requestParameters.pageSize, requestParameters.search, requestParameters.sort, requestParameters.fields, requestParameters.filterId$eq, requestParameters.filterId$neq, requestParameters.filterId$contains, requestParameters.filterId$startsWith, requestParameters.filterId$nstartsWith, requestParameters.filterId$endsWith, requestParameters.filterId$nendsWith, requestParameters.filterId$in, requestParameters.filterId$nin, requestParameters.filterId$null, requestParameters.filterId$nnull, requestParameters.filterId$empty, requestParameters.filterId$nempty, requestParameters.filterId$like, requestParameters.filterName$eq, requestParameters.filterName$neq, requestParameters.filterName$contains, requestParameters.filterName$startsWith, requestParameters.filterName$nstartsWith, requestParameters.filterName$endsWith, requestParameters.filterName$nendsWith, requestParameters.filterName$in, requestParameters.filterName$nin, requestParameters.filterName$null, requestParameters.filterName$nnull, requestParameters.filterName$empty, requestParameters.filterName$nempty, requestParameters.filterName$like, requestParameters.filterIsRecommend$eq, requestParameters.filterIsRecommend$neq, requestParameters.filterIsRecommend$null, requestParameters.filterIsRecommend$nnull, options).then((request) => request(this.axios, this.basePath));
+    public activityAppServiceListAppActivity(requestParameters: UsageAppApiActivityAppServiceListAppActivityRequest = {}, options?: AxiosRequestConfig) {
+        return UsageAppApiFp(this.configuration).activityAppServiceListAppActivity(requestParameters.pageOffset, requestParameters.pageSize, requestParameters.search, requestParameters.sort, requestParameters.fields, requestParameters.filterId$eq, requestParameters.filterId$neq, requestParameters.filterId$contains, requestParameters.filterId$startsWith, requestParameters.filterId$nstartsWith, requestParameters.filterId$endsWith, requestParameters.filterId$nendsWith, requestParameters.filterId$in, requestParameters.filterId$nin, requestParameters.filterId$null, requestParameters.filterId$nnull, requestParameters.filterId$empty, requestParameters.filterId$nempty, requestParameters.filterId$like, requestParameters.filterName$eq, requestParameters.filterName$neq, requestParameters.filterName$contains, requestParameters.filterName$startsWith, requestParameters.filterName$nstartsWith, requestParameters.filterName$endsWith, requestParameters.filterName$nendsWith, requestParameters.filterName$in, requestParameters.filterName$nin, requestParameters.filterName$null, requestParameters.filterName$nnull, requestParameters.filterName$empty, requestParameters.filterName$nempty, requestParameters.filterName$like, requestParameters.filterIsRecommend$eq, requestParameters.filterIsRecommend$neq, requestParameters.filterIsRecommend$null, requestParameters.filterIsRecommend$nnull, requestParameters.afterPageToken, requestParameters.beforePageToken, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {UsageAppApiShowAppServiceAppListShow2Request} requestParameters Request parameters.
+     * @param {UsageAppApiActivityAppServiceListAppActivity2Request} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsageAppApi
      */
-    public showAppServiceAppListShow2(requestParameters: UsageAppApiShowAppServiceAppListShow2Request, options?: AxiosRequestConfig) {
-        return UsageAppApiFp(this.configuration).showAppServiceAppListShow2(requestParameters.body, options).then((request) => request(this.axios, this.basePath));
+    public activityAppServiceListAppActivity2(requestParameters: UsageAppApiActivityAppServiceListAppActivity2Request, options?: AxiosRequestConfig) {
+        return UsageAppApiFp(this.configuration).activityAppServiceListAppActivity2(requestParameters.body, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {UsageAppApiActivityAppServiceListAppActivityShowRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsageAppApi
+     */
+    public activityAppServiceListAppActivityShow(requestParameters: UsageAppApiActivityAppServiceListAppActivityShowRequest, options?: AxiosRequestConfig) {
+        return UsageAppApiFp(this.configuration).activityAppServiceListAppActivityShow(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {UsageAppApiOrderAppServiceGetAppOrderRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsageAppApi
+     */
+    public orderAppServiceGetAppOrder(requestParameters: UsageAppApiOrderAppServiceGetAppOrderRequest, options?: AxiosRequestConfig) {
+        return UsageAppApiFp(this.configuration).orderAppServiceGetAppOrder(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {UsageAppApiOrderAppServiceListAppOrderRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsageAppApi
+     */
+    public orderAppServiceListAppOrder(requestParameters: UsageAppApiOrderAppServiceListAppOrderRequest = {}, options?: AxiosRequestConfig) {
+        return UsageAppApiFp(this.configuration).orderAppServiceListAppOrder(requestParameters.pageOffset, requestParameters.pageSize, requestParameters.search, requestParameters.sort, requestParameters.fields, requestParameters.filterId$eq, requestParameters.filterId$neq, requestParameters.filterId$contains, requestParameters.filterId$startsWith, requestParameters.filterId$nstartsWith, requestParameters.filterId$endsWith, requestParameters.filterId$nendsWith, requestParameters.filterId$in, requestParameters.filterId$nin, requestParameters.filterId$null, requestParameters.filterId$nnull, requestParameters.filterId$empty, requestParameters.filterId$nempty, requestParameters.filterId$like, requestParameters.filterName$eq, requestParameters.filterName$neq, requestParameters.filterName$contains, requestParameters.filterName$startsWith, requestParameters.filterName$nstartsWith, requestParameters.filterName$endsWith, requestParameters.filterName$nendsWith, requestParameters.filterName$in, requestParameters.filterName$nin, requestParameters.filterName$null, requestParameters.filterName$nnull, requestParameters.filterName$empty, requestParameters.filterName$nempty, requestParameters.filterName$like, requestParameters.filterCustomerId$eq, requestParameters.filterCustomerId$neq, requestParameters.filterCustomerId$contains, requestParameters.filterCustomerId$startsWith, requestParameters.filterCustomerId$nstartsWith, requestParameters.filterCustomerId$endsWith, requestParameters.filterCustomerId$nendsWith, requestParameters.filterCustomerId$in, requestParameters.filterCustomerId$nin, requestParameters.filterCustomerId$null, requestParameters.filterCustomerId$nnull, requestParameters.filterCustomerId$empty, requestParameters.filterCustomerId$nempty, requestParameters.filterCustomerId$like, requestParameters.afterPageToken, requestParameters.beforePageToken, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {UsageAppApiOrderAppServiceListAppOrder2Request} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsageAppApi
+     */
+    public orderAppServiceListAppOrder2(requestParameters: UsageAppApiOrderAppServiceListAppOrder2Request, options?: AxiosRequestConfig) {
+        return UsageAppApiFp(this.configuration).orderAppServiceListAppOrder2(requestParameters.body, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1530,5 +2633,26 @@ export class UsageAppApi extends BaseAPI {
      */
     public ticketingAppBannerServiceListAppBanner(options?: AxiosRequestConfig) {
         return UsageAppApiFp(this.configuration).ticketingAppBannerServiceListAppBanner(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsageAppApi
+     */
+    public ticketingCategoryAppServiceListAppCategory(options?: AxiosRequestConfig) {
+        return UsageAppApiFp(this.configuration).ticketingCategoryAppServiceListAppCategory(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {UsageAppApiTicketingCategoryAppServiceListAppCategory2Request} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsageAppApi
+     */
+    public ticketingCategoryAppServiceListAppCategory2(requestParameters: UsageAppApiTicketingCategoryAppServiceListAppCategory2Request, options?: AxiosRequestConfig) {
+        return UsageAppApiFp(this.configuration).ticketingCategoryAppServiceListAppCategory2(requestParameters.body, options).then((request) => request(this.axios, this.basePath));
     }
 }

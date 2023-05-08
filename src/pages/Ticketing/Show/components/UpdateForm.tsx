@@ -1,5 +1,5 @@
 import {
-  ProFormTextArea,
+  ProFormText,
   DrawerForm,
   ProFormSelect,
   ProFormDateTimeRangePicker,
@@ -217,6 +217,18 @@ const UpdateForm: React.FC<UpdateFormProps> = (props) => {
         destroyOnClose: true,
       }}
     >
+      <ProFormText
+        name="name"
+        label={intl.formatMessage({
+          id: 'ticketing.show.name',
+          defaultMessage: 'Show Name',
+        })}
+        rules={[
+          {
+            required: true,
+          },
+        ]}
+      />
       {!isUpdate && (
         <ProFormSelect
           name="activityId"
@@ -334,13 +346,6 @@ const UpdateForm: React.FC<UpdateFormProps> = (props) => {
               });
           },
         }}
-      />
-      <ProFormTextArea
-        name="notice"
-        label={intl.formatMessage({
-          id: 'ticketing.show.notice',
-          defaultMessage: 'Notice',
-        })}
       />
       <ProForm.Item
         label={intl.formatMessage({

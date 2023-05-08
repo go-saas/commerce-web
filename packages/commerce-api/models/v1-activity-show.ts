@@ -21,10 +21,10 @@ import { Locationv1Location } from './locationv1-location';
 import { V1Activity } from './v1-activity';
 // May contain unused imports in some cases
 // @ts-ignore
-import { V1LocationHall } from './v1-location-hall';
+import { V1ActivityShowSalesType } from './v1-activity-show-sales-type';
 // May contain unused imports in some cases
 // @ts-ignore
-import { V1ShowSalesType } from './v1-show-sales-type';
+import { V1LocationHall } from './v1-location-hall';
 // May contain unused imports in some cases
 // @ts-ignore
 import { V1TicketingMedia } from './v1-ticketing-media';
@@ -32,98 +32,86 @@ import { V1TicketingMedia } from './v1-ticketing-media';
 /**
  * 
  * @export
- * @interface V1Show
+ * @interface V1ActivityShow
  */
-export interface V1Show {
+export interface V1ActivityShow {
     /**
      * 
      * @type {string}
-     * @memberof V1Show
+     * @memberof V1ActivityShow
      */
     'id'?: string;
     /**
      * 
      * @type {string}
-     * @memberof V1Show
+     * @memberof V1ActivityShow
      */
     'name'?: string;
     /**
      * 
      * @type {string}
-     * @memberof V1Show
+     * @memberof V1ActivityShow
      */
     'createdAt'?: string;
     /**
      * 
      * @type {string}
-     * @memberof V1Show
+     * @memberof V1ActivityShow
      */
     'activityId'?: string;
     /**
      * 
      * @type {V1Activity}
-     * @memberof V1Show
+     * @memberof V1ActivityShow
      */
     'activity'?: V1Activity;
     /**
      * 
      * @type {string}
-     * @memberof V1Show
+     * @memberof V1ActivityShow
      */
     'startTime'?: string;
     /**
      * 
      * @type {string}
-     * @memberof V1Show
+     * @memberof V1ActivityShow
      */
     'endTime'?: string;
     /**
      * 
      * @type {string}
-     * @memberof V1Show
+     * @memberof V1ActivityShow
      */
     'locationId'?: string;
     /**
      * 
      * @type {Locationv1Location}
-     * @memberof V1Show
+     * @memberof V1ActivityShow
      */
     'location'?: Locationv1Location;
     /**
      * 
      * @type {string}
-     * @memberof V1Show
+     * @memberof V1ActivityShow
      */
     'hallId'?: string;
     /**
      * 
      * @type {V1LocationHall}
-     * @memberof V1Show
+     * @memberof V1ActivityShow
      */
     'hall'?: V1LocationHall;
     /**
      * 
-     * @type {Array<V1ShowSalesType>}
-     * @memberof V1Show
+     * @type {Array<V1ActivityShowSalesType>}
+     * @memberof V1ActivityShow
      */
-    'salesTypes'?: Array<V1ShowSalesType>;
+    'salesTypes'?: Array<V1ActivityShowSalesType>;
     /**
      * 
      * @type {V1TicketingMedia}
-     * @memberof V1Show
+     * @memberof V1ActivityShow
      */
     'mainPic'?: V1TicketingMedia;
-    /**
-     * 
-     * @type {number}
-     * @memberof V1Show
-     */
-    'salesCount'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof V1Show
-     */
-    'restCount'?: number;
 }
 

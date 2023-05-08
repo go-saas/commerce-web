@@ -35,5 +35,11 @@ export interface V1OrderFilter {
      * @memberof V1OrderFilter
      */
     'name'?: OperationStringFilterOperation;
+    /**
+     * 
+     * @type {OperationStringFilterOperation}
+     * @memberof V1OrderFilter
+     */
+    'customerId'?: OperationStringFilterOperation;
 }
 

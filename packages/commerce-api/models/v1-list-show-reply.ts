@@ -41,5 +41,17 @@ export interface V1ListShowReply {
      * @memberof V1ListShowReply
      */
     'items'?: Array<V1Show>;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1ListShowReply
+     */
+    'nextAfterPageToken'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1ListShowReply
+     */
+    'nextBeforePageToken'?: string | null;
 }
 

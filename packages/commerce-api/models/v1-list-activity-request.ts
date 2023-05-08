@@ -59,5 +59,17 @@ export interface V1ListActivityRequest {
      * @memberof V1ListActivityRequest
      */
     'filter'?: V1ActivityFilter;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1ListActivityRequest
+     */
+    'afterPageToken'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1ListActivityRequest
+     */
+    'beforePageToken'?: string;
 }
 

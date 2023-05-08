@@ -184,6 +184,13 @@ const UpdateForm: React.FC<UpdateFormProps> = (props) => {
           },
         ]}
       />
+      <ProFormTextArea
+        name="notice"
+        label={intl.formatMessage({
+          id: 'ticketing.show.notice',
+          defaultMessage: 'Notice',
+        })}
+      />
       <ProFormSwitch
         name="seatSelectable"
         label={intl.formatMessage({

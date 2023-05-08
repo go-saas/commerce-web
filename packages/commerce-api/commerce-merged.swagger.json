@@ -9,6 +9,9 @@
       "name": "OrderService"
     },
     {
+      "name": "OrderAppService"
+    },
+    {
       "name": "OrderInternalService"
     },
     {
@@ -27,7 +30,13 @@
       "name": "TicketingCategoryService"
     },
     {
+      "name": "TicketingCategoryAppService"
+    },
+    {
       "name": "ActivityService"
+    },
+    {
+      "name": "ActivityAppService"
     },
     {
       "name": "TicketingBannerService"
@@ -55,6 +64,419 @@
     "application/json"
   ],
   "paths": {
+    "/v1/order/app/order": {
+      "get": {
+        "operationId": "OrderAppService_ListAppOrder",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ListOrderReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "pageOffset",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.id.$eq",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.id.$neq",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.id.$contains",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.id.$starts_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.id.$nstarts_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.id.$ends_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.id.$nends_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.id.$in",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "filter.id.$nin",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "filter.id.$null",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.id.$nnull",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.id.$empty",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.id.$nempty",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.id.$like",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.name.$eq",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.name.$neq",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.name.$contains",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.name.$starts_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.name.$nstarts_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.name.$ends_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.name.$nends_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.name.$in",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "filter.name.$nin",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "filter.name.$null",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.name.$nnull",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.name.$empty",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.name.$nempty",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.name.$like",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.customerId.$eq",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.customerId.$neq",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.customerId.$contains",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.customerId.$starts_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.customerId.$nstarts_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.customerId.$ends_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.customerId.$nends_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.customerId.$in",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "filter.customerId.$nin",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "filter.customerId.$null",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.customerId.$nnull",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.customerId.$empty",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.customerId.$nempty",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.customerId.$like",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "afterPageToken",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "beforePageToken",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "OrderAppService",
+          "UsageApp"
+        ]
+      }
+    },
+    "/v1/order/app/order/list": {
+      "post": {
+        "operationId": "OrderAppService_ListAppOrder2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ListOrderReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ListOrderRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OrderAppService",
+          "UsageApp"
+        ]
+      }
+    },
+    "/v1/order/app/order/{id}": {
+      "get": {
+        "operationId": "OrderAppService_GetAppOrder",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1Order"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "OrderAppService",
+          "UsageApp"
+        ]
+      }
+    },
     "/v1/order/order": {
       "get": {
         "operationId": "OrderService_ListOrder",
@@ -289,6 +711,110 @@
           },
           {
             "name": "filter.name.$like",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.customerId.$eq",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.customerId.$neq",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.customerId.$contains",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.customerId.$starts_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.customerId.$nstarts_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.customerId.$ends_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.customerId.$nends_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.customerId.$in",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "filter.customerId.$nin",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "filter.customerId.$null",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.customerId.$nnull",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.customerId.$empty",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.customerId.$nempty",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.customerId.$like",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "afterPageToken",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "beforePageToken",
             "in": "query",
             "required": false,
             "type": "string"
@@ -2203,6 +2729,42 @@
             "in": "query",
             "required": false,
             "type": "string"
+          },
+          {
+            "name": "filter.isRecommend.$eq",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.isRecommend.$neq",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.isRecommend.$null",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.isRecommend.$nnull",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "afterPageToken",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "beforePageToken",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
@@ -2404,14 +2966,14 @@
         ]
       }
     },
-    "/v1/ticketing/app/banner": {
-      "get": {
-        "operationId": "TicketingAppBannerService_ListAppBanner",
+    "/v1/ticketing/activity/{id}/recommend": {
+      "put": {
+        "operationId": "ActivityService_RecommendActivity",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/v1ListAppBannerReply"
+              "$ref": "#/definitions/v1RecommendActivityReply"
             }
           },
           "default": {
@@ -2421,20 +2983,40 @@
             }
           }
         },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "isRecommend": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        ],
         "tags": [
-          "TicketingAppBannerService",
-          "UsageApp"
+          "ActivityService"
         ]
       }
     },
-    "/v1/ticketing/app/show": {
+    "/v1/ticketing/app/activity": {
       "get": {
-        "operationId": "ShowAppService_AppListShow",
+        "operationId": "ActivityAppService_ListAppActivity",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/v1ListShowReply"
+              "$ref": "#/definitions/v1ListActivityReply"
             }
           },
           "default": {
@@ -2688,22 +3270,34 @@
             "in": "query",
             "required": false,
             "type": "boolean"
+          },
+          {
+            "name": "afterPageToken",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "beforePageToken",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
-          "ShowAppService",
+          "ActivityAppService",
           "UsageApp"
         ]
       }
     },
-    "/v1/ticketing/app/show/list": {
+    "/v1/ticketing/app/activity/list": {
       "post": {
-        "operationId": "ShowAppService_AppListShow2",
+        "operationId": "ActivityAppService_ListAppActivity2",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/v1ListShowReply"
+              "$ref": "#/definitions/v1ListActivityReply"
             }
           },
           "default": {
@@ -2719,12 +3313,153 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/v1ListShowRequest"
+              "$ref": "#/definitions/v1ListActivityRequest"
             }
           }
         ],
         "tags": [
-          "ShowAppService",
+          "ActivityAppService",
+          "UsageApp"
+        ]
+      }
+    },
+    "/v1/ticketing/app/activity/{id}": {
+      "get": {
+        "operationId": "ActivityAppService_GetAppActivity",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1Activity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ActivityAppService",
+          "UsageApp"
+        ]
+      }
+    },
+    "/v1/ticketing/app/activity/{id}/show": {
+      "get": {
+        "operationId": "ActivityAppService_ListAppActivityShow",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ListAppActivityShowReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ActivityAppService",
+          "UsageApp"
+        ]
+      }
+    },
+    "/v1/ticketing/app/banner": {
+      "get": {
+        "operationId": "TicketingAppBannerService_ListAppBanner",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ListAppBannerReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "TicketingAppBannerService",
+          "UsageApp"
+        ]
+      }
+    },
+    "/v1/ticketing/app/category": {
+      "get": {
+        "operationId": "TicketingCategoryAppService_ListAppCategory",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ListAppCategoryReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "TicketingCategoryAppService",
+          "UsageApp"
+        ]
+      }
+    },
+    "/v1/ticketing/app/category/list": {
+      "post": {
+        "operationId": "TicketingCategoryAppService_ListAppCategory2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ListAppCategoryReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ListAppCategoryRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TicketingCategoryAppService",
           "UsageApp"
         ]
       }
@@ -2754,37 +3489,6 @@
             "schema": {
               "$ref": "#/definitions/v1PlaceShowOrderRequest"
             }
-          }
-        ],
-        "tags": [
-          "ShowAppService",
-          "UsageApp"
-        ]
-      }
-    },
-    "/v1/ticketing/app/show/{id}": {
-      "get": {
-        "operationId": "ShowAppService_AppGetShow",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1Show"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/googlerpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
           }
         ],
         "tags": [
@@ -4852,28 +5556,108 @@
             "type": "string"
           },
           {
-            "name": "filter.isRecommend.$eq",
+            "name": "filter.activityId.$eq",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.activityId.$neq",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.activityId.$contains",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.activityId.$starts_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.activityId.$nstarts_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.activityId.$ends_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.activityId.$nends_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.activityId.$in",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "filter.activityId.$nin",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "filter.activityId.$null",
             "in": "query",
             "required": false,
             "type": "boolean"
           },
           {
-            "name": "filter.isRecommend.$neq",
+            "name": "filter.activityId.$nnull",
             "in": "query",
             "required": false,
             "type": "boolean"
           },
           {
-            "name": "filter.isRecommend.$null",
+            "name": "filter.activityId.$empty",
             "in": "query",
             "required": false,
             "type": "boolean"
           },
           {
-            "name": "filter.isRecommend.$nnull",
+            "name": "filter.activityId.$nempty",
             "in": "query",
             "required": false,
             "type": "boolean"
+          },
+          {
+            "name": "filter.activityId.$like",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "afterPageToken",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "beforePageToken",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
@@ -4994,49 +5778,6 @@
             "in": "path",
             "required": true,
             "type": "string"
-          }
-        ],
-        "tags": [
-          "ShowService"
-        ]
-      }
-    },
-    "/v1/ticketing/show/{id}/recommend": {
-      "put": {
-        "operationId": "ShowService_RecommendShow",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1RecommendShowReply"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/googlerpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "type": "object",
-              "properties": {
-                "isRecommend": {
-                  "type": "boolean"
-                }
-              }
-            }
           }
         ],
         "tags": [
@@ -6110,6 +6851,12 @@
         },
         "duration": {
           "type": "string"
+        },
+        "notice": {
+          "type": "string"
+        },
+        "isRecommend": {
+          "type": "boolean"
         }
       },
       "required": [
@@ -6124,6 +6871,88 @@
         },
         "name": {
           "$ref": "#/definitions/operationStringFilterOperation"
+        },
+        "isRecommend": {
+          "$ref": "#/definitions/operationBooleanFilterOperators"
+        }
+      }
+    },
+    "v1ActivityShow": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "activityId": {
+          "type": "string"
+        },
+        "activity": {
+          "$ref": "#/definitions/v1Activity"
+        },
+        "startTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "endTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "locationId": {
+          "type": "string"
+        },
+        "location": {
+          "$ref": "#/definitions/locationv1Location"
+        },
+        "hallId": {
+          "type": "string"
+        },
+        "hall": {
+          "$ref": "#/definitions/v1LocationHall"
+        },
+        "salesTypes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1ActivityShowSalesType"
+          }
+        },
+        "mainPic": {
+          "$ref": "#/definitions/v1TicketingMedia"
+        }
+      }
+    },
+    "v1ActivityShowSalesType": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "seatGroup": {
+          "$ref": "#/definitions/v1SeatGroup"
+        },
+        "seatGroupId": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "saleableFrom": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "saleableTo": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "price": {
+          "$ref": "#/definitions/priceInfoPb"
         }
       }
     },
@@ -6266,6 +7095,9 @@
         },
         "duration": {
           "type": "string"
+        },
+        "notice": {
+          "type": "string"
         }
       },
       "required": [
@@ -6321,6 +7153,27 @@
       "required": [
         "code"
       ]
+    },
+    "v1CreateInternalOrderItem": {
+      "type": "object",
+      "properties": {
+        "qty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "price": {
+          "$ref": "#/definitions/pricePricePb"
+        },
+        "originalPrice": {
+          "$ref": "#/definitions/pricePricePb"
+        },
+        "isGiveaway": {
+          "type": "boolean"
+        },
+        "product": {
+          "$ref": "#/definitions/v1OrderProduct"
+        }
+      }
     },
     "v1CreateLocationHallReply": {
       "type": "object"
@@ -6488,6 +7341,9 @@
     "v1CreateShowRequest": {
       "type": "object",
       "properties": {
+        "name": {
+          "type": "string"
+        },
         "activityId": {
           "type": "string",
           "required": [
@@ -6525,9 +7381,6 @@
           "items": {
             "$ref": "#/definitions/v1UpdateShowSalesType"
           }
-        },
-        "notice": {
-          "type": "string"
         },
         "mainPic": {
           "$ref": "#/definitions/v1TicketingMedia"
@@ -6707,6 +7560,14 @@
           "items": {
             "$ref": "#/definitions/v1Activity"
           }
+        },
+        "nextAfterPageToken": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "nextBeforePageToken": {
+          "type": "string",
+          "x-nullable": true
         }
       }
     },
@@ -6735,6 +7596,23 @@
         },
         "filter": {
           "$ref": "#/definitions/v1ActivityFilter"
+        },
+        "afterPageToken": {
+          "type": "string"
+        },
+        "beforePageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "v1ListAppActivityShowReply": {
+      "type": "object",
+      "properties": {
+        "shows": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1ActivityShow"
+          }
         }
       }
     },
@@ -6748,6 +7626,20 @@
           }
         }
       }
+    },
+    "v1ListAppCategoryReply": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ticketingapicategoryv1Category"
+          }
+        }
+      }
+    },
+    "v1ListAppCategoryRequest": {
+      "type": "object"
     },
     "v1ListBannerReply": {
       "type": "object",
@@ -6906,6 +7798,14 @@
           "items": {
             "$ref": "#/definitions/v1Order"
           }
+        },
+        "nextAfterPageToken": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "nextBeforePageToken": {
+          "type": "string",
+          "x-nullable": true
         }
       }
     },
@@ -6934,6 +7834,12 @@
         },
         "filter": {
           "$ref": "#/definitions/v1OrderFilter"
+        },
+        "afterPageToken": {
+          "type": "string"
+        },
+        "beforePageToken": {
+          "type": "string"
         }
       }
     },
@@ -7000,6 +7906,14 @@
           "items": {
             "$ref": "#/definitions/v1Show"
           }
+        },
+        "nextAfterPageToken": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "nextBeforePageToken": {
+          "type": "string",
+          "x-nullable": true
         }
       }
     },
@@ -7028,6 +7942,12 @@
         },
         "filter": {
           "$ref": "#/definitions/v1ShowFilter"
+        },
+        "afterPageToken": {
+          "type": "string"
+        },
+        "beforePageToken": {
+          "type": "string"
         }
       }
     },
@@ -7147,12 +8067,56 @@
         "id": {
           "type": "string"
         },
-        "name": {
-          "type": "string"
-        },
         "createdAt": {
           "type": "string",
           "format": "date-time"
+        },
+        "status": {
+          "type": "string"
+        },
+        "totalPrice": {
+          "$ref": "#/definitions/pricePricePb"
+        },
+        "totalPriceInclTax": {
+          "$ref": "#/definitions/pricePricePb"
+        },
+        "discount": {
+          "$ref": "#/definitions/pricePricePb"
+        },
+        "originalPrice": {
+          "$ref": "#/definitions/pricePricePb"
+        },
+        "originalPriceInclTax": {
+          "$ref": "#/definitions/pricePricePb"
+        },
+        "paidPrice": {
+          "$ref": "#/definitions/pricePricePb"
+        },
+        "paidTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "payBefore": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "payWay": {
+          "type": "string"
+        },
+        "shippingAddr": {
+          "$ref": "#/definitions/lbsAddress"
+        },
+        "billingAddr": {
+          "$ref": "#/definitions/lbsAddress"
+        },
+        "customerId": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1OrderItem"
+          }
         }
       }
     },
@@ -7164,6 +8128,77 @@
         },
         "name": {
           "$ref": "#/definitions/operationStringFilterOperation"
+        },
+        "customerId": {
+          "$ref": "#/definitions/operationStringFilterOperation"
+        }
+      }
+    },
+    "v1OrderItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "qty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "price": {
+          "$ref": "#/definitions/pricePricePb"
+        },
+        "tax": {
+          "$ref": "#/definitions/pricePricePb"
+        },
+        "priceInclTax": {
+          "$ref": "#/definitions/pricePricePb"
+        },
+        "rowTotal": {
+          "$ref": "#/definitions/pricePricePb"
+        },
+        "rowTotalTax": {
+          "$ref": "#/definitions/pricePricePb"
+        },
+        "rowTotalInclTax": {
+          "$ref": "#/definitions/pricePricePb"
+        },
+        "originalPrice": {
+          "$ref": "#/definitions/pricePricePb"
+        },
+        "rowDiscount": {
+          "$ref": "#/definitions/pricePricePb"
+        },
+        "product": {
+          "$ref": "#/definitions/v1OrderProduct"
+        },
+        "isGiveaway": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1OrderProduct": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "mainPic": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "skuId": {
+          "type": "string"
+        },
+        "skuTitle": {
+          "type": "string"
         }
       }
     },
@@ -7171,7 +8206,10 @@
       "type": "object",
       "properties": {
         "showSalesTypeId": {
-          "type": "string"
+          "type": "string",
+          "required": [
+            "show_sales_type_id"
+          ]
         },
         "showSeatId": {
           "type": "string",
@@ -7179,9 +8217,16 @@
         },
         "qty": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "required": [
+            "qty"
+          ]
         }
-      }
+      },
+      "required": [
+        "showSalesTypeId",
+        "qty"
+      ]
     },
     "v1PlaceShowOrderReply": {
       "type": "object",
@@ -7195,15 +8240,25 @@
       "type": "object",
       "properties": {
         "showId": {
-          "type": "string"
+          "type": "string",
+          "required": [
+            "show_id"
+          ]
         },
         "salesType": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/v1OrderSalesType"
-          }
+          },
+          "required": [
+            "sales_type"
+          ]
         }
-      }
+      },
+      "required": [
+        "showId",
+        "salesType"
+      ]
     },
     "v1Price": {
       "type": "object",
@@ -7253,7 +8308,7 @@
         }
       }
     },
-    "v1RecommendShowReply": {
+    "v1RecommendActivityReply": {
       "type": "object",
       "properties": {
         "id": {
@@ -7298,6 +8353,9 @@
         "id": {
           "type": "string"
         },
+        "name": {
+          "type": "string"
+        },
         "createdAt": {
           "type": "string",
           "format": "date-time"
@@ -7334,12 +8392,6 @@
             "$ref": "#/definitions/v1ShowSalesType"
           }
         },
-        "notice": {
-          "type": "string"
-        },
-        "isRecommend": {
-          "type": "boolean"
-        },
         "mainPic": {
           "$ref": "#/definitions/v1TicketingMedia"
         },
@@ -7362,8 +8414,8 @@
         "name": {
           "$ref": "#/definitions/operationStringFilterOperation"
         },
-        "isRecommend": {
-          "$ref": "#/definitions/operationBooleanFilterOperators"
+        "activityId": {
+          "$ref": "#/definitions/operationStringFilterOperation"
         }
       }
     },
@@ -7503,6 +8555,9 @@
           "type": "boolean"
         },
         "duration": {
+          "type": "string"
+        },
+        "notice": {
           "type": "string"
         }
       },
@@ -7787,6 +8842,9 @@
             "id"
           ]
         },
+        "name": {
+          "type": "string"
+        },
         "startTime": {
           "type": "string",
           "format": "date-time",
@@ -7806,9 +8864,6 @@
           "items": {
             "$ref": "#/definitions/v1UpdateShowSalesType"
           }
-        },
-        "notice": {
-          "type": "string"
         },
         "mainPic": {
           "$ref": "#/definitions/v1TicketingMedia"

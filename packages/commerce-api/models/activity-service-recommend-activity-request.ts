@@ -17,13 +17,13 @@
 /**
  * 
  * @export
- * @interface ShowServiceRecommendShowRequest
+ * @interface ActivityServiceRecommendActivityRequest
  */
-export interface ShowServiceRecommendShowRequest {
+export interface ActivityServiceRecommendActivityRequest {
     /**
      * 
      * @type {boolean}
-     * @memberof ShowServiceRecommendShowRequest
+     * @memberof ActivityServiceRecommendActivityRequest
      */
     'isRecommend'?: boolean;
 }

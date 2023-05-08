@@ -86,6 +86,25 @@ const TableList: React.FC = () => {
       return false;
     }
   };
+  const handleRecommend = async (record: V1Activity) => {
+    const hide = message.loading(
+      intl.formatMessage({ id: 'common.updating', defaultMessage: 'Updating...' }),
+    );
+    try {
+      await service.activityServiceRecommendActivity({
+        id: record.id!,
+        body: { isRecommend: !record.isRecommend },
+      });
+      hide();
+      message.success(
+        intl.formatMessage({ id: 'common.updated', defaultMessage: 'Update Successfully' }),
+      );
+      return true;
+    } catch (error) {
+      hide();
+      return false;
+    }
+  };
 
   const columns: ProColumnType<V1Activity>[] = [
     {
@@ -142,6 +161,13 @@ const TableList: React.FC = () => {
       },
     },
     {
+      title: (
+        <FormattedMessage id="ticketing.activity.isRecommended" defaultMessage="Recommended" />
+      ),
+      dataIndex: ['isRecommend'],
+      valueType: 'switch',
+    },
+    {
       title: <FormattedMessage id="common.createdAt" defaultMessage="CreatedAt" />,
       dataIndex: 'createdAt',
       valueType: 'dateTime',
@@ -169,6 +195,18 @@ const TableList: React.FC = () => {
         <TableDropdown
           key="actionGroup"
           onSelect={async (key) => {
+            if (key === 'copyId') {
+              copy(record.id ?? '');
+              message.success(
+                intl.formatMessage({ id: 'common.copied', defaultMessage: 'Copied!' }),
+              );
+            }
+            if (key === 'recommend') {
+              const ok = await handleRecommend(record);
+              if (ok && actionRef.current) {
+                actionRef.current.reload();
+              }
+            }
             if (key === 'delete') {
               const ok = await handleRemove(record);
               if (ok && actionRef.current) {
@@ -177,6 +215,24 @@ const TableList: React.FC = () => {
             }
           }}
           menus={[
+            {
+              key: 'copyId',
+              name: <FormattedMessage id="common.copyId" defaultMessage="Copy Id" />,
+            },
+            {
+              key: 'recommend',
+              name: record.isRecommend ? (
+                <FormattedMessage
+                  id="ticketing.activity.cancelRecommend"
+                  defaultMessage="Cancel Recommend"
+                />
+              ) : (
+                <FormattedMessage
+                  id="ticketing.activity.setRecommend"
+                  defaultMessage="Set Recommend"
+                />
+              ),
+            },
             {
               key: 'delete',
               name: <FormattedMessage id="common.delete" defaultMessage="Delete" />,

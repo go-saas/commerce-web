@@ -13,6 +13,15 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { LbsAddress } from './lbs-address';
+// May contain unused imports in some cases
+// @ts-ignore
+import { PricePricePb } from './price-price-pb';
+// May contain unused imports in some cases
+// @ts-ignore
+import { V1OrderItem } from './v1-order-item';
 
 /**
  * 
@@ -31,12 +40,90 @@ export interface V1Order {
      * @type {string}
      * @memberof V1Order
      */
-    'name'?: string;
+    'createdAt'?: string;
     /**
      * 
      * @type {string}
      * @memberof V1Order
      */
-    'createdAt'?: string;
+    'status'?: string;
+    /**
+     * 
+     * @type {PricePricePb}
+     * @memberof V1Order
+     */
+    'totalPrice'?: PricePricePb;
+    /**
+     * 
+     * @type {PricePricePb}
+     * @memberof V1Order
+     */
+    'totalPriceInclTax'?: PricePricePb;
+    /**
+     * 
+     * @type {PricePricePb}
+     * @memberof V1Order
+     */
+    'discount'?: PricePricePb;
+    /**
+     * 
+     * @type {PricePricePb}
+     * @memberof V1Order
+     */
+    'originalPrice'?: PricePricePb;
+    /**
+     * 
+     * @type {PricePricePb}
+     * @memberof V1Order
+     */
+    'originalPriceInclTax'?: PricePricePb;
+    /**
+     * 
+     * @type {PricePricePb}
+     * @memberof V1Order
+     */
+    'paidPrice'?: PricePricePb;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Order
+     */
+    'paidTime'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Order
+     */
+    'payBefore'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Order
+     */
+    'payWay'?: string;
+    /**
+     * 
+     * @type {LbsAddress}
+     * @memberof V1Order
+     */
+    'shippingAddr'?: LbsAddress;
+    /**
+     * 
+     * @type {LbsAddress}
+     * @memberof V1Order
+     */
+    'billingAddr'?: LbsAddress;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Order
+     */
+    'customerId'?: string;
+    /**
+     * 
+     * @type {Array<V1OrderItem>}
+     * @memberof V1Order
+     */
+    'items'?: Array<V1OrderItem>;
 }
 

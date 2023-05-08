@@ -37,6 +37,12 @@ export interface V1UpdateShow {
      * @type {string}
      * @memberof V1UpdateShow
      */
+    'name'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1UpdateShow
+     */
     'startTime': string;
     /**
      * 
@@ -50,12 +56,6 @@ export interface V1UpdateShow {
      * @memberof V1UpdateShow
      */
     'salesTypes'?: Array<V1UpdateShowSalesType>;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1UpdateShow
-     */
-    'notice'?: string;
     /**
      * 
      * @type {V1TicketingMedia}

@@ -15,64 +15,58 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { V1TicketingMedia } from './v1-ticketing-media';
+import { PriceInfoPb } from './price-info-pb';
 // May contain unused imports in some cases
 // @ts-ignore
-import { V1UpdateShowSalesType } from './v1-update-show-sales-type';
+import { V1SeatGroup } from './v1-seat-group';
 
 /**
  * 
  * @export
- * @interface V1CreateShowRequest
+ * @interface V1ActivityShowSalesType
  */
-export interface V1CreateShowRequest {
+export interface V1ActivityShowSalesType {
     /**
      * 
      * @type {string}
-     * @memberof V1CreateShowRequest
+     * @memberof V1ActivityShowSalesType
+     */
+    'id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1ActivityShowSalesType
      */
     'name'?: string;
     /**
      * 
-     * @type {string}
-     * @memberof V1CreateShowRequest
+     * @type {V1SeatGroup}
+     * @memberof V1ActivityShowSalesType
      */
-    'activityId': string;
+    'seatGroup'?: V1SeatGroup;
     /**
      * 
      * @type {string}
-     * @memberof V1CreateShowRequest
+     * @memberof V1ActivityShowSalesType
      */
-    'startTime': string;
+    'seatGroupId'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof V1CreateShowRequest
+     * @memberof V1ActivityShowSalesType
      */
-    'endTime': string;
+    'saleableFrom'?: string;
     /**
      * 
      * @type {string}
-     * @memberof V1CreateShowRequest
+     * @memberof V1ActivityShowSalesType
      */
-    'locationId': string;
+    'saleableTo'?: string;
     /**
      * 
-     * @type {string}
-     * @memberof V1CreateShowRequest
+     * @type {PriceInfoPb}
+     * @memberof V1ActivityShowSalesType
      */
-    'hallId': string;
-    /**
-     * 
-     * @type {Array<V1UpdateShowSalesType>}
-     * @memberof V1CreateShowRequest
-     */
-    'salesTypes'?: Array<V1UpdateShowSalesType>;
-    /**
-     * 
-     * @type {V1TicketingMedia}
-     * @memberof V1CreateShowRequest
-     */
-    'mainPic'?: V1TicketingMedia;
+    'price'?: PriceInfoPb;
 }
 

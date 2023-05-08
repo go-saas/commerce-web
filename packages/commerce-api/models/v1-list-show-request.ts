@@ -59,5 +59,17 @@ export interface V1ListShowRequest {
      * @memberof V1ListShowRequest
      */
     'filter'?: V1ShowFilter;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1ListShowRequest
+     */
+    'afterPageToken'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1ListShowRequest
+     */
+    'beforePageToken'?: string;
 }
 

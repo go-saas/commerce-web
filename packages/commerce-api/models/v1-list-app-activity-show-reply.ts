@@ -13,18 +13,21 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { V1ActivityShow } from './v1-activity-show';
 
 /**
  * 
  * @export
- * @interface V1RecommendShowReply
+ * @interface V1ListAppActivityShowReply
  */
-export interface V1RecommendShowReply {
+export interface V1ListAppActivityShowReply {
     /**
      * 
-     * @type {string}
-     * @memberof V1RecommendShowReply
+     * @type {Array<V1ActivityShow>}
+     * @memberof V1ListAppActivityShowReply
      */
-    'id'?: string;
+    'shows'?: Array<V1ActivityShow>;
 }
 

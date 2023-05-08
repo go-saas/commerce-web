@@ -24,8 +24,6 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { GooglerpcStatus } from '../models';
 // @ts-ignore
-import { ShowServiceRecommendShowRequest } from '../models';
-// @ts-ignore
 import { V1CreateShowRequest } from '../models';
 // @ts-ignore
 import { V1DeleteShowReply } from '../models';
@@ -33,8 +31,6 @@ import { V1DeleteShowReply } from '../models';
 import { V1ListShowReply } from '../models';
 // @ts-ignore
 import { V1ListShowRequest } from '../models';
-// @ts-ignore
-import { V1RecommendShowReply } from '../models';
 // @ts-ignore
 import { V1Show } from '../models';
 // @ts-ignore
@@ -190,14 +186,26 @@ export const ShowServiceApiAxiosParamCreator = function (configuration?: Configu
          * @param {boolean} [filterName$empty] 
          * @param {boolean} [filterName$nempty] 
          * @param {string} [filterName$like] 
-         * @param {boolean} [filterIsRecommend$eq] 
-         * @param {boolean} [filterIsRecommend$neq] 
-         * @param {boolean} [filterIsRecommend$null] 
-         * @param {boolean} [filterIsRecommend$nnull] 
+         * @param {string} [filterActivityId$eq] 
+         * @param {string} [filterActivityId$neq] 
+         * @param {string} [filterActivityId$contains] 
+         * @param {string} [filterActivityId$startsWith] 
+         * @param {string} [filterActivityId$nstartsWith] 
+         * @param {string} [filterActivityId$endsWith] 
+         * @param {string} [filterActivityId$nendsWith] 
+         * @param {Array<string>} [filterActivityId$in] 
+         * @param {Array<string>} [filterActivityId$nin] 
+         * @param {boolean} [filterActivityId$null] 
+         * @param {boolean} [filterActivityId$nnull] 
+         * @param {boolean} [filterActivityId$empty] 
+         * @param {boolean} [filterActivityId$nempty] 
+         * @param {string} [filterActivityId$like] 
+         * @param {string} [afterPageToken] 
+         * @param {string} [beforePageToken] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        showServiceListShow: async (pageOffset?: number, pageSize?: number, search?: string, sort?: Array<string>, fields?: string, filterId$eq?: string, filterId$neq?: string, filterId$contains?: string, filterId$startsWith?: string, filterId$nstartsWith?: string, filterId$endsWith?: string, filterId$nendsWith?: string, filterId$in?: Array<string>, filterId$nin?: Array<string>, filterId$null?: boolean, filterId$nnull?: boolean, filterId$empty?: boolean, filterId$nempty?: boolean, filterId$like?: string, filterName$eq?: string, filterName$neq?: string, filterName$contains?: string, filterName$startsWith?: string, filterName$nstartsWith?: string, filterName$endsWith?: string, filterName$nendsWith?: string, filterName$in?: Array<string>, filterName$nin?: Array<string>, filterName$null?: boolean, filterName$nnull?: boolean, filterName$empty?: boolean, filterName$nempty?: boolean, filterName$like?: string, filterIsRecommend$eq?: boolean, filterIsRecommend$neq?: boolean, filterIsRecommend$null?: boolean, filterIsRecommend$nnull?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        showServiceListShow: async (pageOffset?: number, pageSize?: number, search?: string, sort?: Array<string>, fields?: string, filterId$eq?: string, filterId$neq?: string, filterId$contains?: string, filterId$startsWith?: string, filterId$nstartsWith?: string, filterId$endsWith?: string, filterId$nendsWith?: string, filterId$in?: Array<string>, filterId$nin?: Array<string>, filterId$null?: boolean, filterId$nnull?: boolean, filterId$empty?: boolean, filterId$nempty?: boolean, filterId$like?: string, filterName$eq?: string, filterName$neq?: string, filterName$contains?: string, filterName$startsWith?: string, filterName$nstartsWith?: string, filterName$endsWith?: string, filterName$nendsWith?: string, filterName$in?: Array<string>, filterName$nin?: Array<string>, filterName$null?: boolean, filterName$nnull?: boolean, filterName$empty?: boolean, filterName$nempty?: boolean, filterName$like?: string, filterActivityId$eq?: string, filterActivityId$neq?: string, filterActivityId$contains?: string, filterActivityId$startsWith?: string, filterActivityId$nstartsWith?: string, filterActivityId$endsWith?: string, filterActivityId$nendsWith?: string, filterActivityId$in?: Array<string>, filterActivityId$nin?: Array<string>, filterActivityId$null?: boolean, filterActivityId$nnull?: boolean, filterActivityId$empty?: boolean, filterActivityId$nempty?: boolean, filterActivityId$like?: string, afterPageToken?: string, beforePageToken?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/ticketing/show`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -345,20 +353,68 @@ export const ShowServiceApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['filter.name.$like'] = filterName$like;
             }
 
-            if (filterIsRecommend$eq !== undefined) {
-                localVarQueryParameter['filter.isRecommend.$eq'] = filterIsRecommend$eq;
+            if (filterActivityId$eq !== undefined) {
+                localVarQueryParameter['filter.activityId.$eq'] = filterActivityId$eq;
             }
 
-            if (filterIsRecommend$neq !== undefined) {
-                localVarQueryParameter['filter.isRecommend.$neq'] = filterIsRecommend$neq;
+            if (filterActivityId$neq !== undefined) {
+                localVarQueryParameter['filter.activityId.$neq'] = filterActivityId$neq;
             }
 
-            if (filterIsRecommend$null !== undefined) {
-                localVarQueryParameter['filter.isRecommend.$null'] = filterIsRecommend$null;
+            if (filterActivityId$contains !== undefined) {
+                localVarQueryParameter['filter.activityId.$contains'] = filterActivityId$contains;
             }
 
-            if (filterIsRecommend$nnull !== undefined) {
-                localVarQueryParameter['filter.isRecommend.$nnull'] = filterIsRecommend$nnull;
+            if (filterActivityId$startsWith !== undefined) {
+                localVarQueryParameter['filter.activityId.$starts_with'] = filterActivityId$startsWith;
+            }
+
+            if (filterActivityId$nstartsWith !== undefined) {
+                localVarQueryParameter['filter.activityId.$nstarts_with'] = filterActivityId$nstartsWith;
+            }
+
+            if (filterActivityId$endsWith !== undefined) {
+                localVarQueryParameter['filter.activityId.$ends_with'] = filterActivityId$endsWith;
+            }
+
+            if (filterActivityId$nendsWith !== undefined) {
+                localVarQueryParameter['filter.activityId.$nends_with'] = filterActivityId$nendsWith;
+            }
+
+            if (filterActivityId$in) {
+                localVarQueryParameter['filter.activityId.$in'] = filterActivityId$in;
+            }
+
+            if (filterActivityId$nin) {
+                localVarQueryParameter['filter.activityId.$nin'] = filterActivityId$nin;
+            }
+
+            if (filterActivityId$null !== undefined) {
+                localVarQueryParameter['filter.activityId.$null'] = filterActivityId$null;
+            }
+
+            if (filterActivityId$nnull !== undefined) {
+                localVarQueryParameter['filter.activityId.$nnull'] = filterActivityId$nnull;
+            }
+
+            if (filterActivityId$empty !== undefined) {
+                localVarQueryParameter['filter.activityId.$empty'] = filterActivityId$empty;
+            }
+
+            if (filterActivityId$nempty !== undefined) {
+                localVarQueryParameter['filter.activityId.$nempty'] = filterActivityId$nempty;
+            }
+
+            if (filterActivityId$like !== undefined) {
+                localVarQueryParameter['filter.activityId.$like'] = filterActivityId$like;
+            }
+
+            if (afterPageToken !== undefined) {
+                localVarQueryParameter['afterPageToken'] = afterPageToken;
+            }
+
+            if (beforePageToken !== undefined) {
+                localVarQueryParameter['beforePageToken'] = beforePageToken;
             }
 
 
@@ -390,48 +446,6 @@ export const ShowServiceApiAxiosParamCreator = function (configuration?: Configu
             }
 
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication bearer required
-            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {string} id 
-         * @param {ShowServiceRecommendShowRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        showServiceRecommendShow: async (id: string, body: ShowServiceRecommendShowRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('showServiceRecommendShow', 'id', id)
-            // verify required parameter 'body' is not null or undefined
-            assertParamExists('showServiceRecommendShow', 'body', body)
-            const localVarPath = `/v1/ticketing/show/{id}/recommend`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -611,15 +625,27 @@ export const ShowServiceApiFp = function(configuration?: Configuration) {
          * @param {boolean} [filterName$empty] 
          * @param {boolean} [filterName$nempty] 
          * @param {string} [filterName$like] 
-         * @param {boolean} [filterIsRecommend$eq] 
-         * @param {boolean} [filterIsRecommend$neq] 
-         * @param {boolean} [filterIsRecommend$null] 
-         * @param {boolean} [filterIsRecommend$nnull] 
+         * @param {string} [filterActivityId$eq] 
+         * @param {string} [filterActivityId$neq] 
+         * @param {string} [filterActivityId$contains] 
+         * @param {string} [filterActivityId$startsWith] 
+         * @param {string} [filterActivityId$nstartsWith] 
+         * @param {string} [filterActivityId$endsWith] 
+         * @param {string} [filterActivityId$nendsWith] 
+         * @param {Array<string>} [filterActivityId$in] 
+         * @param {Array<string>} [filterActivityId$nin] 
+         * @param {boolean} [filterActivityId$null] 
+         * @param {boolean} [filterActivityId$nnull] 
+         * @param {boolean} [filterActivityId$empty] 
+         * @param {boolean} [filterActivityId$nempty] 
+         * @param {string} [filterActivityId$like] 
+         * @param {string} [afterPageToken] 
+         * @param {string} [beforePageToken] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async showServiceListShow(pageOffset?: number, pageSize?: number, search?: string, sort?: Array<string>, fields?: string, filterId$eq?: string, filterId$neq?: string, filterId$contains?: string, filterId$startsWith?: string, filterId$nstartsWith?: string, filterId$endsWith?: string, filterId$nendsWith?: string, filterId$in?: Array<string>, filterId$nin?: Array<string>, filterId$null?: boolean, filterId$nnull?: boolean, filterId$empty?: boolean, filterId$nempty?: boolean, filterId$like?: string, filterName$eq?: string, filterName$neq?: string, filterName$contains?: string, filterName$startsWith?: string, filterName$nstartsWith?: string, filterName$endsWith?: string, filterName$nendsWith?: string, filterName$in?: Array<string>, filterName$nin?: Array<string>, filterName$null?: boolean, filterName$nnull?: boolean, filterName$empty?: boolean, filterName$nempty?: boolean, filterName$like?: string, filterIsRecommend$eq?: boolean, filterIsRecommend$neq?: boolean, filterIsRecommend$null?: boolean, filterIsRecommend$nnull?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1ListShowReply>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.showServiceListShow(pageOffset, pageSize, search, sort, fields, filterId$eq, filterId$neq, filterId$contains, filterId$startsWith, filterId$nstartsWith, filterId$endsWith, filterId$nendsWith, filterId$in, filterId$nin, filterId$null, filterId$nnull, filterId$empty, filterId$nempty, filterId$like, filterName$eq, filterName$neq, filterName$contains, filterName$startsWith, filterName$nstartsWith, filterName$endsWith, filterName$nendsWith, filterName$in, filterName$nin, filterName$null, filterName$nnull, filterName$empty, filterName$nempty, filterName$like, filterIsRecommend$eq, filterIsRecommend$neq, filterIsRecommend$null, filterIsRecommend$nnull, options);
+        async showServiceListShow(pageOffset?: number, pageSize?: number, search?: string, sort?: Array<string>, fields?: string, filterId$eq?: string, filterId$neq?: string, filterId$contains?: string, filterId$startsWith?: string, filterId$nstartsWith?: string, filterId$endsWith?: string, filterId$nendsWith?: string, filterId$in?: Array<string>, filterId$nin?: Array<string>, filterId$null?: boolean, filterId$nnull?: boolean, filterId$empty?: boolean, filterId$nempty?: boolean, filterId$like?: string, filterName$eq?: string, filterName$neq?: string, filterName$contains?: string, filterName$startsWith?: string, filterName$nstartsWith?: string, filterName$endsWith?: string, filterName$nendsWith?: string, filterName$in?: Array<string>, filterName$nin?: Array<string>, filterName$null?: boolean, filterName$nnull?: boolean, filterName$empty?: boolean, filterName$nempty?: boolean, filterName$like?: string, filterActivityId$eq?: string, filterActivityId$neq?: string, filterActivityId$contains?: string, filterActivityId$startsWith?: string, filterActivityId$nstartsWith?: string, filterActivityId$endsWith?: string, filterActivityId$nendsWith?: string, filterActivityId$in?: Array<string>, filterActivityId$nin?: Array<string>, filterActivityId$null?: boolean, filterActivityId$nnull?: boolean, filterActivityId$empty?: boolean, filterActivityId$nempty?: boolean, filterActivityId$like?: string, afterPageToken?: string, beforePageToken?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1ListShowReply>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.showServiceListShow(pageOffset, pageSize, search, sort, fields, filterId$eq, filterId$neq, filterId$contains, filterId$startsWith, filterId$nstartsWith, filterId$endsWith, filterId$nendsWith, filterId$in, filterId$nin, filterId$null, filterId$nnull, filterId$empty, filterId$nempty, filterId$like, filterName$eq, filterName$neq, filterName$contains, filterName$startsWith, filterName$nstartsWith, filterName$endsWith, filterName$nendsWith, filterName$in, filterName$nin, filterName$null, filterName$nnull, filterName$empty, filterName$nempty, filterName$like, filterActivityId$eq, filterActivityId$neq, filterActivityId$contains, filterActivityId$startsWith, filterActivityId$nstartsWith, filterActivityId$endsWith, filterActivityId$nendsWith, filterActivityId$in, filterActivityId$nin, filterActivityId$null, filterActivityId$nnull, filterActivityId$empty, filterActivityId$nempty, filterActivityId$like, afterPageToken, beforePageToken, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -630,17 +656,6 @@ export const ShowServiceApiFp = function(configuration?: Configuration) {
          */
         async showServiceListShow2(body: V1ListShowRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1ListShowReply>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.showServiceListShow2(body, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * 
-         * @param {string} id 
-         * @param {ShowServiceRecommendShowRequest} body 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async showServiceRecommendShow(id: string, body: ShowServiceRecommendShowRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1RecommendShowReply>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.showServiceRecommendShow(id, body, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -709,7 +724,7 @@ export const ShowServiceApiFactory = function (configuration?: Configuration, ba
          * @throws {RequiredError}
          */
         showServiceListShow(requestParameters: ShowServiceApiShowServiceListShowRequest = {}, options?: AxiosRequestConfig): AxiosPromise<V1ListShowReply> {
-            return localVarFp.showServiceListShow(requestParameters.pageOffset, requestParameters.pageSize, requestParameters.search, requestParameters.sort, requestParameters.fields, requestParameters.filterId$eq, requestParameters.filterId$neq, requestParameters.filterId$contains, requestParameters.filterId$startsWith, requestParameters.filterId$nstartsWith, requestParameters.filterId$endsWith, requestParameters.filterId$nendsWith, requestParameters.filterId$in, requestParameters.filterId$nin, requestParameters.filterId$null, requestParameters.filterId$nnull, requestParameters.filterId$empty, requestParameters.filterId$nempty, requestParameters.filterId$like, requestParameters.filterName$eq, requestParameters.filterName$neq, requestParameters.filterName$contains, requestParameters.filterName$startsWith, requestParameters.filterName$nstartsWith, requestParameters.filterName$endsWith, requestParameters.filterName$nendsWith, requestParameters.filterName$in, requestParameters.filterName$nin, requestParameters.filterName$null, requestParameters.filterName$nnull, requestParameters.filterName$empty, requestParameters.filterName$nempty, requestParameters.filterName$like, requestParameters.filterIsRecommend$eq, requestParameters.filterIsRecommend$neq, requestParameters.filterIsRecommend$null, requestParameters.filterIsRecommend$nnull, options).then((request) => request(axios, basePath));
+            return localVarFp.showServiceListShow(requestParameters.pageOffset, requestParameters.pageSize, requestParameters.search, requestParameters.sort, requestParameters.fields, requestParameters.filterId$eq, requestParameters.filterId$neq, requestParameters.filterId$contains, requestParameters.filterId$startsWith, requestParameters.filterId$nstartsWith, requestParameters.filterId$endsWith, requestParameters.filterId$nendsWith, requestParameters.filterId$in, requestParameters.filterId$nin, requestParameters.filterId$null, requestParameters.filterId$nnull, requestParameters.filterId$empty, requestParameters.filterId$nempty, requestParameters.filterId$like, requestParameters.filterName$eq, requestParameters.filterName$neq, requestParameters.filterName$contains, requestParameters.filterName$startsWith, requestParameters.filterName$nstartsWith, requestParameters.filterName$endsWith, requestParameters.filterName$nendsWith, requestParameters.filterName$in, requestParameters.filterName$nin, requestParameters.filterName$null, requestParameters.filterName$nnull, requestParameters.filterName$empty, requestParameters.filterName$nempty, requestParameters.filterName$like, requestParameters.filterActivityId$eq, requestParameters.filterActivityId$neq, requestParameters.filterActivityId$contains, requestParameters.filterActivityId$startsWith, requestParameters.filterActivityId$nstartsWith, requestParameters.filterActivityId$endsWith, requestParameters.filterActivityId$nendsWith, requestParameters.filterActivityId$in, requestParameters.filterActivityId$nin, requestParameters.filterActivityId$null, requestParameters.filterActivityId$nnull, requestParameters.filterActivityId$empty, requestParameters.filterActivityId$nempty, requestParameters.filterActivityId$like, requestParameters.afterPageToken, requestParameters.beforePageToken, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -719,15 +734,6 @@ export const ShowServiceApiFactory = function (configuration?: Configuration, ba
          */
         showServiceListShow2(requestParameters: ShowServiceApiShowServiceListShow2Request, options?: AxiosRequestConfig): AxiosPromise<V1ListShowReply> {
             return localVarFp.showServiceListShow2(requestParameters.body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {ShowServiceApiShowServiceRecommendShowRequest} requestParameters Request parameters.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        showServiceRecommendShow(requestParameters: ShowServiceApiShowServiceRecommendShowRequest, options?: AxiosRequestConfig): AxiosPromise<V1RecommendShowReply> {
-            return localVarFp.showServiceRecommendShow(requestParameters.id, requestParameters.body, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -1031,31 +1037,115 @@ export interface ShowServiceApiShowServiceListShowRequest {
 
     /**
      * 
-     * @type {boolean}
+     * @type {string}
      * @memberof ShowServiceApiShowServiceListShow
      */
-    readonly filterIsRecommend$eq?: boolean
+    readonly filterActivityId$eq?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ShowServiceApiShowServiceListShow
+     */
+    readonly filterActivityId$neq?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ShowServiceApiShowServiceListShow
+     */
+    readonly filterActivityId$contains?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ShowServiceApiShowServiceListShow
+     */
+    readonly filterActivityId$startsWith?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ShowServiceApiShowServiceListShow
+     */
+    readonly filterActivityId$nstartsWith?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ShowServiceApiShowServiceListShow
+     */
+    readonly filterActivityId$endsWith?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ShowServiceApiShowServiceListShow
+     */
+    readonly filterActivityId$nendsWith?: string
+
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof ShowServiceApiShowServiceListShow
+     */
+    readonly filterActivityId$in?: Array<string>
+
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof ShowServiceApiShowServiceListShow
+     */
+    readonly filterActivityId$nin?: Array<string>
 
     /**
      * 
      * @type {boolean}
      * @memberof ShowServiceApiShowServiceListShow
      */
-    readonly filterIsRecommend$neq?: boolean
+    readonly filterActivityId$null?: boolean
 
     /**
      * 
      * @type {boolean}
      * @memberof ShowServiceApiShowServiceListShow
      */
-    readonly filterIsRecommend$null?: boolean
+    readonly filterActivityId$nnull?: boolean
 
     /**
      * 
      * @type {boolean}
      * @memberof ShowServiceApiShowServiceListShow
      */
-    readonly filterIsRecommend$nnull?: boolean
+    readonly filterActivityId$empty?: boolean
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ShowServiceApiShowServiceListShow
+     */
+    readonly filterActivityId$nempty?: boolean
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ShowServiceApiShowServiceListShow
+     */
+    readonly filterActivityId$like?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ShowServiceApiShowServiceListShow
+     */
+    readonly afterPageToken?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ShowServiceApiShowServiceListShow
+     */
+    readonly beforePageToken?: string
 }
 
 /**
@@ -1070,27 +1160,6 @@ export interface ShowServiceApiShowServiceListShow2Request {
      * @memberof ShowServiceApiShowServiceListShow2
      */
     readonly body: V1ListShowRequest
-}
-
-/**
- * Request parameters for showServiceRecommendShow operation in ShowServiceApi.
- * @export
- * @interface ShowServiceApiShowServiceRecommendShowRequest
- */
-export interface ShowServiceApiShowServiceRecommendShowRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ShowServiceApiShowServiceRecommendShow
-     */
-    readonly id: string
-
-    /**
-     * 
-     * @type {ShowServiceRecommendShowRequest}
-     * @memberof ShowServiceApiShowServiceRecommendShow
-     */
-    readonly body: ShowServiceRecommendShowRequest
 }
 
 /**
@@ -1183,7 +1252,7 @@ export class ShowServiceApi extends BaseAPI {
      * @memberof ShowServiceApi
      */
     public showServiceListShow(requestParameters: ShowServiceApiShowServiceListShowRequest = {}, options?: AxiosRequestConfig) {
-        return ShowServiceApiFp(this.configuration).showServiceListShow(requestParameters.pageOffset, requestParameters.pageSize, requestParameters.search, requestParameters.sort, requestParameters.fields, requestParameters.filterId$eq, requestParameters.filterId$neq, requestParameters.filterId$contains, requestParameters.filterId$startsWith, requestParameters.filterId$nstartsWith, requestParameters.filterId$endsWith, requestParameters.filterId$nendsWith, requestParameters.filterId$in, requestParameters.filterId$nin, requestParameters.filterId$null, requestParameters.filterId$nnull, requestParameters.filterId$empty, requestParameters.filterId$nempty, requestParameters.filterId$like, requestParameters.filterName$eq, requestParameters.filterName$neq, requestParameters.filterName$contains, requestParameters.filterName$startsWith, requestParameters.filterName$nstartsWith, requestParameters.filterName$endsWith, requestParameters.filterName$nendsWith, requestParameters.filterName$in, requestParameters.filterName$nin, requestParameters.filterName$null, requestParameters.filterName$nnull, requestParameters.filterName$empty, requestParameters.filterName$nempty, requestParameters.filterName$like, requestParameters.filterIsRecommend$eq, requestParameters.filterIsRecommend$neq, requestParameters.filterIsRecommend$null, requestParameters.filterIsRecommend$nnull, options).then((request) => request(this.axios, this.basePath));
+        return ShowServiceApiFp(this.configuration).showServiceListShow(requestParameters.pageOffset, requestParameters.pageSize, requestParameters.search, requestParameters.sort, requestParameters.fields, requestParameters.filterId$eq, requestParameters.filterId$neq, requestParameters.filterId$contains, requestParameters.filterId$startsWith, requestParameters.filterId$nstartsWith, requestParameters.filterId$endsWith, requestParameters.filterId$nendsWith, requestParameters.filterId$in, requestParameters.filterId$nin, requestParameters.filterId$null, requestParameters.filterId$nnull, requestParameters.filterId$empty, requestParameters.filterId$nempty, requestParameters.filterId$like, requestParameters.filterName$eq, requestParameters.filterName$neq, requestParameters.filterName$contains, requestParameters.filterName$startsWith, requestParameters.filterName$nstartsWith, requestParameters.filterName$endsWith, requestParameters.filterName$nendsWith, requestParameters.filterName$in, requestParameters.filterName$nin, requestParameters.filterName$null, requestParameters.filterName$nnull, requestParameters.filterName$empty, requestParameters.filterName$nempty, requestParameters.filterName$like, requestParameters.filterActivityId$eq, requestParameters.filterActivityId$neq, requestParameters.filterActivityId$contains, requestParameters.filterActivityId$startsWith, requestParameters.filterActivityId$nstartsWith, requestParameters.filterActivityId$endsWith, requestParameters.filterActivityId$nendsWith, requestParameters.filterActivityId$in, requestParameters.filterActivityId$nin, requestParameters.filterActivityId$null, requestParameters.filterActivityId$nnull, requestParameters.filterActivityId$empty, requestParameters.filterActivityId$nempty, requestParameters.filterActivityId$like, requestParameters.afterPageToken, requestParameters.beforePageToken, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1195,17 +1264,6 @@ export class ShowServiceApi extends BaseAPI {
      */
     public showServiceListShow2(requestParameters: ShowServiceApiShowServiceListShow2Request, options?: AxiosRequestConfig) {
         return ShowServiceApiFp(this.configuration).showServiceListShow2(requestParameters.body, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @param {ShowServiceApiShowServiceRecommendShowRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ShowServiceApi
-     */
-    public showServiceRecommendShow(requestParameters: ShowServiceApiShowServiceRecommendShowRequest, options?: AxiosRequestConfig) {
-        return ShowServiceApiFp(this.configuration).showServiceRecommendShow(requestParameters.id, requestParameters.body, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

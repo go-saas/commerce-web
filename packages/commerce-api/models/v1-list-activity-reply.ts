@@ -41,5 +41,17 @@ export interface V1ListActivityReply {
      * @memberof V1ListActivityReply
      */
     'items'?: Array<V1Activity>;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1ListActivityReply
+     */
+    'nextAfterPageToken'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1ListActivityReply
+     */
+    'nextBeforePageToken'?: string | null;
 }
 

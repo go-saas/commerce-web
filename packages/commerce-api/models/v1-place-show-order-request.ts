@@ -28,12 +28,12 @@ export interface V1PlaceShowOrderRequest {
      * @type {string}
      * @memberof V1PlaceShowOrderRequest
      */
-    'showId'?: string;
+    'showId': string;
     /**
      * 
      * @type {Array<V1OrderSalesType>}
      * @memberof V1PlaceShowOrderRequest
      */
-    'salesType'?: Array<V1OrderSalesType>;
+    'salesType': Array<V1OrderSalesType>;
 }
 

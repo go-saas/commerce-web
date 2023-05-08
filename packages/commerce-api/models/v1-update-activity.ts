@@ -83,5 +83,11 @@ export interface V1UpdateActivity {
      * @memberof V1UpdateActivity
      */
     'duration'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1UpdateActivity
+     */
+    'notice'?: string;
 }
 

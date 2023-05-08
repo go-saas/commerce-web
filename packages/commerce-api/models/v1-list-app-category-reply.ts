@@ -13,30 +13,21 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { Ticketingapicategoryv1Category } from './ticketingapicategoryv1-category';
 
 /**
  * 
  * @export
- * @interface V1OrderSalesType
+ * @interface V1ListAppCategoryReply
  */
-export interface V1OrderSalesType {
+export interface V1ListAppCategoryReply {
     /**
      * 
-     * @type {string}
-     * @memberof V1OrderSalesType
+     * @type {Array<Ticketingapicategoryv1Category>}
+     * @memberof V1ListAppCategoryReply
      */
-    'showSalesTypeId': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1OrderSalesType
-     */
-    'showSeatId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof V1OrderSalesType
-     */
-    'qty': number;
+    'items'?: Array<Ticketingapicategoryv1Category>;
 }
 

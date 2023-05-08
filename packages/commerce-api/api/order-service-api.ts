@@ -186,10 +186,26 @@ export const OrderServiceApiAxiosParamCreator = function (configuration?: Config
          * @param {boolean} [filterName$empty] 
          * @param {boolean} [filterName$nempty] 
          * @param {string} [filterName$like] 
+         * @param {string} [filterCustomerId$eq] 
+         * @param {string} [filterCustomerId$neq] 
+         * @param {string} [filterCustomerId$contains] 
+         * @param {string} [filterCustomerId$startsWith] 
+         * @param {string} [filterCustomerId$nstartsWith] 
+         * @param {string} [filterCustomerId$endsWith] 
+         * @param {string} [filterCustomerId$nendsWith] 
+         * @param {Array<string>} [filterCustomerId$in] 
+         * @param {Array<string>} [filterCustomerId$nin] 
+         * @param {boolean} [filterCustomerId$null] 
+         * @param {boolean} [filterCustomerId$nnull] 
+         * @param {boolean} [filterCustomerId$empty] 
+         * @param {boolean} [filterCustomerId$nempty] 
+         * @param {string} [filterCustomerId$like] 
+         * @param {string} [afterPageToken] 
+         * @param {string} [beforePageToken] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        orderServiceListOrder: async (pageOffset?: number, pageSize?: number, search?: string, sort?: Array<string>, fields?: string, filterId$eq?: string, filterId$neq?: string, filterId$contains?: string, filterId$startsWith?: string, filterId$nstartsWith?: string, filterId$endsWith?: string, filterId$nendsWith?: string, filterId$in?: Array<string>, filterId$nin?: Array<string>, filterId$null?: boolean, filterId$nnull?: boolean, filterId$empty?: boolean, filterId$nempty?: boolean, filterId$like?: string, filterName$eq?: string, filterName$neq?: string, filterName$contains?: string, filterName$startsWith?: string, filterName$nstartsWith?: string, filterName$endsWith?: string, filterName$nendsWith?: string, filterName$in?: Array<string>, filterName$nin?: Array<string>, filterName$null?: boolean, filterName$nnull?: boolean, filterName$empty?: boolean, filterName$nempty?: boolean, filterName$like?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        orderServiceListOrder: async (pageOffset?: number, pageSize?: number, search?: string, sort?: Array<string>, fields?: string, filterId$eq?: string, filterId$neq?: string, filterId$contains?: string, filterId$startsWith?: string, filterId$nstartsWith?: string, filterId$endsWith?: string, filterId$nendsWith?: string, filterId$in?: Array<string>, filterId$nin?: Array<string>, filterId$null?: boolean, filterId$nnull?: boolean, filterId$empty?: boolean, filterId$nempty?: boolean, filterId$like?: string, filterName$eq?: string, filterName$neq?: string, filterName$contains?: string, filterName$startsWith?: string, filterName$nstartsWith?: string, filterName$endsWith?: string, filterName$nendsWith?: string, filterName$in?: Array<string>, filterName$nin?: Array<string>, filterName$null?: boolean, filterName$nnull?: boolean, filterName$empty?: boolean, filterName$nempty?: boolean, filterName$like?: string, filterCustomerId$eq?: string, filterCustomerId$neq?: string, filterCustomerId$contains?: string, filterCustomerId$startsWith?: string, filterCustomerId$nstartsWith?: string, filterCustomerId$endsWith?: string, filterCustomerId$nendsWith?: string, filterCustomerId$in?: Array<string>, filterCustomerId$nin?: Array<string>, filterCustomerId$null?: boolean, filterCustomerId$nnull?: boolean, filterCustomerId$empty?: boolean, filterCustomerId$nempty?: boolean, filterCustomerId$like?: string, afterPageToken?: string, beforePageToken?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/order/order`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -335,6 +351,70 @@ export const OrderServiceApiAxiosParamCreator = function (configuration?: Config
 
             if (filterName$like !== undefined) {
                 localVarQueryParameter['filter.name.$like'] = filterName$like;
+            }
+
+            if (filterCustomerId$eq !== undefined) {
+                localVarQueryParameter['filter.customerId.$eq'] = filterCustomerId$eq;
+            }
+
+            if (filterCustomerId$neq !== undefined) {
+                localVarQueryParameter['filter.customerId.$neq'] = filterCustomerId$neq;
+            }
+
+            if (filterCustomerId$contains !== undefined) {
+                localVarQueryParameter['filter.customerId.$contains'] = filterCustomerId$contains;
+            }
+
+            if (filterCustomerId$startsWith !== undefined) {
+                localVarQueryParameter['filter.customerId.$starts_with'] = filterCustomerId$startsWith;
+            }
+
+            if (filterCustomerId$nstartsWith !== undefined) {
+                localVarQueryParameter['filter.customerId.$nstarts_with'] = filterCustomerId$nstartsWith;
+            }
+
+            if (filterCustomerId$endsWith !== undefined) {
+                localVarQueryParameter['filter.customerId.$ends_with'] = filterCustomerId$endsWith;
+            }
+
+            if (filterCustomerId$nendsWith !== undefined) {
+                localVarQueryParameter['filter.customerId.$nends_with'] = filterCustomerId$nendsWith;
+            }
+
+            if (filterCustomerId$in) {
+                localVarQueryParameter['filter.customerId.$in'] = filterCustomerId$in;
+            }
+
+            if (filterCustomerId$nin) {
+                localVarQueryParameter['filter.customerId.$nin'] = filterCustomerId$nin;
+            }
+
+            if (filterCustomerId$null !== undefined) {
+                localVarQueryParameter['filter.customerId.$null'] = filterCustomerId$null;
+            }
+
+            if (filterCustomerId$nnull !== undefined) {
+                localVarQueryParameter['filter.customerId.$nnull'] = filterCustomerId$nnull;
+            }
+
+            if (filterCustomerId$empty !== undefined) {
+                localVarQueryParameter['filter.customerId.$empty'] = filterCustomerId$empty;
+            }
+
+            if (filterCustomerId$nempty !== undefined) {
+                localVarQueryParameter['filter.customerId.$nempty'] = filterCustomerId$nempty;
+            }
+
+            if (filterCustomerId$like !== undefined) {
+                localVarQueryParameter['filter.customerId.$like'] = filterCustomerId$like;
+            }
+
+            if (afterPageToken !== undefined) {
+                localVarQueryParameter['afterPageToken'] = afterPageToken;
+            }
+
+            if (beforePageToken !== undefined) {
+                localVarQueryParameter['beforePageToken'] = beforePageToken;
             }
 
 
@@ -545,11 +625,27 @@ export const OrderServiceApiFp = function(configuration?: Configuration) {
          * @param {boolean} [filterName$empty] 
          * @param {boolean} [filterName$nempty] 
          * @param {string} [filterName$like] 
+         * @param {string} [filterCustomerId$eq] 
+         * @param {string} [filterCustomerId$neq] 
+         * @param {string} [filterCustomerId$contains] 
+         * @param {string} [filterCustomerId$startsWith] 
+         * @param {string} [filterCustomerId$nstartsWith] 
+         * @param {string} [filterCustomerId$endsWith] 
+         * @param {string} [filterCustomerId$nendsWith] 
+         * @param {Array<string>} [filterCustomerId$in] 
+         * @param {Array<string>} [filterCustomerId$nin] 
+         * @param {boolean} [filterCustomerId$null] 
+         * @param {boolean} [filterCustomerId$nnull] 
+         * @param {boolean} [filterCustomerId$empty] 
+         * @param {boolean} [filterCustomerId$nempty] 
+         * @param {string} [filterCustomerId$like] 
+         * @param {string} [afterPageToken] 
+         * @param {string} [beforePageToken] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async orderServiceListOrder(pageOffset?: number, pageSize?: number, search?: string, sort?: Array<string>, fields?: string, filterId$eq?: string, filterId$neq?: string, filterId$contains?: string, filterId$startsWith?: string, filterId$nstartsWith?: string, filterId$endsWith?: string, filterId$nendsWith?: string, filterId$in?: Array<string>, filterId$nin?: Array<string>, filterId$null?: boolean, filterId$nnull?: boolean, filterId$empty?: boolean, filterId$nempty?: boolean, filterId$like?: string, filterName$eq?: string, filterName$neq?: string, filterName$contains?: string, filterName$startsWith?: string, filterName$nstartsWith?: string, filterName$endsWith?: string, filterName$nendsWith?: string, filterName$in?: Array<string>, filterName$nin?: Array<string>, filterName$null?: boolean, filterName$nnull?: boolean, filterName$empty?: boolean, filterName$nempty?: boolean, filterName$like?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1ListOrderReply>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.orderServiceListOrder(pageOffset, pageSize, search, sort, fields, filterId$eq, filterId$neq, filterId$contains, filterId$startsWith, filterId$nstartsWith, filterId$endsWith, filterId$nendsWith, filterId$in, filterId$nin, filterId$null, filterId$nnull, filterId$empty, filterId$nempty, filterId$like, filterName$eq, filterName$neq, filterName$contains, filterName$startsWith, filterName$nstartsWith, filterName$endsWith, filterName$nendsWith, filterName$in, filterName$nin, filterName$null, filterName$nnull, filterName$empty, filterName$nempty, filterName$like, options);
+        async orderServiceListOrder(pageOffset?: number, pageSize?: number, search?: string, sort?: Array<string>, fields?: string, filterId$eq?: string, filterId$neq?: string, filterId$contains?: string, filterId$startsWith?: string, filterId$nstartsWith?: string, filterId$endsWith?: string, filterId$nendsWith?: string, filterId$in?: Array<string>, filterId$nin?: Array<string>, filterId$null?: boolean, filterId$nnull?: boolean, filterId$empty?: boolean, filterId$nempty?: boolean, filterId$like?: string, filterName$eq?: string, filterName$neq?: string, filterName$contains?: string, filterName$startsWith?: string, filterName$nstartsWith?: string, filterName$endsWith?: string, filterName$nendsWith?: string, filterName$in?: Array<string>, filterName$nin?: Array<string>, filterName$null?: boolean, filterName$nnull?: boolean, filterName$empty?: boolean, filterName$nempty?: boolean, filterName$like?: string, filterCustomerId$eq?: string, filterCustomerId$neq?: string, filterCustomerId$contains?: string, filterCustomerId$startsWith?: string, filterCustomerId$nstartsWith?: string, filterCustomerId$endsWith?: string, filterCustomerId$nendsWith?: string, filterCustomerId$in?: Array<string>, filterCustomerId$nin?: Array<string>, filterCustomerId$null?: boolean, filterCustomerId$nnull?: boolean, filterCustomerId$empty?: boolean, filterCustomerId$nempty?: boolean, filterCustomerId$like?: string, afterPageToken?: string, beforePageToken?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1ListOrderReply>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.orderServiceListOrder(pageOffset, pageSize, search, sort, fields, filterId$eq, filterId$neq, filterId$contains, filterId$startsWith, filterId$nstartsWith, filterId$endsWith, filterId$nendsWith, filterId$in, filterId$nin, filterId$null, filterId$nnull, filterId$empty, filterId$nempty, filterId$like, filterName$eq, filterName$neq, filterName$contains, filterName$startsWith, filterName$nstartsWith, filterName$endsWith, filterName$nendsWith, filterName$in, filterName$nin, filterName$null, filterName$nnull, filterName$empty, filterName$nempty, filterName$like, filterCustomerId$eq, filterCustomerId$neq, filterCustomerId$contains, filterCustomerId$startsWith, filterCustomerId$nstartsWith, filterCustomerId$endsWith, filterCustomerId$nendsWith, filterCustomerId$in, filterCustomerId$nin, filterCustomerId$null, filterCustomerId$nnull, filterCustomerId$empty, filterCustomerId$nempty, filterCustomerId$like, afterPageToken, beforePageToken, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -628,7 +724,7 @@ export const OrderServiceApiFactory = function (configuration?: Configuration, b
          * @throws {RequiredError}
          */
         orderServiceListOrder(requestParameters: OrderServiceApiOrderServiceListOrderRequest = {}, options?: AxiosRequestConfig): AxiosPromise<V1ListOrderReply> {
-            return localVarFp.orderServiceListOrder(requestParameters.pageOffset, requestParameters.pageSize, requestParameters.search, requestParameters.sort, requestParameters.fields, requestParameters.filterId$eq, requestParameters.filterId$neq, requestParameters.filterId$contains, requestParameters.filterId$startsWith, requestParameters.filterId$nstartsWith, requestParameters.filterId$endsWith, requestParameters.filterId$nendsWith, requestParameters.filterId$in, requestParameters.filterId$nin, requestParameters.filterId$null, requestParameters.filterId$nnull, requestParameters.filterId$empty, requestParameters.filterId$nempty, requestParameters.filterId$like, requestParameters.filterName$eq, requestParameters.filterName$neq, requestParameters.filterName$contains, requestParameters.filterName$startsWith, requestParameters.filterName$nstartsWith, requestParameters.filterName$endsWith, requestParameters.filterName$nendsWith, requestParameters.filterName$in, requestParameters.filterName$nin, requestParameters.filterName$null, requestParameters.filterName$nnull, requestParameters.filterName$empty, requestParameters.filterName$nempty, requestParameters.filterName$like, options).then((request) => request(axios, basePath));
+            return localVarFp.orderServiceListOrder(requestParameters.pageOffset, requestParameters.pageSize, requestParameters.search, requestParameters.sort, requestParameters.fields, requestParameters.filterId$eq, requestParameters.filterId$neq, requestParameters.filterId$contains, requestParameters.filterId$startsWith, requestParameters.filterId$nstartsWith, requestParameters.filterId$endsWith, requestParameters.filterId$nendsWith, requestParameters.filterId$in, requestParameters.filterId$nin, requestParameters.filterId$null, requestParameters.filterId$nnull, requestParameters.filterId$empty, requestParameters.filterId$nempty, requestParameters.filterId$like, requestParameters.filterName$eq, requestParameters.filterName$neq, requestParameters.filterName$contains, requestParameters.filterName$startsWith, requestParameters.filterName$nstartsWith, requestParameters.filterName$endsWith, requestParameters.filterName$nendsWith, requestParameters.filterName$in, requestParameters.filterName$nin, requestParameters.filterName$null, requestParameters.filterName$nnull, requestParameters.filterName$empty, requestParameters.filterName$nempty, requestParameters.filterName$like, requestParameters.filterCustomerId$eq, requestParameters.filterCustomerId$neq, requestParameters.filterCustomerId$contains, requestParameters.filterCustomerId$startsWith, requestParameters.filterCustomerId$nstartsWith, requestParameters.filterCustomerId$endsWith, requestParameters.filterCustomerId$nendsWith, requestParameters.filterCustomerId$in, requestParameters.filterCustomerId$nin, requestParameters.filterCustomerId$null, requestParameters.filterCustomerId$nnull, requestParameters.filterCustomerId$empty, requestParameters.filterCustomerId$nempty, requestParameters.filterCustomerId$like, requestParameters.afterPageToken, requestParameters.beforePageToken, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -938,6 +1034,118 @@ export interface OrderServiceApiOrderServiceListOrderRequest {
      * @memberof OrderServiceApiOrderServiceListOrder
      */
     readonly filterName$like?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof OrderServiceApiOrderServiceListOrder
+     */
+    readonly filterCustomerId$eq?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof OrderServiceApiOrderServiceListOrder
+     */
+    readonly filterCustomerId$neq?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof OrderServiceApiOrderServiceListOrder
+     */
+    readonly filterCustomerId$contains?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof OrderServiceApiOrderServiceListOrder
+     */
+    readonly filterCustomerId$startsWith?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof OrderServiceApiOrderServiceListOrder
+     */
+    readonly filterCustomerId$nstartsWith?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof OrderServiceApiOrderServiceListOrder
+     */
+    readonly filterCustomerId$endsWith?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof OrderServiceApiOrderServiceListOrder
+     */
+    readonly filterCustomerId$nendsWith?: string
+
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof OrderServiceApiOrderServiceListOrder
+     */
+    readonly filterCustomerId$in?: Array<string>
+
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof OrderServiceApiOrderServiceListOrder
+     */
+    readonly filterCustomerId$nin?: Array<string>
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof OrderServiceApiOrderServiceListOrder
+     */
+    readonly filterCustomerId$null?: boolean
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof OrderServiceApiOrderServiceListOrder
+     */
+    readonly filterCustomerId$nnull?: boolean
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof OrderServiceApiOrderServiceListOrder
+     */
+    readonly filterCustomerId$empty?: boolean
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof OrderServiceApiOrderServiceListOrder
+     */
+    readonly filterCustomerId$nempty?: boolean
+
+    /**
+     * 
+     * @type {string}
+     * @memberof OrderServiceApiOrderServiceListOrder
+     */
+    readonly filterCustomerId$like?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof OrderServiceApiOrderServiceListOrder
+     */
+    readonly afterPageToken?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof OrderServiceApiOrderServiceListOrder
+     */
+    readonly beforePageToken?: string
 }
 
 /**
@@ -1044,7 +1252,7 @@ export class OrderServiceApi extends BaseAPI {
      * @memberof OrderServiceApi
      */
     public orderServiceListOrder(requestParameters: OrderServiceApiOrderServiceListOrderRequest = {}, options?: AxiosRequestConfig) {
-        return OrderServiceApiFp(this.configuration).orderServiceListOrder(requestParameters.pageOffset, requestParameters.pageSize, requestParameters.search, requestParameters.sort, requestParameters.fields, requestParameters.filterId$eq, requestParameters.filterId$neq, requestParameters.filterId$contains, requestParameters.filterId$startsWith, requestParameters.filterId$nstartsWith, requestParameters.filterId$endsWith, requestParameters.filterId$nendsWith, requestParameters.filterId$in, requestParameters.filterId$nin, requestParameters.filterId$null, requestParameters.filterId$nnull, requestParameters.filterId$empty, requestParameters.filterId$nempty, requestParameters.filterId$like, requestParameters.filterName$eq, requestParameters.filterName$neq, requestParameters.filterName$contains, requestParameters.filterName$startsWith, requestParameters.filterName$nstartsWith, requestParameters.filterName$endsWith, requestParameters.filterName$nendsWith, requestParameters.filterName$in, requestParameters.filterName$nin, requestParameters.filterName$null, requestParameters.filterName$nnull, requestParameters.filterName$empty, requestParameters.filterName$nempty, requestParameters.filterName$like, options).then((request) => request(this.axios, this.basePath));
+        return OrderServiceApiFp(this.configuration).orderServiceListOrder(requestParameters.pageOffset, requestParameters.pageSize, requestParameters.search, requestParameters.sort, requestParameters.fields, requestParameters.filterId$eq, requestParameters.filterId$neq, requestParameters.filterId$contains, requestParameters.filterId$startsWith, requestParameters.filterId$nstartsWith, requestParameters.filterId$endsWith, requestParameters.filterId$nendsWith, requestParameters.filterId$in, requestParameters.filterId$nin, requestParameters.filterId$null, requestParameters.filterId$nnull, requestParameters.filterId$empty, requestParameters.filterId$nempty, requestParameters.filterId$like, requestParameters.filterName$eq, requestParameters.filterName$neq, requestParameters.filterName$contains, requestParameters.filterName$startsWith, requestParameters.filterName$nstartsWith, requestParameters.filterName$endsWith, requestParameters.filterName$nendsWith, requestParameters.filterName$in, requestParameters.filterName$nin, requestParameters.filterName$null, requestParameters.filterName$nnull, requestParameters.filterName$empty, requestParameters.filterName$nempty, requestParameters.filterName$like, requestParameters.filterCustomerId$eq, requestParameters.filterCustomerId$neq, requestParameters.filterCustomerId$contains, requestParameters.filterCustomerId$startsWith, requestParameters.filterCustomerId$nstartsWith, requestParameters.filterCustomerId$endsWith, requestParameters.filterCustomerId$nendsWith, requestParameters.filterCustomerId$in, requestParameters.filterCustomerId$nin, requestParameters.filterCustomerId$null, requestParameters.filterCustomerId$nnull, requestParameters.filterCustomerId$empty, requestParameters.filterCustomerId$nempty, requestParameters.filterCustomerId$like, requestParameters.afterPageToken, requestParameters.beforePageToken, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

@@ -92,5 +92,17 @@ export interface V1Activity {
      * @memberof V1Activity
      */
     'duration'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Activity
+     */
+    'notice'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof V1Activity
+     */
+    'isRecommend'?: boolean;
 }
 

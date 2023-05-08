@@ -17,26 +17,14 @@
 /**
  * 
  * @export
- * @interface V1OrderSalesType
+ * @interface V1RecommendActivityReply
  */
-export interface V1OrderSalesType {
+export interface V1RecommendActivityReply {
     /**
      * 
      * @type {string}
-     * @memberof V1OrderSalesType
+     * @memberof V1RecommendActivityReply
      */
-    'showSalesTypeId': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1OrderSalesType
-     */
-    'showSeatId'?: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof V1OrderSalesType
-     */
-    'qty': number;
+    'id'?: string;
 }
 

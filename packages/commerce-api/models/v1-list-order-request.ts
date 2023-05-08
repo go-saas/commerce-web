@@ -59,5 +59,17 @@ export interface V1ListOrderRequest {
      * @memberof V1ListOrderRequest
      */
     'filter'?: V1OrderFilter;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1ListOrderRequest
+     */
+    'afterPageToken'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1ListOrderRequest
+     */
+    'beforePageToken'?: string;
 }
 
