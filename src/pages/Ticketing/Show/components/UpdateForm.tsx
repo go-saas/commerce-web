@@ -194,10 +194,10 @@ const UpdateForm: React.FC<UpdateFormProps> = (props) => {
             const { saleableFrom, saleableTo, price, ...rest } = p;
             const { default: defaultPrice, discounted: discountedPrice } = price || {};
             //TODO cuccrency
-            if (defaultPrice) {
+            if (defaultPrice && defaultPrice.amount !== null) {
               price.default = { amount: defaultPrice.amount * 100, currencyCode: 'CNY' };
             }
-            if (discountedPrice) {
+            if (discountedPrice && discountedPrice.amount !== null) {
               price.discounted = { amount: discountedPrice.amount * 100, currencyCode: 'CNY' };
             }
             return {
