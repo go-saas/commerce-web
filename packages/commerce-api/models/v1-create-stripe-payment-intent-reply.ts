@@ -13,27 +13,30 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import { V1UpdateShow } from './v1-update-show';
 
 /**
  * 
  * @export
- * @interface V1UpdateShowRequest
+ * @interface V1CreateStripePaymentIntentReply
  */
-export interface V1UpdateShowRequest {
-    /**
-     * 
-     * @type {V1UpdateShow}
-     * @memberof V1UpdateShowRequest
-     */
-    'show'?: V1UpdateShow;
+export interface V1CreateStripePaymentIntentReply {
     /**
      * 
      * @type {string}
-     * @memberof V1UpdateShowRequest
+     * @memberof V1CreateStripePaymentIntentReply
      */
-    'updateMask'?: string;
+    'paymentIntent'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1CreateStripePaymentIntentReply
+     */
+    'ephemeralKey'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1CreateStripePaymentIntentReply
+     */
+    'customerId'?: string;
 }
 

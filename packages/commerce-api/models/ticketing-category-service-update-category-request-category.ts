@@ -13,27 +13,24 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import { V1UpdateBanner } from './v1-update-banner';
 
 /**
  * 
  * @export
- * @interface V1UpdateBannerRequest
+ * @interface TicketingCategoryServiceUpdateCategoryRequestCategory
  */
-export interface V1UpdateBannerRequest {
-    /**
-     * 
-     * @type {V1UpdateBanner}
-     * @memberof V1UpdateBannerRequest
-     */
-    'banner'?: V1UpdateBanner;
+export interface TicketingCategoryServiceUpdateCategoryRequestCategory {
     /**
      * 
      * @type {string}
-     * @memberof V1UpdateBannerRequest
+     * @memberof TicketingCategoryServiceUpdateCategoryRequestCategory
      */
-    'updateMask'?: string;
+    'name'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof TicketingCategoryServiceUpdateCategoryRequestCategory
+     */
+    'parent'?: string;
 }
 

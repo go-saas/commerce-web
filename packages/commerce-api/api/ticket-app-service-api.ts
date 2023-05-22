@@ -54,26 +54,68 @@ export const TicketAppServiceApiAxiosParamCreator = function (configuration?: Co
          * @param {boolean} [filterId$empty] 
          * @param {boolean} [filterId$nempty] 
          * @param {string} [filterId$like] 
-         * @param {string} [filterName$eq] 
-         * @param {string} [filterName$neq] 
-         * @param {string} [filterName$contains] 
-         * @param {string} [filterName$startsWith] 
-         * @param {string} [filterName$nstartsWith] 
-         * @param {string} [filterName$endsWith] 
-         * @param {string} [filterName$nendsWith] 
-         * @param {Array<string>} [filterName$in] 
-         * @param {Array<string>} [filterName$nin] 
-         * @param {boolean} [filterName$null] 
-         * @param {boolean} [filterName$nnull] 
-         * @param {boolean} [filterName$empty] 
-         * @param {boolean} [filterName$nempty] 
-         * @param {string} [filterName$like] 
+         * @param {string} [filterLocationId$eq] 
+         * @param {string} [filterLocationId$neq] 
+         * @param {string} [filterLocationId$contains] 
+         * @param {string} [filterLocationId$startsWith] 
+         * @param {string} [filterLocationId$nstartsWith] 
+         * @param {string} [filterLocationId$endsWith] 
+         * @param {string} [filterLocationId$nendsWith] 
+         * @param {Array<string>} [filterLocationId$in] 
+         * @param {Array<string>} [filterLocationId$nin] 
+         * @param {boolean} [filterLocationId$null] 
+         * @param {boolean} [filterLocationId$nnull] 
+         * @param {boolean} [filterLocationId$empty] 
+         * @param {boolean} [filterLocationId$nempty] 
+         * @param {string} [filterLocationId$like] 
+         * @param {string} [filterHallId$eq] 
+         * @param {string} [filterHallId$neq] 
+         * @param {string} [filterHallId$contains] 
+         * @param {string} [filterHallId$startsWith] 
+         * @param {string} [filterHallId$nstartsWith] 
+         * @param {string} [filterHallId$endsWith] 
+         * @param {string} [filterHallId$nendsWith] 
+         * @param {Array<string>} [filterHallId$in] 
+         * @param {Array<string>} [filterHallId$nin] 
+         * @param {boolean} [filterHallId$null] 
+         * @param {boolean} [filterHallId$nnull] 
+         * @param {boolean} [filterHallId$empty] 
+         * @param {boolean} [filterHallId$nempty] 
+         * @param {string} [filterHallId$like] 
+         * @param {string} [filterActivityId$eq] 
+         * @param {string} [filterActivityId$neq] 
+         * @param {string} [filterActivityId$contains] 
+         * @param {string} [filterActivityId$startsWith] 
+         * @param {string} [filterActivityId$nstartsWith] 
+         * @param {string} [filterActivityId$endsWith] 
+         * @param {string} [filterActivityId$nendsWith] 
+         * @param {Array<string>} [filterActivityId$in] 
+         * @param {Array<string>} [filterActivityId$nin] 
+         * @param {boolean} [filterActivityId$null] 
+         * @param {boolean} [filterActivityId$nnull] 
+         * @param {boolean} [filterActivityId$empty] 
+         * @param {boolean} [filterActivityId$nempty] 
+         * @param {string} [filterActivityId$like] 
+         * @param {string} [filterUserId$eq] 
+         * @param {string} [filterUserId$neq] 
+         * @param {string} [filterUserId$contains] 
+         * @param {string} [filterUserId$startsWith] 
+         * @param {string} [filterUserId$nstartsWith] 
+         * @param {string} [filterUserId$endsWith] 
+         * @param {string} [filterUserId$nendsWith] 
+         * @param {Array<string>} [filterUserId$in] 
+         * @param {Array<string>} [filterUserId$nin] 
+         * @param {boolean} [filterUserId$null] 
+         * @param {boolean} [filterUserId$nnull] 
+         * @param {boolean} [filterUserId$empty] 
+         * @param {boolean} [filterUserId$nempty] 
+         * @param {string} [filterUserId$like] 
          * @param {string} [afterPageToken] 
          * @param {string} [beforePageToken] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        ticketAppServiceListMyTicket: async (pageOffset?: number, pageSize?: number, search?: string, sort?: Array<string>, fields?: string, filterId$eq?: string, filterId$neq?: string, filterId$contains?: string, filterId$startsWith?: string, filterId$nstartsWith?: string, filterId$endsWith?: string, filterId$nendsWith?: string, filterId$in?: Array<string>, filterId$nin?: Array<string>, filterId$null?: boolean, filterId$nnull?: boolean, filterId$empty?: boolean, filterId$nempty?: boolean, filterId$like?: string, filterName$eq?: string, filterName$neq?: string, filterName$contains?: string, filterName$startsWith?: string, filterName$nstartsWith?: string, filterName$endsWith?: string, filterName$nendsWith?: string, filterName$in?: Array<string>, filterName$nin?: Array<string>, filterName$null?: boolean, filterName$nnull?: boolean, filterName$empty?: boolean, filterName$nempty?: boolean, filterName$like?: string, afterPageToken?: string, beforePageToken?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        ticketAppServiceListMyTicket: async (pageOffset?: number, pageSize?: number, search?: string, sort?: Array<string>, fields?: string, filterId$eq?: string, filterId$neq?: string, filterId$contains?: string, filterId$startsWith?: string, filterId$nstartsWith?: string, filterId$endsWith?: string, filterId$nendsWith?: string, filterId$in?: Array<string>, filterId$nin?: Array<string>, filterId$null?: boolean, filterId$nnull?: boolean, filterId$empty?: boolean, filterId$nempty?: boolean, filterId$like?: string, filterLocationId$eq?: string, filterLocationId$neq?: string, filterLocationId$contains?: string, filterLocationId$startsWith?: string, filterLocationId$nstartsWith?: string, filterLocationId$endsWith?: string, filterLocationId$nendsWith?: string, filterLocationId$in?: Array<string>, filterLocationId$nin?: Array<string>, filterLocationId$null?: boolean, filterLocationId$nnull?: boolean, filterLocationId$empty?: boolean, filterLocationId$nempty?: boolean, filterLocationId$like?: string, filterHallId$eq?: string, filterHallId$neq?: string, filterHallId$contains?: string, filterHallId$startsWith?: string, filterHallId$nstartsWith?: string, filterHallId$endsWith?: string, filterHallId$nendsWith?: string, filterHallId$in?: Array<string>, filterHallId$nin?: Array<string>, filterHallId$null?: boolean, filterHallId$nnull?: boolean, filterHallId$empty?: boolean, filterHallId$nempty?: boolean, filterHallId$like?: string, filterActivityId$eq?: string, filterActivityId$neq?: string, filterActivityId$contains?: string, filterActivityId$startsWith?: string, filterActivityId$nstartsWith?: string, filterActivityId$endsWith?: string, filterActivityId$nendsWith?: string, filterActivityId$in?: Array<string>, filterActivityId$nin?: Array<string>, filterActivityId$null?: boolean, filterActivityId$nnull?: boolean, filterActivityId$empty?: boolean, filterActivityId$nempty?: boolean, filterActivityId$like?: string, filterUserId$eq?: string, filterUserId$neq?: string, filterUserId$contains?: string, filterUserId$startsWith?: string, filterUserId$nstartsWith?: string, filterUserId$endsWith?: string, filterUserId$nendsWith?: string, filterUserId$in?: Array<string>, filterUserId$nin?: Array<string>, filterUserId$null?: boolean, filterUserId$nnull?: boolean, filterUserId$empty?: boolean, filterUserId$nempty?: boolean, filterUserId$like?: string, afterPageToken?: string, beforePageToken?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/ticketing/my-ticket`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -165,60 +207,228 @@ export const TicketAppServiceApiAxiosParamCreator = function (configuration?: Co
                 localVarQueryParameter['filter.id.$like'] = filterId$like;
             }
 
-            if (filterName$eq !== undefined) {
-                localVarQueryParameter['filter.name.$eq'] = filterName$eq;
+            if (filterLocationId$eq !== undefined) {
+                localVarQueryParameter['filter.locationId.$eq'] = filterLocationId$eq;
             }
 
-            if (filterName$neq !== undefined) {
-                localVarQueryParameter['filter.name.$neq'] = filterName$neq;
+            if (filterLocationId$neq !== undefined) {
+                localVarQueryParameter['filter.locationId.$neq'] = filterLocationId$neq;
             }
 
-            if (filterName$contains !== undefined) {
-                localVarQueryParameter['filter.name.$contains'] = filterName$contains;
+            if (filterLocationId$contains !== undefined) {
+                localVarQueryParameter['filter.locationId.$contains'] = filterLocationId$contains;
             }
 
-            if (filterName$startsWith !== undefined) {
-                localVarQueryParameter['filter.name.$starts_with'] = filterName$startsWith;
+            if (filterLocationId$startsWith !== undefined) {
+                localVarQueryParameter['filter.locationId.$starts_with'] = filterLocationId$startsWith;
             }
 
-            if (filterName$nstartsWith !== undefined) {
-                localVarQueryParameter['filter.name.$nstarts_with'] = filterName$nstartsWith;
+            if (filterLocationId$nstartsWith !== undefined) {
+                localVarQueryParameter['filter.locationId.$nstarts_with'] = filterLocationId$nstartsWith;
             }
 
-            if (filterName$endsWith !== undefined) {
-                localVarQueryParameter['filter.name.$ends_with'] = filterName$endsWith;
+            if (filterLocationId$endsWith !== undefined) {
+                localVarQueryParameter['filter.locationId.$ends_with'] = filterLocationId$endsWith;
             }
 
-            if (filterName$nendsWith !== undefined) {
-                localVarQueryParameter['filter.name.$nends_with'] = filterName$nendsWith;
+            if (filterLocationId$nendsWith !== undefined) {
+                localVarQueryParameter['filter.locationId.$nends_with'] = filterLocationId$nendsWith;
             }
 
-            if (filterName$in) {
-                localVarQueryParameter['filter.name.$in'] = filterName$in;
+            if (filterLocationId$in) {
+                localVarQueryParameter['filter.locationId.$in'] = filterLocationId$in;
             }
 
-            if (filterName$nin) {
-                localVarQueryParameter['filter.name.$nin'] = filterName$nin;
+            if (filterLocationId$nin) {
+                localVarQueryParameter['filter.locationId.$nin'] = filterLocationId$nin;
             }
 
-            if (filterName$null !== undefined) {
-                localVarQueryParameter['filter.name.$null'] = filterName$null;
+            if (filterLocationId$null !== undefined) {
+                localVarQueryParameter['filter.locationId.$null'] = filterLocationId$null;
             }
 
-            if (filterName$nnull !== undefined) {
-                localVarQueryParameter['filter.name.$nnull'] = filterName$nnull;
+            if (filterLocationId$nnull !== undefined) {
+                localVarQueryParameter['filter.locationId.$nnull'] = filterLocationId$nnull;
             }
 
-            if (filterName$empty !== undefined) {
-                localVarQueryParameter['filter.name.$empty'] = filterName$empty;
+            if (filterLocationId$empty !== undefined) {
+                localVarQueryParameter['filter.locationId.$empty'] = filterLocationId$empty;
             }
 
-            if (filterName$nempty !== undefined) {
-                localVarQueryParameter['filter.name.$nempty'] = filterName$nempty;
+            if (filterLocationId$nempty !== undefined) {
+                localVarQueryParameter['filter.locationId.$nempty'] = filterLocationId$nempty;
             }
 
-            if (filterName$like !== undefined) {
-                localVarQueryParameter['filter.name.$like'] = filterName$like;
+            if (filterLocationId$like !== undefined) {
+                localVarQueryParameter['filter.locationId.$like'] = filterLocationId$like;
+            }
+
+            if (filterHallId$eq !== undefined) {
+                localVarQueryParameter['filter.hallId.$eq'] = filterHallId$eq;
+            }
+
+            if (filterHallId$neq !== undefined) {
+                localVarQueryParameter['filter.hallId.$neq'] = filterHallId$neq;
+            }
+
+            if (filterHallId$contains !== undefined) {
+                localVarQueryParameter['filter.hallId.$contains'] = filterHallId$contains;
+            }
+
+            if (filterHallId$startsWith !== undefined) {
+                localVarQueryParameter['filter.hallId.$starts_with'] = filterHallId$startsWith;
+            }
+
+            if (filterHallId$nstartsWith !== undefined) {
+                localVarQueryParameter['filter.hallId.$nstarts_with'] = filterHallId$nstartsWith;
+            }
+
+            if (filterHallId$endsWith !== undefined) {
+                localVarQueryParameter['filter.hallId.$ends_with'] = filterHallId$endsWith;
+            }
+
+            if (filterHallId$nendsWith !== undefined) {
+                localVarQueryParameter['filter.hallId.$nends_with'] = filterHallId$nendsWith;
+            }
+
+            if (filterHallId$in) {
+                localVarQueryParameter['filter.hallId.$in'] = filterHallId$in;
+            }
+
+            if (filterHallId$nin) {
+                localVarQueryParameter['filter.hallId.$nin'] = filterHallId$nin;
+            }
+
+            if (filterHallId$null !== undefined) {
+                localVarQueryParameter['filter.hallId.$null'] = filterHallId$null;
+            }
+
+            if (filterHallId$nnull !== undefined) {
+                localVarQueryParameter['filter.hallId.$nnull'] = filterHallId$nnull;
+            }
+
+            if (filterHallId$empty !== undefined) {
+                localVarQueryParameter['filter.hallId.$empty'] = filterHallId$empty;
+            }
+
+            if (filterHallId$nempty !== undefined) {
+                localVarQueryParameter['filter.hallId.$nempty'] = filterHallId$nempty;
+            }
+
+            if (filterHallId$like !== undefined) {
+                localVarQueryParameter['filter.hallId.$like'] = filterHallId$like;
+            }
+
+            if (filterActivityId$eq !== undefined) {
+                localVarQueryParameter['filter.activityId.$eq'] = filterActivityId$eq;
+            }
+
+            if (filterActivityId$neq !== undefined) {
+                localVarQueryParameter['filter.activityId.$neq'] = filterActivityId$neq;
+            }
+
+            if (filterActivityId$contains !== undefined) {
+                localVarQueryParameter['filter.activityId.$contains'] = filterActivityId$contains;
+            }
+
+            if (filterActivityId$startsWith !== undefined) {
+                localVarQueryParameter['filter.activityId.$starts_with'] = filterActivityId$startsWith;
+            }
+
+            if (filterActivityId$nstartsWith !== undefined) {
+                localVarQueryParameter['filter.activityId.$nstarts_with'] = filterActivityId$nstartsWith;
+            }
+
+            if (filterActivityId$endsWith !== undefined) {
+                localVarQueryParameter['filter.activityId.$ends_with'] = filterActivityId$endsWith;
+            }
+
+            if (filterActivityId$nendsWith !== undefined) {
+                localVarQueryParameter['filter.activityId.$nends_with'] = filterActivityId$nendsWith;
+            }
+
+            if (filterActivityId$in) {
+                localVarQueryParameter['filter.activityId.$in'] = filterActivityId$in;
+            }
+
+            if (filterActivityId$nin) {
+                localVarQueryParameter['filter.activityId.$nin'] = filterActivityId$nin;
+            }
+
+            if (filterActivityId$null !== undefined) {
+                localVarQueryParameter['filter.activityId.$null'] = filterActivityId$null;
+            }
+
+            if (filterActivityId$nnull !== undefined) {
+                localVarQueryParameter['filter.activityId.$nnull'] = filterActivityId$nnull;
+            }
+
+            if (filterActivityId$empty !== undefined) {
+                localVarQueryParameter['filter.activityId.$empty'] = filterActivityId$empty;
+            }
+
+            if (filterActivityId$nempty !== undefined) {
+                localVarQueryParameter['filter.activityId.$nempty'] = filterActivityId$nempty;
+            }
+
+            if (filterActivityId$like !== undefined) {
+                localVarQueryParameter['filter.activityId.$like'] = filterActivityId$like;
+            }
+
+            if (filterUserId$eq !== undefined) {
+                localVarQueryParameter['filter.userId.$eq'] = filterUserId$eq;
+            }
+
+            if (filterUserId$neq !== undefined) {
+                localVarQueryParameter['filter.userId.$neq'] = filterUserId$neq;
+            }
+
+            if (filterUserId$contains !== undefined) {
+                localVarQueryParameter['filter.userId.$contains'] = filterUserId$contains;
+            }
+
+            if (filterUserId$startsWith !== undefined) {
+                localVarQueryParameter['filter.userId.$starts_with'] = filterUserId$startsWith;
+            }
+
+            if (filterUserId$nstartsWith !== undefined) {
+                localVarQueryParameter['filter.userId.$nstarts_with'] = filterUserId$nstartsWith;
+            }
+
+            if (filterUserId$endsWith !== undefined) {
+                localVarQueryParameter['filter.userId.$ends_with'] = filterUserId$endsWith;
+            }
+
+            if (filterUserId$nendsWith !== undefined) {
+                localVarQueryParameter['filter.userId.$nends_with'] = filterUserId$nendsWith;
+            }
+
+            if (filterUserId$in) {
+                localVarQueryParameter['filter.userId.$in'] = filterUserId$in;
+            }
+
+            if (filterUserId$nin) {
+                localVarQueryParameter['filter.userId.$nin'] = filterUserId$nin;
+            }
+
+            if (filterUserId$null !== undefined) {
+                localVarQueryParameter['filter.userId.$null'] = filterUserId$null;
+            }
+
+            if (filterUserId$nnull !== undefined) {
+                localVarQueryParameter['filter.userId.$nnull'] = filterUserId$nnull;
+            }
+
+            if (filterUserId$empty !== undefined) {
+                localVarQueryParameter['filter.userId.$empty'] = filterUserId$empty;
+            }
+
+            if (filterUserId$nempty !== undefined) {
+                localVarQueryParameter['filter.userId.$nempty'] = filterUserId$nempty;
+            }
+
+            if (filterUserId$like !== undefined) {
+                localVarQueryParameter['filter.userId.$like'] = filterUserId$like;
             }
 
             if (afterPageToken !== undefined) {
@@ -309,27 +519,69 @@ export const TicketAppServiceApiFp = function(configuration?: Configuration) {
          * @param {boolean} [filterId$empty] 
          * @param {boolean} [filterId$nempty] 
          * @param {string} [filterId$like] 
-         * @param {string} [filterName$eq] 
-         * @param {string} [filterName$neq] 
-         * @param {string} [filterName$contains] 
-         * @param {string} [filterName$startsWith] 
-         * @param {string} [filterName$nstartsWith] 
-         * @param {string} [filterName$endsWith] 
-         * @param {string} [filterName$nendsWith] 
-         * @param {Array<string>} [filterName$in] 
-         * @param {Array<string>} [filterName$nin] 
-         * @param {boolean} [filterName$null] 
-         * @param {boolean} [filterName$nnull] 
-         * @param {boolean} [filterName$empty] 
-         * @param {boolean} [filterName$nempty] 
-         * @param {string} [filterName$like] 
+         * @param {string} [filterLocationId$eq] 
+         * @param {string} [filterLocationId$neq] 
+         * @param {string} [filterLocationId$contains] 
+         * @param {string} [filterLocationId$startsWith] 
+         * @param {string} [filterLocationId$nstartsWith] 
+         * @param {string} [filterLocationId$endsWith] 
+         * @param {string} [filterLocationId$nendsWith] 
+         * @param {Array<string>} [filterLocationId$in] 
+         * @param {Array<string>} [filterLocationId$nin] 
+         * @param {boolean} [filterLocationId$null] 
+         * @param {boolean} [filterLocationId$nnull] 
+         * @param {boolean} [filterLocationId$empty] 
+         * @param {boolean} [filterLocationId$nempty] 
+         * @param {string} [filterLocationId$like] 
+         * @param {string} [filterHallId$eq] 
+         * @param {string} [filterHallId$neq] 
+         * @param {string} [filterHallId$contains] 
+         * @param {string} [filterHallId$startsWith] 
+         * @param {string} [filterHallId$nstartsWith] 
+         * @param {string} [filterHallId$endsWith] 
+         * @param {string} [filterHallId$nendsWith] 
+         * @param {Array<string>} [filterHallId$in] 
+         * @param {Array<string>} [filterHallId$nin] 
+         * @param {boolean} [filterHallId$null] 
+         * @param {boolean} [filterHallId$nnull] 
+         * @param {boolean} [filterHallId$empty] 
+         * @param {boolean} [filterHallId$nempty] 
+         * @param {string} [filterHallId$like] 
+         * @param {string} [filterActivityId$eq] 
+         * @param {string} [filterActivityId$neq] 
+         * @param {string} [filterActivityId$contains] 
+         * @param {string} [filterActivityId$startsWith] 
+         * @param {string} [filterActivityId$nstartsWith] 
+         * @param {string} [filterActivityId$endsWith] 
+         * @param {string} [filterActivityId$nendsWith] 
+         * @param {Array<string>} [filterActivityId$in] 
+         * @param {Array<string>} [filterActivityId$nin] 
+         * @param {boolean} [filterActivityId$null] 
+         * @param {boolean} [filterActivityId$nnull] 
+         * @param {boolean} [filterActivityId$empty] 
+         * @param {boolean} [filterActivityId$nempty] 
+         * @param {string} [filterActivityId$like] 
+         * @param {string} [filterUserId$eq] 
+         * @param {string} [filterUserId$neq] 
+         * @param {string} [filterUserId$contains] 
+         * @param {string} [filterUserId$startsWith] 
+         * @param {string} [filterUserId$nstartsWith] 
+         * @param {string} [filterUserId$endsWith] 
+         * @param {string} [filterUserId$nendsWith] 
+         * @param {Array<string>} [filterUserId$in] 
+         * @param {Array<string>} [filterUserId$nin] 
+         * @param {boolean} [filterUserId$null] 
+         * @param {boolean} [filterUserId$nnull] 
+         * @param {boolean} [filterUserId$empty] 
+         * @param {boolean} [filterUserId$nempty] 
+         * @param {string} [filterUserId$like] 
          * @param {string} [afterPageToken] 
          * @param {string} [beforePageToken] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async ticketAppServiceListMyTicket(pageOffset?: number, pageSize?: number, search?: string, sort?: Array<string>, fields?: string, filterId$eq?: string, filterId$neq?: string, filterId$contains?: string, filterId$startsWith?: string, filterId$nstartsWith?: string, filterId$endsWith?: string, filterId$nendsWith?: string, filterId$in?: Array<string>, filterId$nin?: Array<string>, filterId$null?: boolean, filterId$nnull?: boolean, filterId$empty?: boolean, filterId$nempty?: boolean, filterId$like?: string, filterName$eq?: string, filterName$neq?: string, filterName$contains?: string, filterName$startsWith?: string, filterName$nstartsWith?: string, filterName$endsWith?: string, filterName$nendsWith?: string, filterName$in?: Array<string>, filterName$nin?: Array<string>, filterName$null?: boolean, filterName$nnull?: boolean, filterName$empty?: boolean, filterName$nempty?: boolean, filterName$like?: string, afterPageToken?: string, beforePageToken?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1ListTicketReply>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.ticketAppServiceListMyTicket(pageOffset, pageSize, search, sort, fields, filterId$eq, filterId$neq, filterId$contains, filterId$startsWith, filterId$nstartsWith, filterId$endsWith, filterId$nendsWith, filterId$in, filterId$nin, filterId$null, filterId$nnull, filterId$empty, filterId$nempty, filterId$like, filterName$eq, filterName$neq, filterName$contains, filterName$startsWith, filterName$nstartsWith, filterName$endsWith, filterName$nendsWith, filterName$in, filterName$nin, filterName$null, filterName$nnull, filterName$empty, filterName$nempty, filterName$like, afterPageToken, beforePageToken, options);
+        async ticketAppServiceListMyTicket(pageOffset?: number, pageSize?: number, search?: string, sort?: Array<string>, fields?: string, filterId$eq?: string, filterId$neq?: string, filterId$contains?: string, filterId$startsWith?: string, filterId$nstartsWith?: string, filterId$endsWith?: string, filterId$nendsWith?: string, filterId$in?: Array<string>, filterId$nin?: Array<string>, filterId$null?: boolean, filterId$nnull?: boolean, filterId$empty?: boolean, filterId$nempty?: boolean, filterId$like?: string, filterLocationId$eq?: string, filterLocationId$neq?: string, filterLocationId$contains?: string, filterLocationId$startsWith?: string, filterLocationId$nstartsWith?: string, filterLocationId$endsWith?: string, filterLocationId$nendsWith?: string, filterLocationId$in?: Array<string>, filterLocationId$nin?: Array<string>, filterLocationId$null?: boolean, filterLocationId$nnull?: boolean, filterLocationId$empty?: boolean, filterLocationId$nempty?: boolean, filterLocationId$like?: string, filterHallId$eq?: string, filterHallId$neq?: string, filterHallId$contains?: string, filterHallId$startsWith?: string, filterHallId$nstartsWith?: string, filterHallId$endsWith?: string, filterHallId$nendsWith?: string, filterHallId$in?: Array<string>, filterHallId$nin?: Array<string>, filterHallId$null?: boolean, filterHallId$nnull?: boolean, filterHallId$empty?: boolean, filterHallId$nempty?: boolean, filterHallId$like?: string, filterActivityId$eq?: string, filterActivityId$neq?: string, filterActivityId$contains?: string, filterActivityId$startsWith?: string, filterActivityId$nstartsWith?: string, filterActivityId$endsWith?: string, filterActivityId$nendsWith?: string, filterActivityId$in?: Array<string>, filterActivityId$nin?: Array<string>, filterActivityId$null?: boolean, filterActivityId$nnull?: boolean, filterActivityId$empty?: boolean, filterActivityId$nempty?: boolean, filterActivityId$like?: string, filterUserId$eq?: string, filterUserId$neq?: string, filterUserId$contains?: string, filterUserId$startsWith?: string, filterUserId$nstartsWith?: string, filterUserId$endsWith?: string, filterUserId$nendsWith?: string, filterUserId$in?: Array<string>, filterUserId$nin?: Array<string>, filterUserId$null?: boolean, filterUserId$nnull?: boolean, filterUserId$empty?: boolean, filterUserId$nempty?: boolean, filterUserId$like?: string, afterPageToken?: string, beforePageToken?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1ListTicketReply>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.ticketAppServiceListMyTicket(pageOffset, pageSize, search, sort, fields, filterId$eq, filterId$neq, filterId$contains, filterId$startsWith, filterId$nstartsWith, filterId$endsWith, filterId$nendsWith, filterId$in, filterId$nin, filterId$null, filterId$nnull, filterId$empty, filterId$nempty, filterId$like, filterLocationId$eq, filterLocationId$neq, filterLocationId$contains, filterLocationId$startsWith, filterLocationId$nstartsWith, filterLocationId$endsWith, filterLocationId$nendsWith, filterLocationId$in, filterLocationId$nin, filterLocationId$null, filterLocationId$nnull, filterLocationId$empty, filterLocationId$nempty, filterLocationId$like, filterHallId$eq, filterHallId$neq, filterHallId$contains, filterHallId$startsWith, filterHallId$nstartsWith, filterHallId$endsWith, filterHallId$nendsWith, filterHallId$in, filterHallId$nin, filterHallId$null, filterHallId$nnull, filterHallId$empty, filterHallId$nempty, filterHallId$like, filterActivityId$eq, filterActivityId$neq, filterActivityId$contains, filterActivityId$startsWith, filterActivityId$nstartsWith, filterActivityId$endsWith, filterActivityId$nendsWith, filterActivityId$in, filterActivityId$nin, filterActivityId$null, filterActivityId$nnull, filterActivityId$empty, filterActivityId$nempty, filterActivityId$like, filterUserId$eq, filterUserId$neq, filterUserId$contains, filterUserId$startsWith, filterUserId$nstartsWith, filterUserId$endsWith, filterUserId$nendsWith, filterUserId$in, filterUserId$nin, filterUserId$null, filterUserId$nnull, filterUserId$empty, filterUserId$nempty, filterUserId$like, afterPageToken, beforePageToken, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -359,7 +611,7 @@ export const TicketAppServiceApiFactory = function (configuration?: Configuratio
          * @throws {RequiredError}
          */
         ticketAppServiceListMyTicket(requestParameters: TicketAppServiceApiTicketAppServiceListMyTicketRequest = {}, options?: AxiosRequestConfig): AxiosPromise<V1ListTicketReply> {
-            return localVarFp.ticketAppServiceListMyTicket(requestParameters.pageOffset, requestParameters.pageSize, requestParameters.search, requestParameters.sort, requestParameters.fields, requestParameters.filterId$eq, requestParameters.filterId$neq, requestParameters.filterId$contains, requestParameters.filterId$startsWith, requestParameters.filterId$nstartsWith, requestParameters.filterId$endsWith, requestParameters.filterId$nendsWith, requestParameters.filterId$in, requestParameters.filterId$nin, requestParameters.filterId$null, requestParameters.filterId$nnull, requestParameters.filterId$empty, requestParameters.filterId$nempty, requestParameters.filterId$like, requestParameters.filterName$eq, requestParameters.filterName$neq, requestParameters.filterName$contains, requestParameters.filterName$startsWith, requestParameters.filterName$nstartsWith, requestParameters.filterName$endsWith, requestParameters.filterName$nendsWith, requestParameters.filterName$in, requestParameters.filterName$nin, requestParameters.filterName$null, requestParameters.filterName$nnull, requestParameters.filterName$empty, requestParameters.filterName$nempty, requestParameters.filterName$like, requestParameters.afterPageToken, requestParameters.beforePageToken, options).then((request) => request(axios, basePath));
+            return localVarFp.ticketAppServiceListMyTicket(requestParameters.pageOffset, requestParameters.pageSize, requestParameters.search, requestParameters.sort, requestParameters.fields, requestParameters.filterId$eq, requestParameters.filterId$neq, requestParameters.filterId$contains, requestParameters.filterId$startsWith, requestParameters.filterId$nstartsWith, requestParameters.filterId$endsWith, requestParameters.filterId$nendsWith, requestParameters.filterId$in, requestParameters.filterId$nin, requestParameters.filterId$null, requestParameters.filterId$nnull, requestParameters.filterId$empty, requestParameters.filterId$nempty, requestParameters.filterId$like, requestParameters.filterLocationId$eq, requestParameters.filterLocationId$neq, requestParameters.filterLocationId$contains, requestParameters.filterLocationId$startsWith, requestParameters.filterLocationId$nstartsWith, requestParameters.filterLocationId$endsWith, requestParameters.filterLocationId$nendsWith, requestParameters.filterLocationId$in, requestParameters.filterLocationId$nin, requestParameters.filterLocationId$null, requestParameters.filterLocationId$nnull, requestParameters.filterLocationId$empty, requestParameters.filterLocationId$nempty, requestParameters.filterLocationId$like, requestParameters.filterHallId$eq, requestParameters.filterHallId$neq, requestParameters.filterHallId$contains, requestParameters.filterHallId$startsWith, requestParameters.filterHallId$nstartsWith, requestParameters.filterHallId$endsWith, requestParameters.filterHallId$nendsWith, requestParameters.filterHallId$in, requestParameters.filterHallId$nin, requestParameters.filterHallId$null, requestParameters.filterHallId$nnull, requestParameters.filterHallId$empty, requestParameters.filterHallId$nempty, requestParameters.filterHallId$like, requestParameters.filterActivityId$eq, requestParameters.filterActivityId$neq, requestParameters.filterActivityId$contains, requestParameters.filterActivityId$startsWith, requestParameters.filterActivityId$nstartsWith, requestParameters.filterActivityId$endsWith, requestParameters.filterActivityId$nendsWith, requestParameters.filterActivityId$in, requestParameters.filterActivityId$nin, requestParameters.filterActivityId$null, requestParameters.filterActivityId$nnull, requestParameters.filterActivityId$empty, requestParameters.filterActivityId$nempty, requestParameters.filterActivityId$like, requestParameters.filterUserId$eq, requestParameters.filterUserId$neq, requestParameters.filterUserId$contains, requestParameters.filterUserId$startsWith, requestParameters.filterUserId$nstartsWith, requestParameters.filterUserId$endsWith, requestParameters.filterUserId$nendsWith, requestParameters.filterUserId$in, requestParameters.filterUserId$nin, requestParameters.filterUserId$null, requestParameters.filterUserId$nnull, requestParameters.filterUserId$empty, requestParameters.filterUserId$nempty, requestParameters.filterUserId$like, requestParameters.afterPageToken, requestParameters.beforePageToken, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -517,98 +769,392 @@ export interface TicketAppServiceApiTicketAppServiceListMyTicketRequest {
      * @type {string}
      * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
      */
-    readonly filterName$eq?: string
+    readonly filterLocationId$eq?: string
 
     /**
      * 
      * @type {string}
      * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
      */
-    readonly filterName$neq?: string
+    readonly filterLocationId$neq?: string
 
     /**
      * 
      * @type {string}
      * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
      */
-    readonly filterName$contains?: string
+    readonly filterLocationId$contains?: string
 
     /**
      * 
      * @type {string}
      * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
      */
-    readonly filterName$startsWith?: string
+    readonly filterLocationId$startsWith?: string
 
     /**
      * 
      * @type {string}
      * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
      */
-    readonly filterName$nstartsWith?: string
+    readonly filterLocationId$nstartsWith?: string
 
     /**
      * 
      * @type {string}
      * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
      */
-    readonly filterName$endsWith?: string
+    readonly filterLocationId$endsWith?: string
 
     /**
      * 
      * @type {string}
      * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
      */
-    readonly filterName$nendsWith?: string
+    readonly filterLocationId$nendsWith?: string
 
     /**
      * 
      * @type {Array<string>}
      * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
      */
-    readonly filterName$in?: Array<string>
+    readonly filterLocationId$in?: Array<string>
 
     /**
      * 
      * @type {Array<string>}
      * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
      */
-    readonly filterName$nin?: Array<string>
+    readonly filterLocationId$nin?: Array<string>
 
     /**
      * 
      * @type {boolean}
      * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
      */
-    readonly filterName$null?: boolean
+    readonly filterLocationId$null?: boolean
 
     /**
      * 
      * @type {boolean}
      * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
      */
-    readonly filterName$nnull?: boolean
+    readonly filterLocationId$nnull?: boolean
 
     /**
      * 
      * @type {boolean}
      * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
      */
-    readonly filterName$empty?: boolean
+    readonly filterLocationId$empty?: boolean
 
     /**
      * 
      * @type {boolean}
      * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
      */
-    readonly filterName$nempty?: boolean
+    readonly filterLocationId$nempty?: boolean
 
     /**
      * 
      * @type {string}
      * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
      */
-    readonly filterName$like?: string
+    readonly filterLocationId$like?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterHallId$eq?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterHallId$neq?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterHallId$contains?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterHallId$startsWith?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterHallId$nstartsWith?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterHallId$endsWith?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterHallId$nendsWith?: string
+
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterHallId$in?: Array<string>
+
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterHallId$nin?: Array<string>
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterHallId$null?: boolean
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterHallId$nnull?: boolean
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterHallId$empty?: boolean
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterHallId$nempty?: boolean
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterHallId$like?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterActivityId$eq?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterActivityId$neq?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterActivityId$contains?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterActivityId$startsWith?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterActivityId$nstartsWith?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterActivityId$endsWith?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterActivityId$nendsWith?: string
+
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterActivityId$in?: Array<string>
+
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterActivityId$nin?: Array<string>
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterActivityId$null?: boolean
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterActivityId$nnull?: boolean
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterActivityId$empty?: boolean
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterActivityId$nempty?: boolean
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterActivityId$like?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterUserId$eq?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterUserId$neq?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterUserId$contains?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterUserId$startsWith?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterUserId$nstartsWith?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterUserId$endsWith?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterUserId$nendsWith?: string
+
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterUserId$in?: Array<string>
+
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterUserId$nin?: Array<string>
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterUserId$null?: boolean
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterUserId$nnull?: boolean
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterUserId$empty?: boolean
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterUserId$nempty?: boolean
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TicketAppServiceApiTicketAppServiceListMyTicket
+     */
+    readonly filterUserId$like?: string
 
     /**
      * 
@@ -654,7 +1200,7 @@ export class TicketAppServiceApi extends BaseAPI {
      * @memberof TicketAppServiceApi
      */
     public ticketAppServiceListMyTicket(requestParameters: TicketAppServiceApiTicketAppServiceListMyTicketRequest = {}, options?: AxiosRequestConfig) {
-        return TicketAppServiceApiFp(this.configuration).ticketAppServiceListMyTicket(requestParameters.pageOffset, requestParameters.pageSize, requestParameters.search, requestParameters.sort, requestParameters.fields, requestParameters.filterId$eq, requestParameters.filterId$neq, requestParameters.filterId$contains, requestParameters.filterId$startsWith, requestParameters.filterId$nstartsWith, requestParameters.filterId$endsWith, requestParameters.filterId$nendsWith, requestParameters.filterId$in, requestParameters.filterId$nin, requestParameters.filterId$null, requestParameters.filterId$nnull, requestParameters.filterId$empty, requestParameters.filterId$nempty, requestParameters.filterId$like, requestParameters.filterName$eq, requestParameters.filterName$neq, requestParameters.filterName$contains, requestParameters.filterName$startsWith, requestParameters.filterName$nstartsWith, requestParameters.filterName$endsWith, requestParameters.filterName$nendsWith, requestParameters.filterName$in, requestParameters.filterName$nin, requestParameters.filterName$null, requestParameters.filterName$nnull, requestParameters.filterName$empty, requestParameters.filterName$nempty, requestParameters.filterName$like, requestParameters.afterPageToken, requestParameters.beforePageToken, options).then((request) => request(this.axios, this.basePath));
+        return TicketAppServiceApiFp(this.configuration).ticketAppServiceListMyTicket(requestParameters.pageOffset, requestParameters.pageSize, requestParameters.search, requestParameters.sort, requestParameters.fields, requestParameters.filterId$eq, requestParameters.filterId$neq, requestParameters.filterId$contains, requestParameters.filterId$startsWith, requestParameters.filterId$nstartsWith, requestParameters.filterId$endsWith, requestParameters.filterId$nendsWith, requestParameters.filterId$in, requestParameters.filterId$nin, requestParameters.filterId$null, requestParameters.filterId$nnull, requestParameters.filterId$empty, requestParameters.filterId$nempty, requestParameters.filterId$like, requestParameters.filterLocationId$eq, requestParameters.filterLocationId$neq, requestParameters.filterLocationId$contains, requestParameters.filterLocationId$startsWith, requestParameters.filterLocationId$nstartsWith, requestParameters.filterLocationId$endsWith, requestParameters.filterLocationId$nendsWith, requestParameters.filterLocationId$in, requestParameters.filterLocationId$nin, requestParameters.filterLocationId$null, requestParameters.filterLocationId$nnull, requestParameters.filterLocationId$empty, requestParameters.filterLocationId$nempty, requestParameters.filterLocationId$like, requestParameters.filterHallId$eq, requestParameters.filterHallId$neq, requestParameters.filterHallId$contains, requestParameters.filterHallId$startsWith, requestParameters.filterHallId$nstartsWith, requestParameters.filterHallId$endsWith, requestParameters.filterHallId$nendsWith, requestParameters.filterHallId$in, requestParameters.filterHallId$nin, requestParameters.filterHallId$null, requestParameters.filterHallId$nnull, requestParameters.filterHallId$empty, requestParameters.filterHallId$nempty, requestParameters.filterHallId$like, requestParameters.filterActivityId$eq, requestParameters.filterActivityId$neq, requestParameters.filterActivityId$contains, requestParameters.filterActivityId$startsWith, requestParameters.filterActivityId$nstartsWith, requestParameters.filterActivityId$endsWith, requestParameters.filterActivityId$nendsWith, requestParameters.filterActivityId$in, requestParameters.filterActivityId$nin, requestParameters.filterActivityId$null, requestParameters.filterActivityId$nnull, requestParameters.filterActivityId$empty, requestParameters.filterActivityId$nempty, requestParameters.filterActivityId$like, requestParameters.filterUserId$eq, requestParameters.filterUserId$neq, requestParameters.filterUserId$contains, requestParameters.filterUserId$startsWith, requestParameters.filterUserId$nstartsWith, requestParameters.filterUserId$endsWith, requestParameters.filterUserId$nendsWith, requestParameters.filterUserId$in, requestParameters.filterUserId$nin, requestParameters.filterUserId$null, requestParameters.filterUserId$nnull, requestParameters.filterUserId$empty, requestParameters.filterUserId$nempty, requestParameters.filterUserId$like, requestParameters.afterPageToken, requestParameters.beforePageToken, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

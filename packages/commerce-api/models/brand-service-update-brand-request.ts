@@ -15,31 +15,25 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { V1TicketingMedia } from './v1-ticketing-media';
+import { BrandServiceUpdateBrandRequestBrand } from './brand-service-update-brand-request-brand';
 
 /**
  * 
  * @export
- * @interface V1CreateBannerRequest
+ * @interface BrandServiceUpdateBrandRequest
  */
-export interface V1CreateBannerRequest {
+export interface BrandServiceUpdateBrandRequest {
+    /**
+     * 
+     * @type {BrandServiceUpdateBrandRequestBrand}
+     * @memberof BrandServiceUpdateBrandRequest
+     */
+    'brand'?: BrandServiceUpdateBrandRequestBrand;
     /**
      * 
      * @type {string}
-     * @memberof V1CreateBannerRequest
+     * @memberof BrandServiceUpdateBrandRequest
      */
-    'refType': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1CreateBannerRequest
-     */
-    'refId': string;
-    /**
-     * 
-     * @type {V1TicketingMedia}
-     * @memberof V1CreateBannerRequest
-     */
-    'mainPic': V1TicketingMedia;
+    'updateMask'?: string;
 }
 

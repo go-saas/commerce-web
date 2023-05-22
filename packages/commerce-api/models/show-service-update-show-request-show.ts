@@ -16,42 +16,45 @@
 // May contain unused imports in some cases
 // @ts-ignore
 import { V1TicketingMedia } from './v1-ticketing-media';
+// May contain unused imports in some cases
+// @ts-ignore
+import { V1UpdateShowSalesType } from './v1-update-show-sales-type';
 
 /**
  * 
  * @export
- * @interface V1UpdateBanner
+ * @interface ShowServiceUpdateShowRequestShow
  */
-export interface V1UpdateBanner {
+export interface ShowServiceUpdateShowRequestShow {
     /**
      * 
      * @type {string}
-     * @memberof V1UpdateBanner
+     * @memberof ShowServiceUpdateShowRequestShow
      */
-    'id': string;
+    'name'?: string;
     /**
      * 
      * @type {string}
-     * @memberof V1UpdateBanner
+     * @memberof ShowServiceUpdateShowRequestShow
      */
-    'refType': string;
+    'startTime'?: string;
     /**
      * 
      * @type {string}
-     * @memberof V1UpdateBanner
+     * @memberof ShowServiceUpdateShowRequestShow
      */
-    'refId': string;
+    'endTime'?: string;
+    /**
+     * 
+     * @type {Array<V1UpdateShowSalesType>}
+     * @memberof ShowServiceUpdateShowRequestShow
+     */
+    'salesTypes'?: Array<V1UpdateShowSalesType>;
     /**
      * 
      * @type {V1TicketingMedia}
-     * @memberof V1UpdateBanner
+     * @memberof ShowServiceUpdateShowRequestShow
      */
-    'mainPic': V1TicketingMedia;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1UpdateBanner
-     */
-    'status': string;
+    'mainPic'?: V1TicketingMedia;
 }
 

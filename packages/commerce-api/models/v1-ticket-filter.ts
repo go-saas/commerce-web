@@ -34,6 +34,24 @@ export interface V1TicketFilter {
      * @type {OperationStringFilterOperation}
      * @memberof V1TicketFilter
      */
-    'name'?: OperationStringFilterOperation;
+    'locationId'?: OperationStringFilterOperation;
+    /**
+     * 
+     * @type {OperationStringFilterOperation}
+     * @memberof V1TicketFilter
+     */
+    'hallId'?: OperationStringFilterOperation;
+    /**
+     * 
+     * @type {OperationStringFilterOperation}
+     * @memberof V1TicketFilter
+     */
+    'activityId'?: OperationStringFilterOperation;
+    /**
+     * 
+     * @type {OperationStringFilterOperation}
+     * @memberof V1TicketFilter
+     */
+    'userId'?: OperationStringFilterOperation;
 }
 

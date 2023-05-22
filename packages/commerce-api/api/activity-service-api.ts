@@ -24,6 +24,8 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ActivityServiceRecommendActivityRequest } from '../models';
 // @ts-ignore
+import { ActivityServiceUpdateActivityRequest } from '../models';
+// @ts-ignore
 import { GooglerpcStatus } from '../models';
 // @ts-ignore
 import { V1Activity } from '../models';
@@ -37,8 +39,6 @@ import { V1ListActivityReply } from '../models';
 import { V1ListActivityRequest } from '../models';
 // @ts-ignore
 import { V1RecommendActivityReply } from '../models';
-// @ts-ignore
-import { V1UpdateActivityRequest } from '../models';
 /**
  * ActivityServiceApi - axios parameter creator
  * @export
@@ -465,11 +465,11 @@ export const ActivityServiceApiAxiosParamCreator = function (configuration?: Con
         /**
          * 
          * @param {string} activityId 
-         * @param {V1UpdateActivityRequest} body 
+         * @param {ActivityServiceUpdateActivityRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        activityServiceUpdateActivity: async (activityId: string, body: V1UpdateActivityRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        activityServiceUpdateActivity: async (activityId: string, body: ActivityServiceUpdateActivityRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'activityId' is not null or undefined
             assertParamExists('activityServiceUpdateActivity', 'activityId', activityId)
             // verify required parameter 'body' is not null or undefined
@@ -507,11 +507,11 @@ export const ActivityServiceApiAxiosParamCreator = function (configuration?: Con
         /**
          * 
          * @param {string} activityId 
-         * @param {V1UpdateActivityRequest} body 
+         * @param {ActivityServiceUpdateActivityRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        activityServiceUpdateActivity2: async (activityId: string, body: V1UpdateActivityRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        activityServiceUpdateActivity2: async (activityId: string, body: ActivityServiceUpdateActivityRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'activityId' is not null or undefined
             assertParamExists('activityServiceUpdateActivity2', 'activityId', activityId)
             // verify required parameter 'body' is not null or undefined
@@ -658,22 +658,22 @@ export const ActivityServiceApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {string} activityId 
-         * @param {V1UpdateActivityRequest} body 
+         * @param {ActivityServiceUpdateActivityRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async activityServiceUpdateActivity(activityId: string, body: V1UpdateActivityRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1Activity>> {
+        async activityServiceUpdateActivity(activityId: string, body: ActivityServiceUpdateActivityRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1Activity>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.activityServiceUpdateActivity(activityId, body, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
          * @param {string} activityId 
-         * @param {V1UpdateActivityRequest} body 
+         * @param {ActivityServiceUpdateActivityRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async activityServiceUpdateActivity2(activityId: string, body: V1UpdateActivityRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1Activity>> {
+        async activityServiceUpdateActivity2(activityId: string, body: ActivityServiceUpdateActivityRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1Activity>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.activityServiceUpdateActivity2(activityId, body, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1134,10 +1134,10 @@ export interface ActivityServiceApiActivityServiceUpdateActivityRequest {
 
     /**
      * 
-     * @type {V1UpdateActivityRequest}
+     * @type {ActivityServiceUpdateActivityRequest}
      * @memberof ActivityServiceApiActivityServiceUpdateActivity
      */
-    readonly body: V1UpdateActivityRequest
+    readonly body: ActivityServiceUpdateActivityRequest
 }
 
 /**
@@ -1155,10 +1155,10 @@ export interface ActivityServiceApiActivityServiceUpdateActivity2Request {
 
     /**
      * 
-     * @type {V1UpdateActivityRequest}
+     * @type {ActivityServiceUpdateActivityRequest}
      * @memberof ActivityServiceApiActivityServiceUpdateActivity2
      */
-    readonly body: V1UpdateActivityRequest
+    readonly body: ActivityServiceUpdateActivityRequest
 }
 
 /**

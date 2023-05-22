@@ -24,6 +24,8 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { GooglerpcStatus } from '../models';
 // @ts-ignore
+import { TicketingCategoryServiceUpdateCategoryRequest } from '../models';
+// @ts-ignore
 import { Ticketingapicategoryv1Category } from '../models';
 // @ts-ignore
 import { Ticketingapicategoryv1CreateCategoryRequest } from '../models';
@@ -33,8 +35,6 @@ import { Ticketingapicategoryv1DeleteCategoryReply } from '../models';
 import { Ticketingapicategoryv1ListCategoryReply } from '../models';
 // @ts-ignore
 import { Ticketingapicategoryv1ListCategoryRequest } from '../models';
-// @ts-ignore
-import { Ticketingapicategoryv1UpdateCategoryRequest } from '../models';
 /**
  * TicketingCategoryServiceApi - axios parameter creator
  * @export
@@ -459,11 +459,11 @@ export const TicketingCategoryServiceApiAxiosParamCreator = function (configurat
         /**
          * 
          * @param {string} categoryKey 
-         * @param {Ticketingapicategoryv1UpdateCategoryRequest} body 
+         * @param {TicketingCategoryServiceUpdateCategoryRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        ticketingCategoryServiceUpdateCategory: async (categoryKey: string, body: Ticketingapicategoryv1UpdateCategoryRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        ticketingCategoryServiceUpdateCategory: async (categoryKey: string, body: TicketingCategoryServiceUpdateCategoryRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'categoryKey' is not null or undefined
             assertParamExists('ticketingCategoryServiceUpdateCategory', 'categoryKey', categoryKey)
             // verify required parameter 'body' is not null or undefined
@@ -501,11 +501,11 @@ export const TicketingCategoryServiceApiAxiosParamCreator = function (configurat
         /**
          * 
          * @param {string} categoryKey 
-         * @param {Ticketingapicategoryv1UpdateCategoryRequest} body 
+         * @param {TicketingCategoryServiceUpdateCategoryRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        ticketingCategoryServiceUpdateCategory2: async (categoryKey: string, body: Ticketingapicategoryv1UpdateCategoryRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        ticketingCategoryServiceUpdateCategory2: async (categoryKey: string, body: TicketingCategoryServiceUpdateCategoryRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'categoryKey' is not null or undefined
             assertParamExists('ticketingCategoryServiceUpdateCategory2', 'categoryKey', categoryKey)
             // verify required parameter 'body' is not null or undefined
@@ -649,22 +649,22 @@ export const TicketingCategoryServiceApiFp = function(configuration?: Configurat
         /**
          * 
          * @param {string} categoryKey 
-         * @param {Ticketingapicategoryv1UpdateCategoryRequest} body 
+         * @param {TicketingCategoryServiceUpdateCategoryRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async ticketingCategoryServiceUpdateCategory(categoryKey: string, body: Ticketingapicategoryv1UpdateCategoryRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Ticketingapicategoryv1Category>> {
+        async ticketingCategoryServiceUpdateCategory(categoryKey: string, body: TicketingCategoryServiceUpdateCategoryRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Ticketingapicategoryv1Category>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.ticketingCategoryServiceUpdateCategory(categoryKey, body, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
          * @param {string} categoryKey 
-         * @param {Ticketingapicategoryv1UpdateCategoryRequest} body 
+         * @param {TicketingCategoryServiceUpdateCategoryRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async ticketingCategoryServiceUpdateCategory2(categoryKey: string, body: Ticketingapicategoryv1UpdateCategoryRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Ticketingapicategoryv1Category>> {
+        async ticketingCategoryServiceUpdateCategory2(categoryKey: string, body: TicketingCategoryServiceUpdateCategoryRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Ticketingapicategoryv1Category>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.ticketingCategoryServiceUpdateCategory2(categoryKey, body, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1151,10 +1151,10 @@ export interface TicketingCategoryServiceApiTicketingCategoryServiceUpdateCatego
 
     /**
      * 
-     * @type {Ticketingapicategoryv1UpdateCategoryRequest}
+     * @type {TicketingCategoryServiceUpdateCategoryRequest}
      * @memberof TicketingCategoryServiceApiTicketingCategoryServiceUpdateCategory
      */
-    readonly body: Ticketingapicategoryv1UpdateCategoryRequest
+    readonly body: TicketingCategoryServiceUpdateCategoryRequest
 }
 
 /**
@@ -1172,10 +1172,10 @@ export interface TicketingCategoryServiceApiTicketingCategoryServiceUpdateCatego
 
     /**
      * 
-     * @type {Ticketingapicategoryv1UpdateCategoryRequest}
+     * @type {TicketingCategoryServiceUpdateCategoryRequest}
      * @memberof TicketingCategoryServiceApiTicketingCategoryServiceUpdateCategory2
      */
-    readonly body: Ticketingapicategoryv1UpdateCategoryRequest
+    readonly body: TicketingCategoryServiceUpdateCategoryRequest
 }
 
 /**

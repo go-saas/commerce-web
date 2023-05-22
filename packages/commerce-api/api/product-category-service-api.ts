@@ -24,6 +24,8 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { GooglerpcStatus } from '../models';
 // @ts-ignore
+import { ProductCategoryServiceUpdateCategoryRequest } from '../models';
+// @ts-ignore
 import { Productapicategoryv1Category } from '../models';
 // @ts-ignore
 import { Productapicategoryv1CreateCategoryRequest } from '../models';
@@ -33,8 +35,6 @@ import { Productapicategoryv1DeleteCategoryReply } from '../models';
 import { Productapicategoryv1ListCategoryReply } from '../models';
 // @ts-ignore
 import { Productapicategoryv1ListCategoryRequest } from '../models';
-// @ts-ignore
-import { Productapicategoryv1UpdateCategoryRequest } from '../models';
 /**
  * ProductCategoryServiceApi - axios parameter creator
  * @export
@@ -459,11 +459,11 @@ export const ProductCategoryServiceApiAxiosParamCreator = function (configuratio
         /**
          * 
          * @param {string} categoryKey 
-         * @param {Productapicategoryv1UpdateCategoryRequest} body 
+         * @param {ProductCategoryServiceUpdateCategoryRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productCategoryServiceUpdateCategory: async (categoryKey: string, body: Productapicategoryv1UpdateCategoryRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        productCategoryServiceUpdateCategory: async (categoryKey: string, body: ProductCategoryServiceUpdateCategoryRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'categoryKey' is not null or undefined
             assertParamExists('productCategoryServiceUpdateCategory', 'categoryKey', categoryKey)
             // verify required parameter 'body' is not null or undefined
@@ -501,11 +501,11 @@ export const ProductCategoryServiceApiAxiosParamCreator = function (configuratio
         /**
          * 
          * @param {string} categoryKey 
-         * @param {Productapicategoryv1UpdateCategoryRequest} body 
+         * @param {ProductCategoryServiceUpdateCategoryRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productCategoryServiceUpdateCategory2: async (categoryKey: string, body: Productapicategoryv1UpdateCategoryRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        productCategoryServiceUpdateCategory2: async (categoryKey: string, body: ProductCategoryServiceUpdateCategoryRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'categoryKey' is not null or undefined
             assertParamExists('productCategoryServiceUpdateCategory2', 'categoryKey', categoryKey)
             // verify required parameter 'body' is not null or undefined
@@ -649,22 +649,22 @@ export const ProductCategoryServiceApiFp = function(configuration?: Configuratio
         /**
          * 
          * @param {string} categoryKey 
-         * @param {Productapicategoryv1UpdateCategoryRequest} body 
+         * @param {ProductCategoryServiceUpdateCategoryRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async productCategoryServiceUpdateCategory(categoryKey: string, body: Productapicategoryv1UpdateCategoryRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Productapicategoryv1Category>> {
+        async productCategoryServiceUpdateCategory(categoryKey: string, body: ProductCategoryServiceUpdateCategoryRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Productapicategoryv1Category>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.productCategoryServiceUpdateCategory(categoryKey, body, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
          * @param {string} categoryKey 
-         * @param {Productapicategoryv1UpdateCategoryRequest} body 
+         * @param {ProductCategoryServiceUpdateCategoryRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async productCategoryServiceUpdateCategory2(categoryKey: string, body: Productapicategoryv1UpdateCategoryRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Productapicategoryv1Category>> {
+        async productCategoryServiceUpdateCategory2(categoryKey: string, body: ProductCategoryServiceUpdateCategoryRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Productapicategoryv1Category>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.productCategoryServiceUpdateCategory2(categoryKey, body, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1151,10 +1151,10 @@ export interface ProductCategoryServiceApiProductCategoryServiceUpdateCategoryRe
 
     /**
      * 
-     * @type {Productapicategoryv1UpdateCategoryRequest}
+     * @type {ProductCategoryServiceUpdateCategoryRequest}
      * @memberof ProductCategoryServiceApiProductCategoryServiceUpdateCategory
      */
-    readonly body: Productapicategoryv1UpdateCategoryRequest
+    readonly body: ProductCategoryServiceUpdateCategoryRequest
 }
 
 /**
@@ -1172,10 +1172,10 @@ export interface ProductCategoryServiceApiProductCategoryServiceUpdateCategory2R
 
     /**
      * 
-     * @type {Productapicategoryv1UpdateCategoryRequest}
+     * @type {ProductCategoryServiceUpdateCategoryRequest}
      * @memberof ProductCategoryServiceApiProductCategoryServiceUpdateCategory2
      */
-    readonly body: Productapicategoryv1UpdateCategoryRequest
+    readonly body: ProductCategoryServiceUpdateCategoryRequest
 }
 
 /**

@@ -20,26 +20,32 @@ import { V1TicketingMedia } from './v1-ticketing-media';
 /**
  * 
  * @export
- * @interface V1CreateBannerRequest
+ * @interface TicketingBannerServiceUpdateBannerRequestBanner
  */
-export interface V1CreateBannerRequest {
+export interface TicketingBannerServiceUpdateBannerRequestBanner {
     /**
      * 
      * @type {string}
-     * @memberof V1CreateBannerRequest
+     * @memberof TicketingBannerServiceUpdateBannerRequestBanner
      */
-    'refType': string;
+    'refType'?: string;
     /**
      * 
      * @type {string}
-     * @memberof V1CreateBannerRequest
+     * @memberof TicketingBannerServiceUpdateBannerRequestBanner
      */
-    'refId': string;
+    'refId'?: string;
     /**
      * 
      * @type {V1TicketingMedia}
-     * @memberof V1CreateBannerRequest
+     * @memberof TicketingBannerServiceUpdateBannerRequestBanner
      */
-    'mainPic': V1TicketingMedia;
+    'mainPic'?: V1TicketingMedia;
+    /**
+     * 
+     * @type {string}
+     * @memberof TicketingBannerServiceUpdateBannerRequestBanner
+     */
+    'status'?: string;
 }
 

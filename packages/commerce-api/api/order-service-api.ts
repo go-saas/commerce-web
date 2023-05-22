@@ -24,6 +24,8 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { GooglerpcStatus } from '../models';
 // @ts-ignore
+import { OrderServiceUpdateOrderRequest } from '../models';
+// @ts-ignore
 import { V1CreateOrderRequest } from '../models';
 // @ts-ignore
 import { V1DeleteOrderReply } from '../models';
@@ -33,8 +35,6 @@ import { V1ListOrderReply } from '../models';
 import { V1ListOrderRequest } from '../models';
 // @ts-ignore
 import { V1Order } from '../models';
-// @ts-ignore
-import { V1UpdateOrderRequest } from '../models';
 /**
  * OrderServiceApi - axios parameter creator
  * @export
@@ -469,11 +469,11 @@ export const OrderServiceApiAxiosParamCreator = function (configuration?: Config
         /**
          * 
          * @param {string} orderId 
-         * @param {V1UpdateOrderRequest} body 
+         * @param {OrderServiceUpdateOrderRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        orderServiceUpdateOrder: async (orderId: string, body: V1UpdateOrderRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        orderServiceUpdateOrder: async (orderId: string, body: OrderServiceUpdateOrderRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'orderId' is not null or undefined
             assertParamExists('orderServiceUpdateOrder', 'orderId', orderId)
             // verify required parameter 'body' is not null or undefined
@@ -511,11 +511,11 @@ export const OrderServiceApiAxiosParamCreator = function (configuration?: Config
         /**
          * 
          * @param {string} orderId 
-         * @param {V1UpdateOrderRequest} body 
+         * @param {OrderServiceUpdateOrderRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        orderServiceUpdateOrder2: async (orderId: string, body: V1UpdateOrderRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        orderServiceUpdateOrder2: async (orderId: string, body: OrderServiceUpdateOrderRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'orderId' is not null or undefined
             assertParamExists('orderServiceUpdateOrder2', 'orderId', orderId)
             // verify required parameter 'body' is not null or undefined
@@ -661,22 +661,22 @@ export const OrderServiceApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {string} orderId 
-         * @param {V1UpdateOrderRequest} body 
+         * @param {OrderServiceUpdateOrderRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async orderServiceUpdateOrder(orderId: string, body: V1UpdateOrderRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1Order>> {
+        async orderServiceUpdateOrder(orderId: string, body: OrderServiceUpdateOrderRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1Order>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.orderServiceUpdateOrder(orderId, body, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
          * @param {string} orderId 
-         * @param {V1UpdateOrderRequest} body 
+         * @param {OrderServiceUpdateOrderRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async orderServiceUpdateOrder2(orderId: string, body: V1UpdateOrderRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1Order>> {
+        async orderServiceUpdateOrder2(orderId: string, body: OrderServiceUpdateOrderRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1Order>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.orderServiceUpdateOrder2(orderId, body, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1177,10 +1177,10 @@ export interface OrderServiceApiOrderServiceUpdateOrderRequest {
 
     /**
      * 
-     * @type {V1UpdateOrderRequest}
+     * @type {OrderServiceUpdateOrderRequest}
      * @memberof OrderServiceApiOrderServiceUpdateOrder
      */
-    readonly body: V1UpdateOrderRequest
+    readonly body: OrderServiceUpdateOrderRequest
 }
 
 /**
@@ -1198,10 +1198,10 @@ export interface OrderServiceApiOrderServiceUpdateOrder2Request {
 
     /**
      * 
-     * @type {V1UpdateOrderRequest}
+     * @type {OrderServiceUpdateOrderRequest}
      * @memberof OrderServiceApiOrderServiceUpdateOrder2
      */
-    readonly body: V1UpdateOrderRequest
+    readonly body: OrderServiceUpdateOrderRequest
 }
 
 /**

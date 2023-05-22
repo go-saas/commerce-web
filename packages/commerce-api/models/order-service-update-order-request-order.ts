@@ -13,27 +13,18 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import { V1UpdateLocation } from './v1-update-location';
 
 /**
  * 
  * @export
- * @interface V1UpdateLocationRequest
+ * @interface OrderServiceUpdateOrderRequestOrder
  */
-export interface V1UpdateLocationRequest {
-    /**
-     * 
-     * @type {V1UpdateLocation}
-     * @memberof V1UpdateLocationRequest
-     */
-    'location'?: V1UpdateLocation;
+export interface OrderServiceUpdateOrderRequestOrder {
     /**
      * 
      * @type {string}
-     * @memberof V1UpdateLocationRequest
+     * @memberof OrderServiceUpdateOrderRequestOrder
      */
-    'updateMask'?: string;
+    'name'?: string;
 }
 

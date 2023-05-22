@@ -26,6 +26,10 @@ import { GooglerpcStatus } from '../models';
 // @ts-ignore
 import { LocationServiceCreateLocationHallRequest } from '../models';
 // @ts-ignore
+import { LocationServiceUpdateLocationHallRequest } from '../models';
+// @ts-ignore
+import { LocationServiceUpdateLocationRequest } from '../models';
+// @ts-ignore
 import { Locationv1Location } from '../models';
 // @ts-ignore
 import { V1CreateLocationRequest } from '../models';
@@ -41,8 +45,6 @@ import { V1GetLocationHallsReply } from '../models';
 import { V1ListLocationReply } from '../models';
 // @ts-ignore
 import { V1ListLocationRequest } from '../models';
-// @ts-ignore
-import { V1UpdateLocationRequest } from '../models';
 /**
  * LocationServiceApi - axios parameter creator
  * @export
@@ -597,11 +599,11 @@ export const LocationServiceApiAxiosParamCreator = function (configuration?: Con
         /**
          * 
          * @param {string} locationId 
-         * @param {V1UpdateLocationRequest} body 
+         * @param {LocationServiceUpdateLocationRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        locationServiceUpdateLocation: async (locationId: string, body: V1UpdateLocationRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        locationServiceUpdateLocation: async (locationId: string, body: LocationServiceUpdateLocationRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'locationId' is not null or undefined
             assertParamExists('locationServiceUpdateLocation', 'locationId', locationId)
             // verify required parameter 'body' is not null or undefined
@@ -639,11 +641,11 @@ export const LocationServiceApiAxiosParamCreator = function (configuration?: Con
         /**
          * 
          * @param {string} locationId 
-         * @param {V1UpdateLocationRequest} body 
+         * @param {LocationServiceUpdateLocationRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        locationServiceUpdateLocation2: async (locationId: string, body: V1UpdateLocationRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        locationServiceUpdateLocation2: async (locationId: string, body: LocationServiceUpdateLocationRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'locationId' is not null or undefined
             assertParamExists('locationServiceUpdateLocation2', 'locationId', locationId)
             // verify required parameter 'body' is not null or undefined
@@ -682,11 +684,11 @@ export const LocationServiceApiAxiosParamCreator = function (configuration?: Con
          * 
          * @param {string} id 
          * @param {string} hallId 
-         * @param {LocationServiceCreateLocationHallRequest} body 
+         * @param {LocationServiceUpdateLocationHallRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        locationServiceUpdateLocationHall: async (id: string, hallId: string, body: LocationServiceCreateLocationHallRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        locationServiceUpdateLocationHall: async (id: string, hallId: string, body: LocationServiceUpdateLocationHallRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('locationServiceUpdateLocationHall', 'id', id)
             // verify required parameter 'hallId' is not null or undefined
@@ -728,11 +730,11 @@ export const LocationServiceApiAxiosParamCreator = function (configuration?: Con
          * 
          * @param {string} id 
          * @param {string} hallId 
-         * @param {LocationServiceCreateLocationHallRequest} body 
+         * @param {LocationServiceUpdateLocationHallRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        locationServiceUpdateLocationHall2: async (id: string, hallId: string, body: LocationServiceCreateLocationHallRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        locationServiceUpdateLocationHall2: async (id: string, hallId: string, body: LocationServiceUpdateLocationHallRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('locationServiceUpdateLocationHall2', 'id', id)
             // verify required parameter 'hallId' is not null or undefined
@@ -919,22 +921,22 @@ export const LocationServiceApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {string} locationId 
-         * @param {V1UpdateLocationRequest} body 
+         * @param {LocationServiceUpdateLocationRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async locationServiceUpdateLocation(locationId: string, body: V1UpdateLocationRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Locationv1Location>> {
+        async locationServiceUpdateLocation(locationId: string, body: LocationServiceUpdateLocationRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Locationv1Location>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.locationServiceUpdateLocation(locationId, body, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
          * @param {string} locationId 
-         * @param {V1UpdateLocationRequest} body 
+         * @param {LocationServiceUpdateLocationRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async locationServiceUpdateLocation2(locationId: string, body: V1UpdateLocationRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Locationv1Location>> {
+        async locationServiceUpdateLocation2(locationId: string, body: LocationServiceUpdateLocationRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Locationv1Location>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.locationServiceUpdateLocation2(locationId, body, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -942,11 +944,11 @@ export const LocationServiceApiFp = function(configuration?: Configuration) {
          * 
          * @param {string} id 
          * @param {string} hallId 
-         * @param {LocationServiceCreateLocationHallRequest} body 
+         * @param {LocationServiceUpdateLocationHallRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async locationServiceUpdateLocationHall(id: string, hallId: string, body: LocationServiceCreateLocationHallRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+        async locationServiceUpdateLocationHall(id: string, hallId: string, body: LocationServiceUpdateLocationHallRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.locationServiceUpdateLocationHall(id, hallId, body, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -954,11 +956,11 @@ export const LocationServiceApiFp = function(configuration?: Configuration) {
          * 
          * @param {string} id 
          * @param {string} hallId 
-         * @param {LocationServiceCreateLocationHallRequest} body 
+         * @param {LocationServiceUpdateLocationHallRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async locationServiceUpdateLocationHall2(id: string, hallId: string, body: LocationServiceCreateLocationHallRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+        async locationServiceUpdateLocationHall2(id: string, hallId: string, body: LocationServiceUpdateLocationHallRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.locationServiceUpdateLocationHall2(id, hallId, body, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1508,10 +1510,10 @@ export interface LocationServiceApiLocationServiceUpdateLocationRequest {
 
     /**
      * 
-     * @type {V1UpdateLocationRequest}
+     * @type {LocationServiceUpdateLocationRequest}
      * @memberof LocationServiceApiLocationServiceUpdateLocation
      */
-    readonly body: V1UpdateLocationRequest
+    readonly body: LocationServiceUpdateLocationRequest
 }
 
 /**
@@ -1529,10 +1531,10 @@ export interface LocationServiceApiLocationServiceUpdateLocation2Request {
 
     /**
      * 
-     * @type {V1UpdateLocationRequest}
+     * @type {LocationServiceUpdateLocationRequest}
      * @memberof LocationServiceApiLocationServiceUpdateLocation2
      */
-    readonly body: V1UpdateLocationRequest
+    readonly body: LocationServiceUpdateLocationRequest
 }
 
 /**
@@ -1557,10 +1559,10 @@ export interface LocationServiceApiLocationServiceUpdateLocationHallRequest {
 
     /**
      * 
-     * @type {LocationServiceCreateLocationHallRequest}
+     * @type {LocationServiceUpdateLocationHallRequest}
      * @memberof LocationServiceApiLocationServiceUpdateLocationHall
      */
-    readonly body: LocationServiceCreateLocationHallRequest
+    readonly body: LocationServiceUpdateLocationHallRequest
 }
 
 /**
@@ -1585,10 +1587,10 @@ export interface LocationServiceApiLocationServiceUpdateLocationHall2Request {
 
     /**
      * 
-     * @type {LocationServiceCreateLocationHallRequest}
+     * @type {LocationServiceUpdateLocationHallRequest}
      * @memberof LocationServiceApiLocationServiceUpdateLocationHall2
      */
-    readonly body: LocationServiceCreateLocationHallRequest
+    readonly body: LocationServiceUpdateLocationHallRequest
 }
 
 /**

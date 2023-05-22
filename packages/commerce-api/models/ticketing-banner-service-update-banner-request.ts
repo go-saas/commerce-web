@@ -15,24 +15,24 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { Productapicategoryv1UpdateCategory } from './productapicategoryv1-update-category';
+import { TicketingBannerServiceUpdateBannerRequestBanner } from './ticketing-banner-service-update-banner-request-banner';
 
 /**
  * 
  * @export
- * @interface Productapicategoryv1UpdateCategoryRequest
+ * @interface TicketingBannerServiceUpdateBannerRequest
  */
-export interface Productapicategoryv1UpdateCategoryRequest {
+export interface TicketingBannerServiceUpdateBannerRequest {
     /**
      * 
-     * @type {Productapicategoryv1UpdateCategory}
-     * @memberof Productapicategoryv1UpdateCategoryRequest
+     * @type {TicketingBannerServiceUpdateBannerRequestBanner}
+     * @memberof TicketingBannerServiceUpdateBannerRequest
      */
-    'category'?: Productapicategoryv1UpdateCategory;
+    'banner'?: TicketingBannerServiceUpdateBannerRequestBanner;
     /**
      * 
      * @type {string}
-     * @memberof Productapicategoryv1UpdateCategoryRequest
+     * @memberof TicketingBannerServiceUpdateBannerRequest
      */
     'updateMask'?: string;
 }

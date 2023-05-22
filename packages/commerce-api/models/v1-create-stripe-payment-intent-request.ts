@@ -17,20 +17,14 @@
 /**
  * 
  * @export
- * @interface V1UpdateTicket
+ * @interface V1CreateStripePaymentIntentRequest
  */
-export interface V1UpdateTicket {
+export interface V1CreateStripePaymentIntentRequest {
     /**
      * 
      * @type {string}
-     * @memberof V1UpdateTicket
+     * @memberof V1CreateStripePaymentIntentRequest
      */
-    'id': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1UpdateTicket
-     */
-    'name'?: string;
+    'orderId'?: string;
 }
 

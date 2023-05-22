@@ -17,20 +17,32 @@
 /**
  * 
  * @export
- * @interface V1DeleteTicketReply
+ * @interface Gatewayv1PaymentMethod
  */
-export interface V1DeleteTicketReply {
+export interface Gatewayv1PaymentMethod {
     /**
      * 
      * @type {string}
-     * @memberof V1DeleteTicketReply
-     */
-    'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1DeleteTicketReply
+     * @memberof Gatewayv1PaymentMethod
      */
     'name'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Gatewayv1PaymentMethod
+     */
+    'logo'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Gatewayv1PaymentMethod
+     */
+    'desc'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Gatewayv1PaymentMethod
+     */
+    'notice'?: string;
 }
 

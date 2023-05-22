@@ -24,6 +24,8 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { GooglerpcStatus } from '../models';
 // @ts-ignore
+import { ShowServiceUpdateShowRequest } from '../models';
+// @ts-ignore
 import { V1CreateShowRequest } from '../models';
 // @ts-ignore
 import { V1DeleteShowReply } from '../models';
@@ -33,8 +35,6 @@ import { V1ListShowReply } from '../models';
 import { V1ListShowRequest } from '../models';
 // @ts-ignore
 import { V1Show } from '../models';
-// @ts-ignore
-import { V1UpdateShowRequest } from '../models';
 /**
  * ShowServiceApi - axios parameter creator
  * @export
@@ -469,11 +469,11 @@ export const ShowServiceApiAxiosParamCreator = function (configuration?: Configu
         /**
          * 
          * @param {string} showId 
-         * @param {V1UpdateShowRequest} body 
+         * @param {ShowServiceUpdateShowRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        showServiceUpdateShow: async (showId: string, body: V1UpdateShowRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        showServiceUpdateShow: async (showId: string, body: ShowServiceUpdateShowRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'showId' is not null or undefined
             assertParamExists('showServiceUpdateShow', 'showId', showId)
             // verify required parameter 'body' is not null or undefined
@@ -511,11 +511,11 @@ export const ShowServiceApiAxiosParamCreator = function (configuration?: Configu
         /**
          * 
          * @param {string} showId 
-         * @param {V1UpdateShowRequest} body 
+         * @param {ShowServiceUpdateShowRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        showServiceUpdateShow2: async (showId: string, body: V1UpdateShowRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        showServiceUpdateShow2: async (showId: string, body: ShowServiceUpdateShowRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'showId' is not null or undefined
             assertParamExists('showServiceUpdateShow2', 'showId', showId)
             // verify required parameter 'body' is not null or undefined
@@ -661,22 +661,22 @@ export const ShowServiceApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {string} showId 
-         * @param {V1UpdateShowRequest} body 
+         * @param {ShowServiceUpdateShowRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async showServiceUpdateShow(showId: string, body: V1UpdateShowRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1Show>> {
+        async showServiceUpdateShow(showId: string, body: ShowServiceUpdateShowRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1Show>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.showServiceUpdateShow(showId, body, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
          * @param {string} showId 
-         * @param {V1UpdateShowRequest} body 
+         * @param {ShowServiceUpdateShowRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async showServiceUpdateShow2(showId: string, body: V1UpdateShowRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1Show>> {
+        async showServiceUpdateShow2(showId: string, body: ShowServiceUpdateShowRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1Show>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.showServiceUpdateShow2(showId, body, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1177,10 +1177,10 @@ export interface ShowServiceApiShowServiceUpdateShowRequest {
 
     /**
      * 
-     * @type {V1UpdateShowRequest}
+     * @type {ShowServiceUpdateShowRequest}
      * @memberof ShowServiceApiShowServiceUpdateShow
      */
-    readonly body: V1UpdateShowRequest
+    readonly body: ShowServiceUpdateShowRequest
 }
 
 /**
@@ -1198,10 +1198,10 @@ export interface ShowServiceApiShowServiceUpdateShow2Request {
 
     /**
      * 
-     * @type {V1UpdateShowRequest}
+     * @type {ShowServiceUpdateShowRequest}
      * @memberof ShowServiceApiShowServiceUpdateShow2
      */
-    readonly body: V1UpdateShowRequest
+    readonly body: ShowServiceUpdateShowRequest
 }
 
 /**

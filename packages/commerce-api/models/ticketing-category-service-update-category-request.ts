@@ -15,31 +15,25 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { V1TicketingMedia } from './v1-ticketing-media';
+import { TicketingCategoryServiceUpdateCategoryRequestCategory } from './ticketing-category-service-update-category-request-category';
 
 /**
  * 
  * @export
- * @interface V1CreateBannerRequest
+ * @interface TicketingCategoryServiceUpdateCategoryRequest
  */
-export interface V1CreateBannerRequest {
+export interface TicketingCategoryServiceUpdateCategoryRequest {
+    /**
+     * 
+     * @type {TicketingCategoryServiceUpdateCategoryRequestCategory}
+     * @memberof TicketingCategoryServiceUpdateCategoryRequest
+     */
+    'category'?: TicketingCategoryServiceUpdateCategoryRequestCategory;
     /**
      * 
      * @type {string}
-     * @memberof V1CreateBannerRequest
+     * @memberof TicketingCategoryServiceUpdateCategoryRequest
      */
-    'refType': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1CreateBannerRequest
-     */
-    'refId': string;
-    /**
-     * 
-     * @type {V1TicketingMedia}
-     * @memberof V1CreateBannerRequest
-     */
-    'mainPic': V1TicketingMedia;
+    'updateMask'?: string;
 }
 

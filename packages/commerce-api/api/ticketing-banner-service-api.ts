@@ -24,6 +24,8 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { GooglerpcStatus } from '../models';
 // @ts-ignore
+import { TicketingBannerServiceUpdateBannerRequest } from '../models';
+// @ts-ignore
 import { V1Banner } from '../models';
 // @ts-ignore
 import { V1CreateBannerRequest } from '../models';
@@ -33,8 +35,6 @@ import { V1DeleteBannerReply } from '../models';
 import { V1ListBannerReply } from '../models';
 // @ts-ignore
 import { V1ListBannerRequest } from '../models';
-// @ts-ignore
-import { V1UpdateBannerRequest } from '../models';
 /**
  * TicketingBannerServiceApi - axios parameter creator
  * @export
@@ -283,11 +283,11 @@ export const TicketingBannerServiceApiAxiosParamCreator = function (configuratio
         /**
          * 
          * @param {string} bannerId 
-         * @param {V1UpdateBannerRequest} body 
+         * @param {TicketingBannerServiceUpdateBannerRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        ticketingBannerServiceUpdateBanner: async (bannerId: string, body: V1UpdateBannerRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        ticketingBannerServiceUpdateBanner: async (bannerId: string, body: TicketingBannerServiceUpdateBannerRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'bannerId' is not null or undefined
             assertParamExists('ticketingBannerServiceUpdateBanner', 'bannerId', bannerId)
             // verify required parameter 'body' is not null or undefined
@@ -325,11 +325,11 @@ export const TicketingBannerServiceApiAxiosParamCreator = function (configuratio
         /**
          * 
          * @param {string} bannerId 
-         * @param {V1UpdateBannerRequest} body 
+         * @param {TicketingBannerServiceUpdateBannerRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        ticketingBannerServiceUpdateBanner2: async (bannerId: string, body: V1UpdateBannerRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        ticketingBannerServiceUpdateBanner2: async (bannerId: string, body: TicketingBannerServiceUpdateBannerRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'bannerId' is not null or undefined
             assertParamExists('ticketingBannerServiceUpdateBanner2', 'bannerId', bannerId)
             // verify required parameter 'body' is not null or undefined
@@ -435,22 +435,22 @@ export const TicketingBannerServiceApiFp = function(configuration?: Configuratio
         /**
          * 
          * @param {string} bannerId 
-         * @param {V1UpdateBannerRequest} body 
+         * @param {TicketingBannerServiceUpdateBannerRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async ticketingBannerServiceUpdateBanner(bannerId: string, body: V1UpdateBannerRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1Banner>> {
+        async ticketingBannerServiceUpdateBanner(bannerId: string, body: TicketingBannerServiceUpdateBannerRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1Banner>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.ticketingBannerServiceUpdateBanner(bannerId, body, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
          * @param {string} bannerId 
-         * @param {V1UpdateBannerRequest} body 
+         * @param {TicketingBannerServiceUpdateBannerRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async ticketingBannerServiceUpdateBanner2(bannerId: string, body: V1UpdateBannerRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1Banner>> {
+        async ticketingBannerServiceUpdateBanner2(bannerId: string, body: TicketingBannerServiceUpdateBannerRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1Banner>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.ticketingBannerServiceUpdateBanner2(bannerId, body, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -718,10 +718,10 @@ export interface TicketingBannerServiceApiTicketingBannerServiceUpdateBannerRequ
 
     /**
      * 
-     * @type {V1UpdateBannerRequest}
+     * @type {TicketingBannerServiceUpdateBannerRequest}
      * @memberof TicketingBannerServiceApiTicketingBannerServiceUpdateBanner
      */
-    readonly body: V1UpdateBannerRequest
+    readonly body: TicketingBannerServiceUpdateBannerRequest
 }
 
 /**
@@ -739,10 +739,10 @@ export interface TicketingBannerServiceApiTicketingBannerServiceUpdateBanner2Req
 
     /**
      * 
-     * @type {V1UpdateBannerRequest}
+     * @type {TicketingBannerServiceUpdateBannerRequest}
      * @memberof TicketingBannerServiceApiTicketingBannerServiceUpdateBanner2
      */
-    readonly body: V1UpdateBannerRequest
+    readonly body: TicketingBannerServiceUpdateBannerRequest
 }
 
 /**

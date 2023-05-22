@@ -24,6 +24,8 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { GooglerpcStatus } from '../models';
 // @ts-ignore
+import { ProductServiceUpdateProductRequest } from '../models';
+// @ts-ignore
 import { V1CreateProductRequest } from '../models';
 // @ts-ignore
 import { V1DeleteProductReply } from '../models';
@@ -33,8 +35,6 @@ import { V1ListProductReply } from '../models';
 import { V1ListProductRequest } from '../models';
 // @ts-ignore
 import { V1Product } from '../models';
-// @ts-ignore
-import { V1UpdateProductRequest } from '../models';
 /**
  * ProductServiceApi - axios parameter creator
  * @export
@@ -389,11 +389,11 @@ export const ProductServiceApiAxiosParamCreator = function (configuration?: Conf
         /**
          * 
          * @param {string} productId 
-         * @param {V1UpdateProductRequest} body 
+         * @param {ProductServiceUpdateProductRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productServiceUpdateProduct: async (productId: string, body: V1UpdateProductRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        productServiceUpdateProduct: async (productId: string, body: ProductServiceUpdateProductRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'productId' is not null or undefined
             assertParamExists('productServiceUpdateProduct', 'productId', productId)
             // verify required parameter 'body' is not null or undefined
@@ -431,11 +431,11 @@ export const ProductServiceApiAxiosParamCreator = function (configuration?: Conf
         /**
          * 
          * @param {string} productId 
-         * @param {V1UpdateProductRequest} body 
+         * @param {ProductServiceUpdateProductRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productServiceUpdateProduct2: async (productId: string, body: V1UpdateProductRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        productServiceUpdateProduct2: async (productId: string, body: ProductServiceUpdateProductRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'productId' is not null or undefined
             assertParamExists('productServiceUpdateProduct2', 'productId', productId)
             // verify required parameter 'body' is not null or undefined
@@ -565,22 +565,22 @@ export const ProductServiceApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {string} productId 
-         * @param {V1UpdateProductRequest} body 
+         * @param {ProductServiceUpdateProductRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async productServiceUpdateProduct(productId: string, body: V1UpdateProductRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1Product>> {
+        async productServiceUpdateProduct(productId: string, body: ProductServiceUpdateProductRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1Product>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.productServiceUpdateProduct(productId, body, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
          * @param {string} productId 
-         * @param {V1UpdateProductRequest} body 
+         * @param {ProductServiceUpdateProductRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async productServiceUpdateProduct2(productId: string, body: V1UpdateProductRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1Product>> {
+        async productServiceUpdateProduct2(productId: string, body: ProductServiceUpdateProductRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1Product>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.productServiceUpdateProduct2(productId, body, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -969,10 +969,10 @@ export interface ProductServiceApiProductServiceUpdateProductRequest {
 
     /**
      * 
-     * @type {V1UpdateProductRequest}
+     * @type {ProductServiceUpdateProductRequest}
      * @memberof ProductServiceApiProductServiceUpdateProduct
      */
-    readonly body: V1UpdateProductRequest
+    readonly body: ProductServiceUpdateProductRequest
 }
 
 /**
@@ -990,10 +990,10 @@ export interface ProductServiceApiProductServiceUpdateProduct2Request {
 
     /**
      * 
-     * @type {V1UpdateProductRequest}
+     * @type {ProductServiceUpdateProductRequest}
      * @memberof ProductServiceApiProductServiceUpdateProduct2
      */
-    readonly body: V1UpdateProductRequest
+    readonly body: ProductServiceUpdateProductRequest
 }
 
 /**

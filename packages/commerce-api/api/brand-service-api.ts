@@ -22,6 +22,8 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
+import { BrandServiceUpdateBrandRequest } from '../models';
+// @ts-ignore
 import { GooglerpcStatus } from '../models';
 // @ts-ignore
 import { V1Brand } from '../models';
@@ -33,8 +35,6 @@ import { V1DeleteBrandReply } from '../models';
 import { V1ListBrandReply } from '../models';
 // @ts-ignore
 import { V1ListBrandRequest } from '../models';
-// @ts-ignore
-import { V1UpdateBrandRequest } from '../models';
 /**
  * BrandServiceApi - axios parameter creator
  * @export
@@ -389,11 +389,11 @@ export const BrandServiceApiAxiosParamCreator = function (configuration?: Config
         /**
          * 
          * @param {string} brandId 
-         * @param {V1UpdateBrandRequest} body 
+         * @param {BrandServiceUpdateBrandRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        brandServiceUpdateBrand: async (brandId: string, body: V1UpdateBrandRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        brandServiceUpdateBrand: async (brandId: string, body: BrandServiceUpdateBrandRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'brandId' is not null or undefined
             assertParamExists('brandServiceUpdateBrand', 'brandId', brandId)
             // verify required parameter 'body' is not null or undefined
@@ -431,11 +431,11 @@ export const BrandServiceApiAxiosParamCreator = function (configuration?: Config
         /**
          * 
          * @param {string} brandId 
-         * @param {V1UpdateBrandRequest} body 
+         * @param {BrandServiceUpdateBrandRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        brandServiceUpdateBrand2: async (brandId: string, body: V1UpdateBrandRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        brandServiceUpdateBrand2: async (brandId: string, body: BrandServiceUpdateBrandRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'brandId' is not null or undefined
             assertParamExists('brandServiceUpdateBrand2', 'brandId', brandId)
             // verify required parameter 'body' is not null or undefined
@@ -565,22 +565,22 @@ export const BrandServiceApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {string} brandId 
-         * @param {V1UpdateBrandRequest} body 
+         * @param {BrandServiceUpdateBrandRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async brandServiceUpdateBrand(brandId: string, body: V1UpdateBrandRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1Brand>> {
+        async brandServiceUpdateBrand(brandId: string, body: BrandServiceUpdateBrandRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1Brand>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.brandServiceUpdateBrand(brandId, body, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
          * @param {string} brandId 
-         * @param {V1UpdateBrandRequest} body 
+         * @param {BrandServiceUpdateBrandRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async brandServiceUpdateBrand2(brandId: string, body: V1UpdateBrandRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1Brand>> {
+        async brandServiceUpdateBrand2(brandId: string, body: BrandServiceUpdateBrandRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V1Brand>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.brandServiceUpdateBrand2(brandId, body, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -969,10 +969,10 @@ export interface BrandServiceApiBrandServiceUpdateBrandRequest {
 
     /**
      * 
-     * @type {V1UpdateBrandRequest}
+     * @type {BrandServiceUpdateBrandRequest}
      * @memberof BrandServiceApiBrandServiceUpdateBrand
      */
-    readonly body: V1UpdateBrandRequest
+    readonly body: BrandServiceUpdateBrandRequest
 }
 
 /**
@@ -990,10 +990,10 @@ export interface BrandServiceApiBrandServiceUpdateBrand2Request {
 
     /**
      * 
-     * @type {V1UpdateBrandRequest}
+     * @type {BrandServiceUpdateBrandRequest}
      * @memberof BrandServiceApiBrandServiceUpdateBrand2
      */
-    readonly body: V1UpdateBrandRequest
+    readonly body: BrandServiceUpdateBrandRequest
 }
 
 /**

@@ -15,24 +15,24 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { Ticketingapicategoryv1UpdateCategory } from './ticketingapicategoryv1-update-category';
+import { ShowServiceUpdateShowRequestShow } from './show-service-update-show-request-show';
 
 /**
  * 
  * @export
- * @interface Ticketingapicategoryv1UpdateCategoryRequest
+ * @interface ShowServiceUpdateShowRequest
  */
-export interface Ticketingapicategoryv1UpdateCategoryRequest {
+export interface ShowServiceUpdateShowRequest {
     /**
      * 
-     * @type {Ticketingapicategoryv1UpdateCategory}
-     * @memberof Ticketingapicategoryv1UpdateCategoryRequest
+     * @type {ShowServiceUpdateShowRequestShow}
+     * @memberof ShowServiceUpdateShowRequest
      */
-    'category'?: Ticketingapicategoryv1UpdateCategory;
+    'show'?: ShowServiceUpdateShowRequestShow;
     /**
      * 
      * @type {string}
-     * @memberof Ticketingapicategoryv1UpdateCategoryRequest
+     * @memberof ShowServiceUpdateShowRequest
      */
     'updateMask'?: string;
 }

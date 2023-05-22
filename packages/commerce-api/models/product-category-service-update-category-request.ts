@@ -15,24 +15,24 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { V1UpdateTicket } from './v1-update-ticket';
+import { OrderServiceUpdateOrderRequestOrder } from './order-service-update-order-request-order';
 
 /**
  * 
  * @export
- * @interface V1UpdateTicketRequest
+ * @interface ProductCategoryServiceUpdateCategoryRequest
  */
-export interface V1UpdateTicketRequest {
+export interface ProductCategoryServiceUpdateCategoryRequest {
     /**
      * 
-     * @type {V1UpdateTicket}
-     * @memberof V1UpdateTicketRequest
+     * @type {OrderServiceUpdateOrderRequestOrder}
+     * @memberof ProductCategoryServiceUpdateCategoryRequest
      */
-    'ticket'?: V1UpdateTicket;
+    'category'?: OrderServiceUpdateOrderRequestOrder;
     /**
      * 
      * @type {string}
-     * @memberof V1UpdateTicketRequest
+     * @memberof ProductCategoryServiceUpdateCategoryRequest
      */
     'updateMask'?: string;
 }

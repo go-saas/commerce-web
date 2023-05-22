@@ -15,25 +15,19 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { V1UpdateProduct } from './v1-update-product';
+import { Gatewayv1PaymentMethod } from './gatewayv1-payment-method';
 
 /**
  * 
  * @export
- * @interface V1UpdateProductRequest
+ * @interface V1GetPaymentMethodReply
  */
-export interface V1UpdateProductRequest {
+export interface V1GetPaymentMethodReply {
     /**
      * 
-     * @type {V1UpdateProduct}
-     * @memberof V1UpdateProductRequest
+     * @type {Array<Gatewayv1PaymentMethod>}
+     * @memberof V1GetPaymentMethodReply
      */
-    'product'?: V1UpdateProduct;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1UpdateProductRequest
-     */
-    'updateMask'?: string;
+    'methods'?: Array<Gatewayv1PaymentMethod>;
 }
 

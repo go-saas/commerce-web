@@ -15,24 +15,24 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { V1UpdateActivity } from './v1-update-activity';
+import { LocationServiceUpdateLocationRequestLocation } from './location-service-update-location-request-location';
 
 /**
  * 
  * @export
- * @interface V1UpdateActivityRequest
+ * @interface LocationServiceUpdateLocationRequest
  */
-export interface V1UpdateActivityRequest {
+export interface LocationServiceUpdateLocationRequest {
     /**
      * 
-     * @type {V1UpdateActivity}
-     * @memberof V1UpdateActivityRequest
+     * @type {LocationServiceUpdateLocationRequestLocation}
+     * @memberof LocationServiceUpdateLocationRequest
      */
-    'activity'?: V1UpdateActivity;
+    'location'?: LocationServiceUpdateLocationRequestLocation;
     /**
      * 
      * @type {string}
-     * @memberof V1UpdateActivityRequest
+     * @memberof LocationServiceUpdateLocationRequest
      */
     'updateMask'?: string;
 }

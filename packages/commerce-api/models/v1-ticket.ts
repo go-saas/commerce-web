@@ -13,6 +13,21 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { Locationv1Location } from './locationv1-location';
+// May contain unused imports in some cases
+// @ts-ignore
+import { V1Activity } from './v1-activity';
+// May contain unused imports in some cases
+// @ts-ignore
+import { V1LocationHall } from './v1-location-hall';
+// May contain unused imports in some cases
+// @ts-ignore
+import { V1Show } from './v1-show';
+// May contain unused imports in some cases
+// @ts-ignore
+import { V1ShowSalesType } from './v1-show-sales-type';
 
 /**
  * 
@@ -28,15 +43,63 @@ export interface V1Ticket {
     'id'?: string;
     /**
      * 
-     * @type {string}
+     * @type {Locationv1Location}
      * @memberof V1Ticket
      */
-    'name'?: string;
+    'location'?: Locationv1Location;
+    /**
+     * 
+     * @type {V1LocationHall}
+     * @memberof V1Ticket
+     */
+    'hall'?: V1LocationHall;
+    /**
+     * 
+     * @type {V1Activity}
+     * @memberof V1Ticket
+     */
+    'activity'?: V1Activity;
+    /**
+     * 
+     * @type {V1Show}
+     * @memberof V1Ticket
+     */
+    'show'?: V1Show;
+    /**
+     * 
+     * @type {V1ShowSalesType}
+     * @memberof V1Ticket
+     */
+    'showSalesType'?: V1ShowSalesType;
     /**
      * 
      * @type {string}
      * @memberof V1Ticket
      */
     'createdAt'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Ticket
+     */
+    'status'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Ticket
+     */
+    'orderId'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Ticket
+     */
+    'userId'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Ticket
+     */
+    'notice'?: string;
 }
 

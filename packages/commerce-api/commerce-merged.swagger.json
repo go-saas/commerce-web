@@ -15,6 +15,12 @@
       "name": "OrderInternalService"
     },
     {
+      "name": "PaymentGatewayService"
+    },
+    {
+      "name": "StripePaymentGatewayService"
+    },
+    {
       "name": "ProductCategoryService"
     },
     {
@@ -974,7 +980,20 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/v1UpdateOrderRequest"
+              "type": "object",
+              "properties": {
+                "order": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "updateMask": {
+                  "type": "string"
+                }
+              }
             }
           }
         ],
@@ -1010,12 +1029,126 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/v1UpdateOrderRequest"
+              "type": "object",
+              "properties": {
+                "order": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "updateMask": {
+                  "type": "string"
+                }
+              }
             }
           }
         ],
         "tags": [
           "OrderService"
+        ]
+      }
+    },
+    "/v1/payment/methods": {
+      "get": {
+        "operationId": "PaymentGatewayService_GetPaymentMethod",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetPaymentMethodReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "isTest",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "PaymentGatewayService"
+        ]
+      }
+    },
+    "/v1/payment/stripe/intent": {
+      "post": {
+        "operationId": "StripePaymentGatewayService_CreateStripePaymentIntent",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CreateStripePaymentIntentReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CreateStripePaymentIntentRequest"
+            }
+          }
+        ],
+        "tags": [
+          "StripePaymentGatewayService"
+        ]
+      }
+    },
+    "/v1/payment/stripe/webhook": {
+      "post": {
+        "operationId": "StripePaymentGatewayService_StripeWebhook",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1StripeWebhookReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        ],
+        "tags": [
+          "StripePaymentGatewayService"
         ]
       }
     },
@@ -1112,7 +1245,32 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/v1UpdateBrandRequest"
+              "type": "object",
+              "properties": {
+                "brand": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "logo": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "desc": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "updateMask": {
+                  "type": "string"
+                }
+              }
             }
           }
         ],
@@ -1148,7 +1306,32 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/v1UpdateBrandRequest"
+              "type": "object",
+              "properties": {
+                "brand": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "logo": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "desc": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "updateMask": {
+                  "type": "string"
+                }
+              }
             }
           }
         ],
@@ -1886,7 +2069,20 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/productapicategoryv1UpdateCategoryRequest"
+              "type": "object",
+              "properties": {
+                "category": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "updateMask": {
+                  "type": "string"
+                }
+              }
             }
           }
         ],
@@ -1922,7 +2118,20 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/productapicategoryv1UpdateCategoryRequest"
+              "type": "object",
+              "properties": {
+                "category": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "updateMask": {
+                  "type": "string"
+                }
+              }
             }
           }
         ],
@@ -2382,7 +2591,20 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/v1UpdateProductRequest"
+              "type": "object",
+              "properties": {
+                "product": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "updateMask": {
+                  "type": "string"
+                }
+              }
             }
           }
         ],
@@ -2418,7 +2640,20 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/v1UpdateProductRequest"
+              "type": "object",
+              "properties": {
+                "product": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "updateMask": {
+                  "type": "string"
+                }
+              }
             }
           }
         ],
@@ -2457,38 +2692,6 @@
         "tags": [
           "TicketAppService",
           "UsageApp"
-        ]
-      }
-    },
-    "/v1/ticket/ticket/list": {
-      "post": {
-        "operationId": "TicketService_ListTicket2",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ListTicketReply"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/googlerpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1ListTicketRequest"
-            }
-          }
-        ],
-        "tags": [
-          "TicketService"
         ]
       }
     },
@@ -2863,7 +3066,57 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/v1UpdateActivityRequest"
+              "type": "object",
+              "properties": {
+                "activity": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "mainPic": {
+                      "$ref": "#/definitions/v1TicketingMedia"
+                    },
+                    "medias": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "$ref": "#/definitions/v1TicketingMedia"
+                      }
+                    },
+                    "desc": {
+                      "type": "string"
+                    },
+                    "shortDesc": {
+                      "type": "string"
+                    },
+                    "content": {
+                      "type": "object"
+                    },
+                    "categoryKeys": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "seatSelectable": {
+                      "type": "boolean"
+                    },
+                    "duration": {
+                      "type": "string"
+                    },
+                    "notice": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "updateMask": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ]
             }
           }
         ],
@@ -2899,7 +3152,57 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/v1UpdateActivityRequest"
+              "type": "object",
+              "properties": {
+                "activity": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "mainPic": {
+                      "$ref": "#/definitions/v1TicketingMedia"
+                    },
+                    "medias": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "$ref": "#/definitions/v1TicketingMedia"
+                      }
+                    },
+                    "desc": {
+                      "type": "string"
+                    },
+                    "shortDesc": {
+                      "type": "string"
+                    },
+                    "content": {
+                      "type": "object"
+                    },
+                    "categoryKeys": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "seatSelectable": {
+                      "type": "boolean"
+                    },
+                    "duration": {
+                      "type": "string"
+                    },
+                    "notice": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "updateMask": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ]
             }
           }
         ],
@@ -3740,7 +4043,35 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/v1UpdateBannerRequest"
+              "type": "object",
+              "properties": {
+                "banner": {
+                  "type": "object",
+                  "properties": {
+                    "refType": {
+                      "type": "string"
+                    },
+                    "refId": {
+                      "type": "string"
+                    },
+                    "mainPic": {
+                      "$ref": "#/definitions/v1TicketingMedia"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "updateMask": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "refType",
+                "refId",
+                "mainPic",
+                "status"
+              ]
             }
           }
         ],
@@ -3776,7 +4107,35 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/v1UpdateBannerRequest"
+              "type": "object",
+              "properties": {
+                "banner": {
+                  "type": "object",
+                  "properties": {
+                    "refType": {
+                      "type": "string"
+                    },
+                    "refId": {
+                      "type": "string"
+                    },
+                    "mainPic": {
+                      "$ref": "#/definitions/v1TicketingMedia"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "updateMask": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "refType",
+                "refId",
+                "mainPic",
+                "status"
+              ]
             }
           }
         ],
@@ -4242,7 +4601,23 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/ticketingapicategoryv1UpdateCategoryRequest"
+              "type": "object",
+              "properties": {
+                "category": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "parent": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "updateMask": {
+                  "type": "string"
+                }
+              }
             }
           }
         ],
@@ -4278,7 +4653,23 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/ticketingapicategoryv1UpdateCategoryRequest"
+              "type": "object",
+              "properties": {
+                "category": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "parent": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "updateMask": {
+                  "type": "string"
+                }
+              }
             }
           }
         ],
@@ -4856,7 +5247,33 @@
               "type": "object",
               "properties": {
                 "hall": {
-                  "$ref": "#/definitions/v1UpdateLocationHall"
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "tags": {
+                      "type": "string"
+                    },
+                    "capacity": {
+                      "type": "integer",
+                      "format": "int32"
+                    },
+                    "seatGroups": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "$ref": "#/definitions/v1UpdateSeatGroup"
+                      }
+                    },
+                    "seats": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "$ref": "#/definitions/v1Seat"
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -4903,7 +5320,33 @@
               "type": "object",
               "properties": {
                 "hall": {
-                  "$ref": "#/definitions/v1UpdateLocationHall"
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "tags": {
+                      "type": "string"
+                    },
+                    "capacity": {
+                      "type": "integer",
+                      "format": "int32"
+                    },
+                    "seatGroups": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "$ref": "#/definitions/v1UpdateSeatGroup"
+                      }
+                    },
+                    "seats": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "$ref": "#/definitions/v1Seat"
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -4979,7 +5422,55 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/v1UpdateLocationRequest"
+              "type": "object",
+              "properties": {
+                "location": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "logo": {
+                      "$ref": "#/definitions/v1TicketingMedia"
+                    },
+                    "medias": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "$ref": "#/definitions/v1TicketingMedia"
+                      }
+                    },
+                    "desc": {
+                      "type": "string"
+                    },
+                    "shortDesc": {
+                      "type": "string"
+                    },
+                    "content": {
+                      "type": "object"
+                    },
+                    "address": {
+                      "$ref": "#/definitions/lbsAddress"
+                    },
+                    "legalDocs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "$ref": "#/definitions/v1TicketingMedia"
+                      }
+                    },
+                    "publicContact": {
+                      "$ref": "#/definitions/v1ContactInfo"
+                    }
+                  }
+                },
+                "updateMask": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ]
             }
           }
         ],
@@ -5015,7 +5506,55 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/v1UpdateLocationRequest"
+              "type": "object",
+              "properties": {
+                "location": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "logo": {
+                      "$ref": "#/definitions/v1TicketingMedia"
+                    },
+                    "medias": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "$ref": "#/definitions/v1TicketingMedia"
+                      }
+                    },
+                    "desc": {
+                      "type": "string"
+                    },
+                    "shortDesc": {
+                      "type": "string"
+                    },
+                    "content": {
+                      "type": "object"
+                    },
+                    "address": {
+                      "$ref": "#/definitions/lbsAddress"
+                    },
+                    "legalDocs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "$ref": "#/definitions/v1TicketingMedia"
+                      }
+                    },
+                    "publicContact": {
+                      "$ref": "#/definitions/v1ContactInfo"
+                    }
+                  }
+                },
+                "updateMask": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ]
             }
           }
         ],
@@ -5207,49 +5746,49 @@
             "type": "string"
           },
           {
-            "name": "filter.name.$eq",
+            "name": "filter.locationId.$eq",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "filter.name.$neq",
+            "name": "filter.locationId.$neq",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "filter.name.$contains",
+            "name": "filter.locationId.$contains",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "filter.name.$starts_with",
+            "name": "filter.locationId.$starts_with",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "filter.name.$nstarts_with",
+            "name": "filter.locationId.$nstarts_with",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "filter.name.$ends_with",
+            "name": "filter.locationId.$ends_with",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "filter.name.$nends_with",
+            "name": "filter.locationId.$nends_with",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "filter.name.$in",
+            "name": "filter.locationId.$in",
             "in": "query",
             "required": false,
             "type": "array",
@@ -5259,7 +5798,7 @@
             "collectionFormat": "multi"
           },
           {
-            "name": "filter.name.$nin",
+            "name": "filter.locationId.$nin",
             "in": "query",
             "required": false,
             "type": "array",
@@ -5269,31 +5808,307 @@
             "collectionFormat": "multi"
           },
           {
-            "name": "filter.name.$null",
+            "name": "filter.locationId.$null",
             "in": "query",
             "required": false,
             "type": "boolean"
           },
           {
-            "name": "filter.name.$nnull",
+            "name": "filter.locationId.$nnull",
             "in": "query",
             "required": false,
             "type": "boolean"
           },
           {
-            "name": "filter.name.$empty",
+            "name": "filter.locationId.$empty",
             "in": "query",
             "required": false,
             "type": "boolean"
           },
           {
-            "name": "filter.name.$nempty",
+            "name": "filter.locationId.$nempty",
             "in": "query",
             "required": false,
             "type": "boolean"
           },
           {
-            "name": "filter.name.$like",
+            "name": "filter.locationId.$like",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.hallId.$eq",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.hallId.$neq",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.hallId.$contains",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.hallId.$starts_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.hallId.$nstarts_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.hallId.$ends_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.hallId.$nends_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.hallId.$in",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "filter.hallId.$nin",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "filter.hallId.$null",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.hallId.$nnull",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.hallId.$empty",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.hallId.$nempty",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.hallId.$like",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.activityId.$eq",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.activityId.$neq",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.activityId.$contains",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.activityId.$starts_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.activityId.$nstarts_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.activityId.$ends_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.activityId.$nends_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.activityId.$in",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "filter.activityId.$nin",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "filter.activityId.$null",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.activityId.$nnull",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.activityId.$empty",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.activityId.$nempty",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.activityId.$like",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.userId.$eq",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.userId.$neq",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.userId.$contains",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.userId.$starts_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.userId.$nstarts_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.userId.$ends_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.userId.$nends_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.userId.$in",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "filter.userId.$nin",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "filter.userId.$null",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.userId.$nnull",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.userId.$empty",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.userId.$nempty",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.userId.$like",
             "in": "query",
             "required": false,
             "type": "string"
@@ -5814,7 +6629,42 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/v1UpdateShowRequest"
+              "type": "object",
+              "properties": {
+                "show": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "startTime": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "endTime": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "salesTypes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "$ref": "#/definitions/v1UpdateShowSalesType"
+                      }
+                    },
+                    "mainPic": {
+                      "$ref": "#/definitions/v1TicketingMedia"
+                    }
+                  }
+                },
+                "updateMask": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "startTime",
+                "endTime"
+              ]
             }
           }
         ],
@@ -5850,7 +6700,42 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/v1UpdateShowRequest"
+              "type": "object",
+              "properties": {
+                "show": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "startTime": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "endTime": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "salesTypes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "$ref": "#/definitions/v1UpdateShowSalesType"
+                      }
+                    },
+                    "mainPic": {
+                      "$ref": "#/definitions/v1TicketingMedia"
+                    }
+                  }
+                },
+                "updateMask": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "startTime",
+                "endTime"
+              ]
             }
           }
         ],
@@ -6006,49 +6891,49 @@
             "type": "string"
           },
           {
-            "name": "filter.name.$eq",
+            "name": "filter.locationId.$eq",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "filter.name.$neq",
+            "name": "filter.locationId.$neq",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "filter.name.$contains",
+            "name": "filter.locationId.$contains",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "filter.name.$starts_with",
+            "name": "filter.locationId.$starts_with",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "filter.name.$nstarts_with",
+            "name": "filter.locationId.$nstarts_with",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "filter.name.$ends_with",
+            "name": "filter.locationId.$ends_with",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "filter.name.$nends_with",
+            "name": "filter.locationId.$nends_with",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "filter.name.$in",
+            "name": "filter.locationId.$in",
             "in": "query",
             "required": false,
             "type": "array",
@@ -6058,7 +6943,7 @@
             "collectionFormat": "multi"
           },
           {
-            "name": "filter.name.$nin",
+            "name": "filter.locationId.$nin",
             "in": "query",
             "required": false,
             "type": "array",
@@ -6068,31 +6953,307 @@
             "collectionFormat": "multi"
           },
           {
-            "name": "filter.name.$null",
+            "name": "filter.locationId.$null",
             "in": "query",
             "required": false,
             "type": "boolean"
           },
           {
-            "name": "filter.name.$nnull",
+            "name": "filter.locationId.$nnull",
             "in": "query",
             "required": false,
             "type": "boolean"
           },
           {
-            "name": "filter.name.$empty",
+            "name": "filter.locationId.$empty",
             "in": "query",
             "required": false,
             "type": "boolean"
           },
           {
-            "name": "filter.name.$nempty",
+            "name": "filter.locationId.$nempty",
             "in": "query",
             "required": false,
             "type": "boolean"
           },
           {
-            "name": "filter.name.$like",
+            "name": "filter.locationId.$like",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.hallId.$eq",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.hallId.$neq",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.hallId.$contains",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.hallId.$starts_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.hallId.$nstarts_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.hallId.$ends_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.hallId.$nends_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.hallId.$in",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "filter.hallId.$nin",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "filter.hallId.$null",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.hallId.$nnull",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.hallId.$empty",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.hallId.$nempty",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.hallId.$like",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.activityId.$eq",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.activityId.$neq",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.activityId.$contains",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.activityId.$starts_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.activityId.$nstarts_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.activityId.$ends_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.activityId.$nends_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.activityId.$in",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "filter.activityId.$nin",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "filter.activityId.$null",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.activityId.$nnull",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.activityId.$empty",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.activityId.$nempty",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.activityId.$like",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.userId.$eq",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.userId.$neq",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.userId.$contains",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.userId.$starts_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.userId.$nstarts_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.userId.$ends_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.userId.$nends_with",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter.userId.$in",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "filter.userId.$nin",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "filter.userId.$null",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.userId.$nnull",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.userId.$empty",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.userId.$nempty",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter.userId.$like",
             "in": "query",
             "required": false,
             "type": "string"
@@ -6113,14 +7274,16 @@
         "tags": [
           "TicketService"
         ]
-      },
+      }
+    },
+    "/v1/ticketing/ticket/list": {
       "post": {
-        "operationId": "TicketService_CreateTicket",
+        "operationId": "TicketService_ListTicket2",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/v1Ticket"
+              "$ref": "#/definitions/v1ListTicketReply"
             }
           },
           "default": {
@@ -6136,7 +7299,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/v1CreateTicketRequest"
+              "$ref": "#/definitions/v1ListTicketRequest"
             }
           }
         ],
@@ -6173,112 +7336,27 @@
         "tags": [
           "TicketService"
         ]
-      },
-      "delete": {
-        "operationId": "TicketService_DeleteTicket",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1DeleteTicketReply"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/googlerpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "TicketService"
-        ]
-      }
-    },
-    "/v1/ticketing/ticket/{ticket.id}": {
-      "put": {
-        "operationId": "TicketService_UpdateTicket",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1Ticket"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/googlerpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "ticket.id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1UpdateTicketRequest"
-            }
-          }
-        ],
-        "tags": [
-          "TicketService"
-        ]
-      },
-      "patch": {
-        "operationId": "TicketService_UpdateTicket2",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1Ticket"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/googlerpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "ticket.id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1UpdateTicketRequest"
-            }
-          }
-        ],
-        "tags": [
-          "TicketService"
-        ]
       }
     }
   },
   "definitions": {
+    "gatewayv1PaymentMethod": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "logo": {
+          "type": "string"
+        },
+        "desc": {
+          "type": "string"
+        },
+        "notice": {
+          "type": "string"
+        }
+      }
+    },
     "googlerpcStatus": {
       "type": "object",
       "properties": {
@@ -6292,6 +7370,7 @@
         "details": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/protobufAny"
           }
         }
@@ -6338,10 +7417,7 @@
           "type": "string"
         },
         "name": {
-          "type": "string",
-          "required": [
-            "name"
-          ]
+          "type": "string"
         },
         "logo": {
           "$ref": "#/definitions/v1TicketingMedia"
@@ -6349,6 +7425,7 @@
         "medias": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1TicketingMedia"
           }
         },
@@ -6367,6 +7444,7 @@
         "legalDocs": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1TicketingMedia"
           }
         },
@@ -6543,10 +7621,7 @@
           "type": "string"
         },
         "name": {
-          "type": "string",
-          "required": [
-            "name"
-          ]
+          "type": "string"
         },
         "parent": {
           "type": "string"
@@ -6581,6 +7656,7 @@
         "items": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/productapicategoryv1Category"
           }
         }
@@ -6618,10 +7694,7 @@
       "type": "object",
       "properties": {
         "key": {
-          "type": "string",
-          "required": [
-            "key"
-          ]
+          "type": "string"
         },
         "name": {
           "type": "string"
@@ -6630,17 +7703,6 @@
       "required": [
         "key"
       ]
-    },
-    "productapicategoryv1UpdateCategoryRequest": {
-      "type": "object",
-      "properties": {
-        "category": {
-          "$ref": "#/definitions/productapicategoryv1UpdateCategory"
-        },
-        "updateMask": {
-          "type": "string"
-        }
-      }
     },
     "protobufAny": {
       "type": "object",
@@ -6698,16 +7760,10 @@
       "type": "object",
       "properties": {
         "key": {
-          "type": "string",
-          "required": [
-            "key"
-          ]
+          "type": "string"
         },
         "name": {
-          "type": "string",
-          "required": [
-            "name"
-          ]
+          "type": "string"
         },
         "parent": {
           "type": "string"
@@ -6743,6 +7799,7 @@
         "items": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/ticketingapicategoryv1Category"
           }
         }
@@ -6780,10 +7837,7 @@
       "type": "object",
       "properties": {
         "key": {
-          "type": "string",
-          "required": [
-            "key"
-          ]
+          "type": "string"
         },
         "name": {
           "type": "string"
@@ -6796,17 +7850,6 @@
         "key"
       ]
     },
-    "ticketingapicategoryv1UpdateCategoryRequest": {
-      "type": "object",
-      "properties": {
-        "category": {
-          "$ref": "#/definitions/ticketingapicategoryv1UpdateCategory"
-        },
-        "updateMask": {
-          "type": "string"
-        }
-      }
-    },
     "v1Activity": {
       "type": "object",
       "properties": {
@@ -6814,10 +7857,7 @@
           "type": "string"
         },
         "name": {
-          "type": "string",
-          "required": [
-            "name"
-          ]
+          "type": "string"
         },
         "mainPic": {
           "$ref": "#/definitions/v1TicketingMedia"
@@ -6825,6 +7865,7 @@
         "medias": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1TicketingMedia"
           }
         },
@@ -6840,6 +7881,7 @@
         "categories": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/ticketingapicategoryv1Category"
           }
         },
@@ -6919,6 +7961,7 @@
         "salesTypes": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1ActivityShowSalesType"
           }
         },
@@ -7061,10 +8104,7 @@
       "type": "object",
       "properties": {
         "name": {
-          "type": "string",
-          "required": [
-            "name"
-          ]
+          "type": "string"
         },
         "mainPic": {
           "$ref": "#/definitions/v1TicketingMedia"
@@ -7072,6 +8112,7 @@
         "medias": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1TicketingMedia"
           }
         },
@@ -7108,16 +8149,10 @@
       "type": "object",
       "properties": {
         "refType": {
-          "type": "string",
-          "required": [
-            "ref_type"
-          ]
+          "type": "string"
         },
         "refId": {
-          "type": "string",
-          "required": [
-            "ref_id"
-          ]
+          "type": "string"
         },
         "mainPic": {
           "$ref": "#/definitions/v1TicketingMedia"
@@ -7125,17 +8160,15 @@
       },
       "required": [
         "refType",
-        "refId"
+        "refId",
+        "mainPic"
       ]
     },
     "v1CreateBrandRequest": {
       "type": "object",
       "properties": {
         "code": {
-          "type": "string",
-          "required": [
-            "code"
-          ]
+          "type": "string"
         },
         "name": {
           "type": "string"
@@ -7173,7 +8206,10 @@
         "product": {
           "$ref": "#/definitions/v1OrderProduct"
         }
-      }
+      },
+      "required": [
+        "product"
+      ]
     },
     "v1CreateLocationHallReply": {
       "type": "object"
@@ -7182,10 +8218,7 @@
       "type": "object",
       "properties": {
         "name": {
-          "type": "string",
-          "required": [
-            "name"
-          ]
+          "type": "string"
         },
         "logo": {
           "$ref": "#/definitions/v1TicketingMedia"
@@ -7193,6 +8226,7 @@
         "medias": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1TicketingMedia"
           }
         },
@@ -7211,6 +8245,7 @@
         "legalDocs": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1TicketingMedia"
           }
         },
@@ -7226,10 +8261,7 @@
       "type": "object",
       "properties": {
         "name": {
-          "type": "string",
-          "required": [
-            "name"
-          ]
+          "type": "string"
         }
       },
       "required": [
@@ -7240,10 +8272,7 @@
       "type": "object",
       "properties": {
         "title": {
-          "type": "string",
-          "required": [
-            "title"
-          ]
+          "type": "string"
         },
         "shortDesc": {
           "type": "string"
@@ -7257,12 +8286,14 @@
         "medias": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1Media"
           }
         },
         "badges": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1Badge"
           }
         },
@@ -7321,6 +8352,7 @@
         "campaignRules": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1CampaignRule"
           }
         },
@@ -7330,6 +8362,7 @@
         "stock": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1Stock"
           }
         }
@@ -7345,40 +8378,26 @@
           "type": "string"
         },
         "activityId": {
-          "type": "string",
-          "required": [
-            "activity_id"
-          ]
+          "type": "string"
         },
         "startTime": {
           "type": "string",
-          "format": "date-time",
-          "required": [
-            "start_time"
-          ]
+          "format": "date-time"
         },
         "endTime": {
           "type": "string",
-          "format": "date-time",
-          "required": [
-            "end_time"
-          ]
+          "format": "date-time"
         },
         "locationId": {
-          "type": "string",
-          "required": [
-            "location_id"
-          ]
+          "type": "string"
         },
         "hallId": {
-          "type": "string",
-          "required": [
-            "hall_id"
-          ]
+          "type": "string"
         },
         "salesTypes": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1UpdateShowSalesType"
           }
         },
@@ -7394,19 +8413,27 @@
         "hallId"
       ]
     },
-    "v1CreateTicketRequest": {
+    "v1CreateStripePaymentIntentReply": {
       "type": "object",
       "properties": {
-        "name": {
-          "type": "string",
-          "required": [
-            "name"
-          ]
+        "paymentIntent": {
+          "type": "string"
+        },
+        "ephemeralKey": {
+          "type": "string"
+        },
+        "customerId": {
+          "type": "string"
         }
-      },
-      "required": [
-        "name"
-      ]
+      }
+    },
+    "v1CreateStripePaymentIntentRequest": {
+      "type": "object",
+      "properties": {
+        "orderId": {
+          "type": "string"
+        }
+      }
     },
     "v1DeleteActivityReply": {
       "type": "object",
@@ -7442,16 +8469,10 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string",
-          "required": [
-            "id"
-          ]
+          "type": "string"
         },
         "hallId": {
-          "type": "string",
-          "required": [
-            "hall_id"
-          ]
+          "type": "string"
         }
       },
       "required": [
@@ -7500,17 +8521,6 @@
         }
       }
     },
-    "v1DeleteTicketReply": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        }
-      }
-    },
     "v1GetLocationHallDetailReply": {
       "type": "object",
       "properties": {
@@ -7525,10 +8535,26 @@
         "halls": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1LocationHall"
           }
         }
       }
+    },
+    "v1GetPaymentMethodReply": {
+      "type": "object",
+      "properties": {
+        "methods": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/gatewayv1PaymentMethod"
+          }
+        }
+      }
+    },
+    "v1InternalOrderPaySuccessReply": {
+      "type": "object"
     },
     "v1Keyword": {
       "type": "object",
@@ -7558,6 +8584,7 @@
         "items": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1Activity"
           }
         },
@@ -7611,6 +8638,7 @@
         "shows": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1ActivityShow"
           }
         }
@@ -7622,6 +8650,7 @@
         "items": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1Banner"
           }
         }
@@ -7633,6 +8662,7 @@
         "items": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/ticketingapicategoryv1Category"
           }
         }
@@ -7655,6 +8685,7 @@
         "items": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1Banner"
           }
         }
@@ -7702,6 +8733,7 @@
         "items": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1Brand"
           }
         }
@@ -7749,6 +8781,7 @@
         "items": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/locationv1Location"
           }
         }
@@ -7796,6 +8829,7 @@
         "items": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1Order"
           }
         },
@@ -7857,6 +8891,7 @@
         "items": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1Product"
           }
         }
@@ -7904,6 +8939,7 @@
         "items": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1Show"
           }
         },
@@ -7965,6 +9001,7 @@
         "items": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1Ticket"
           }
         },
@@ -8042,6 +9079,7 @@
         "seatGroups": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1SeatGroup"
           }
         }
@@ -8115,6 +9153,7 @@
         "items": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1OrderItem"
           }
         }
@@ -8206,10 +9245,7 @@
       "type": "object",
       "properties": {
         "showSalesTypeId": {
-          "type": "string",
-          "required": [
-            "show_sales_type_id"
-          ]
+          "type": "string"
         },
         "showSeatId": {
           "type": "string",
@@ -8217,10 +9253,7 @@
         },
         "qty": {
           "type": "integer",
-          "format": "int32",
-          "required": [
-            "qty"
-          ]
+          "format": "int32"
         }
       },
       "required": [
@@ -8240,19 +9273,14 @@
       "type": "object",
       "properties": {
         "showId": {
-          "type": "string",
-          "required": [
-            "show_id"
-          ]
+          "type": "string"
         },
         "salesType": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1OrderSalesType"
-          },
-          "required": [
-            "sales_type"
-          ]
+          }
         }
       },
       "required": [
@@ -8389,6 +9417,7 @@
         "salesTypes": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1ShowSalesType"
           }
         },
@@ -8469,18 +9498,45 @@
         }
       }
     },
+    "v1StripeWebhookReply": {
+      "type": "object"
+    },
     "v1Ticket": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
         },
-        "name": {
-          "type": "string"
+        "location": {
+          "$ref": "#/definitions/locationv1Location"
+        },
+        "hall": {
+          "$ref": "#/definitions/v1LocationHall"
+        },
+        "activity": {
+          "$ref": "#/definitions/v1Activity"
+        },
+        "show": {
+          "$ref": "#/definitions/v1Show"
+        },
+        "showSalesType": {
+          "$ref": "#/definitions/v1ShowSalesType"
         },
         "createdAt": {
           "type": "string",
           "format": "date-time"
+        },
+        "status": {
+          "type": "string"
+        },
+        "orderId": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "notice": {
+          "type": "string"
         }
       }
     },
@@ -8490,7 +9546,16 @@
         "id": {
           "$ref": "#/definitions/operationStringFilterOperation"
         },
-        "name": {
+        "locationId": {
+          "$ref": "#/definitions/operationStringFilterOperation"
+        },
+        "hallId": {
+          "$ref": "#/definitions/operationStringFilterOperation"
+        },
+        "activityId": {
+          "$ref": "#/definitions/operationStringFilterOperation"
+        },
+        "userId": {
           "$ref": "#/definitions/operationStringFilterOperation"
         }
       }
@@ -8522,10 +9587,7 @@
           "type": "string"
         },
         "name": {
-          "type": "string",
-          "required": [
-            "name"
-          ]
+          "type": "string"
         },
         "mainPic": {
           "$ref": "#/definitions/v1TicketingMedia"
@@ -8533,6 +9595,7 @@
         "medias": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1TicketingMedia"
           }
         },
@@ -8565,74 +9628,38 @@
         "name"
       ]
     },
-    "v1UpdateActivityRequest": {
-      "type": "object",
-      "properties": {
-        "activity": {
-          "$ref": "#/definitions/v1UpdateActivity"
-        },
-        "updateMask": {
-          "type": "string"
-        }
-      }
-    },
     "v1UpdateBanner": {
       "type": "object",
       "properties": {
         "id": {
-          "type": "string",
-          "required": [
-            "id"
-          ]
+          "type": "string"
         },
         "refType": {
-          "type": "string",
-          "required": [
-            "ref_type"
-          ]
+          "type": "string"
         },
         "refId": {
-          "type": "string",
-          "required": [
-            "ref_id"
-          ]
+          "type": "string"
         },
         "mainPic": {
           "$ref": "#/definitions/v1TicketingMedia"
         },
         "status": {
-          "type": "string",
-          "required": [
-            "status"
-          ]
+          "type": "string"
         }
       },
       "required": [
         "id",
         "refType",
         "refId",
+        "mainPic",
         "status"
       ]
-    },
-    "v1UpdateBannerRequest": {
-      "type": "object",
-      "properties": {
-        "banner": {
-          "$ref": "#/definitions/v1UpdateBanner"
-        },
-        "updateMask": {
-          "type": "string"
-        }
-      }
     },
     "v1UpdateBrand": {
       "type": "object",
       "properties": {
         "id": {
-          "type": "string",
-          "required": [
-            "id"
-          ]
+          "type": "string"
         },
         "code": {
           "type": "string"
@@ -8654,31 +9681,14 @@
         "id"
       ]
     },
-    "v1UpdateBrandRequest": {
-      "type": "object",
-      "properties": {
-        "brand": {
-          "$ref": "#/definitions/v1UpdateBrand"
-        },
-        "updateMask": {
-          "type": "string"
-        }
-      }
-    },
     "v1UpdateLocation": {
       "type": "object",
       "properties": {
         "id": {
-          "type": "string",
-          "required": [
-            "id"
-          ]
+          "type": "string"
         },
         "name": {
-          "type": "string",
-          "required": [
-            "name"
-          ]
+          "type": "string"
         },
         "logo": {
           "$ref": "#/definitions/v1TicketingMedia"
@@ -8686,6 +9696,7 @@
         "medias": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1TicketingMedia"
           }
         },
@@ -8704,6 +9715,7 @@
         "legalDocs": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1TicketingMedia"
           }
         },
@@ -8735,12 +9747,14 @@
         "seatGroups": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1UpdateSeatGroup"
           }
         },
         "seats": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1Seat"
           }
         }
@@ -8749,25 +9763,11 @@
     "v1UpdateLocationHallReply": {
       "type": "object"
     },
-    "v1UpdateLocationRequest": {
-      "type": "object",
-      "properties": {
-        "location": {
-          "$ref": "#/definitions/v1UpdateLocation"
-        },
-        "updateMask": {
-          "type": "string"
-        }
-      }
-    },
     "v1UpdateOrder": {
       "type": "object",
       "properties": {
         "id": {
-          "type": "string",
-          "required": [
-            "id"
-          ]
+          "type": "string"
         },
         "name": {
           "type": "string"
@@ -8776,26 +9776,12 @@
       "required": [
         "id"
       ]
-    },
-    "v1UpdateOrderRequest": {
-      "type": "object",
-      "properties": {
-        "order": {
-          "$ref": "#/definitions/v1UpdateOrder"
-        },
-        "updateMask": {
-          "type": "string"
-        }
-      }
     },
     "v1UpdateProduct": {
       "type": "object",
       "properties": {
         "id": {
-          "type": "string",
-          "required": [
-            "id"
-          ]
+          "type": "string"
         },
         "name": {
           "type": "string"
@@ -8804,17 +9790,6 @@
       "required": [
         "id"
       ]
-    },
-    "v1UpdateProductRequest": {
-      "type": "object",
-      "properties": {
-        "product": {
-          "$ref": "#/definitions/v1UpdateProduct"
-        },
-        "updateMask": {
-          "type": "string"
-        }
-      }
     },
     "v1UpdateSeatGroup": {
       "type": "object",
@@ -8828,6 +9803,7 @@
         "seats": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1Seat"
           }
         }
@@ -8837,31 +9813,23 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string",
-          "required": [
-            "id"
-          ]
+          "type": "string"
         },
         "name": {
           "type": "string"
         },
         "startTime": {
           "type": "string",
-          "format": "date-time",
-          "required": [
-            "start_time"
-          ]
+          "format": "date-time"
         },
         "endTime": {
           "type": "string",
-          "format": "date-time",
-          "required": [
-            "end_time"
-          ]
+          "format": "date-time"
         },
         "salesTypes": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/v1UpdateShowSalesType"
           }
         },
@@ -8874,17 +9842,6 @@
         "startTime",
         "endTime"
       ]
-    },
-    "v1UpdateShowRequest": {
-      "type": "object",
-      "properties": {
-        "show": {
-          "$ref": "#/definitions/v1UpdateShow"
-        },
-        "updateMask": {
-          "type": "string"
-        }
-      }
     },
     "v1UpdateShowSalesType": {
       "type": "object",
@@ -8908,34 +9865,6 @@
         },
         "price": {
           "$ref": "#/definitions/priceInfoPb"
-        }
-      }
-    },
-    "v1UpdateTicket": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "required": [
-            "id"
-          ]
-        },
-        "name": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id"
-      ]
-    },
-    "v1UpdateTicketRequest": {
-      "type": "object",
-      "properties": {
-        "ticket": {
-          "$ref": "#/definitions/v1UpdateTicket"
-        },
-        "updateMask": {
-          "type": "string"
         }
       }
     }

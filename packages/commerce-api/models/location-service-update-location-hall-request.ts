@@ -13,18 +13,21 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { LocationServiceUpdateLocationHallRequestHall } from './location-service-update-location-hall-request-hall';
 
 /**
  * 
  * @export
- * @interface V1CreateTicketRequest
+ * @interface LocationServiceUpdateLocationHallRequest
  */
-export interface V1CreateTicketRequest {
+export interface LocationServiceUpdateLocationHallRequest {
     /**
      * 
-     * @type {string}
-     * @memberof V1CreateTicketRequest
+     * @type {LocationServiceUpdateLocationHallRequestHall}
+     * @memberof LocationServiceUpdateLocationHallRequest
      */
-    'name': string;
+    'hall'?: LocationServiceUpdateLocationHallRequestHall;
 }
 

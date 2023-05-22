@@ -55,6 +55,6 @@ export interface V1CreateInternalOrderItem {
      * @type {V1OrderProduct}
      * @memberof V1CreateInternalOrderItem
      */
-    'product'?: V1OrderProduct;
+    'product': V1OrderProduct;
 }
 
