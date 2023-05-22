@@ -19,7 +19,7 @@ import type {
   V1ActivityFilter,
 } from '@gosaas/commerce-api';
 import { ActivityServiceApi } from '@gosaas/commerce-api';
-
+import copy from 'copy-to-clipboard';
 import { formatPbDuration } from '@gosaas/core';
 
 const TableList: React.FC = () => {

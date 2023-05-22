@@ -12,13 +12,7 @@ import { Button, Drawer, message } from 'antd';
 import React, { useRef, useState } from 'react';
 // import UpdateForm from './components/UpdateForm';
 import { requestTransform } from '@gosaas/core';
-import type {
-  V1CreateOrderRequest,
-  V1UpdateOrder,
-  V1UpdateOrderRequest,
-  V1Order,
-  V1OrderFilter,
-} from '@gosaas/commerce-api';
+import type { V1Order, V1OrderFilter } from '@gosaas/commerce-api';
 import { OrderServiceApi } from '@gosaas/commerce-api';
 
 import { useIntl } from '@umijs/max';

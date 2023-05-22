@@ -1,5 +1,5 @@
 import { PlusOutlined } from '@ant-design/icons';
-import type { ActionType, ProColumns } from '@ant-design/pro-components';
+import type { ActionType, ProColumnType } from '@ant-design/pro-components';
 import {
   PageContainer,
   ProDescriptions,
@@ -90,7 +90,7 @@ const TableList: React.FC = () => {
     }
   };
 
-  const columns: ProColumns<Ticketingapicategoryv1Category>[] = [
+  const columns: ProColumnType<Ticketingapicategoryv1Category>[] = [
     {
       title: <FormattedMessage id="ticketing.category.key" defaultMessage="Key" />,
       dataIndex: 'key',
@@ -137,7 +137,7 @@ const TableList: React.FC = () => {
           key="actionGroup"
           onSelect={async (key) => {
             if (key === 'copyId') {
-              copy(record.key);
+              copy(record.key ?? '');
               message.success(
                 intl.formatMessage({ id: 'common.copied', defaultMessage: 'Copied!' }),
               );
@@ -167,7 +167,7 @@ const TableList: React.FC = () => {
   const getData = requestTransform<
     Ticketingapicategoryv1Category,
     Ticketingapicategoryv1CategoryFilter
-  >(async (req) => {
+  >(async () => {
     const newExpandedKeys: string[] = [];
     const render = (treeDatas: CategoryWithChildren[]) => {
       // 获取到所有可展开的父节点
